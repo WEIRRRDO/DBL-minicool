@@ -1,0 +1,32 @@
+# General
+*.bak
+*.backup
+*.swp
+*.log
+*~
+
+# PW-V01 (PADS Logic project)
+DLB-minicool-PW-V01/*.TMP
+DLB-minicool-PW-V01/OBJ/
+
+# SW-V01 (Holychip MCU firmware) build artifacts
+DLB-minicool-SW-V01/DLB-minicool-SW-V01/*.pre
+DLB-minicool-SW-V01/DLB-minicool-SW-V01/*.p1
+DLB-minicool-SW-V01/DLB-minicool-SW-V01/*.d
+DLB-minicool-SW-V01/DLB-minicool-SW-V01/*.obj
+DLB-minicool-SW-V01/DLB-minicool-SW-V01/*.lst
+DLB-minicool-SW-V01/DLB-minicool-SW-V01/*.map
+DLB-minicool-SW-V01/DLB-minicool-SW-V01/*.rlf
+DLB-minicool-SW-V01/DLB-minicool-SW-V01/*.sym
+DLB-minicool-SW-V01/DLB-minicool-SW-V01/*.sdb
+DLB-minicool-SW-V01/DLB-minicool-SW-V01/*.cmf
+DLB-minicool-SW-V01/DLB-minicool-SW-V01/*.hc
+DLB-minicool-SW-V01/DLB-minicool-SW-V01/*.hcp
+DLB-minicool-SW-V01/DLB-minicool-SW-V01/*.hxl
+DLB-minicool-SW-V01/DLB-minicool-SW-V01/*.hex
+DLB-minicool-SW-V01/DLB-minicool-SW-V01/log.txt
+DLB-minicool-SW-V01/DLB-minicool-SW-V01/x.err
+
+# Stale git leftover dirs (sandbox-protected)
+.git_old/
+.git_tmp/
