@@ -1,7 +1,5 @@
 # DLB-minicool 项目
 
-Dyson 风扇工作测试文档 / Dyson Fan Functional Test Specification
-
 ## 功能描述
 
 ### 关机状态
