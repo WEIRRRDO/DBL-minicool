@@ -1,0 +1,1627 @@
+
+# 1 "main.c"
+
+# 26 "D:\оʥ\HCIDE_V3.0.17.8S\picc_compiler\include\htc.h"
+extern const char __xc8_OPTIM_SPEED;
+
+extern double __fpnormalize(double);
+
+
+# 13 "D:\оʥ\HCIDE_V3.0.17.8S\picc_compiler\include\xc8debug.h"
+#pragma intrinsic(__builtin_software_breakpoint)
+extern void __builtin_software_breakpoint(void);
+
+# 12 "D:\оʥ\HCIDE_V3.0.17.8S\picc_compiler\include\hc18m121b1.h"
+volatile unsigned char INDF @ 0x000;
+volatile unsigned char T0 @ 0x001;
+volatile unsigned char PCL @ 0x002;
+volatile unsigned char STATUS @ 0x003;
+volatile unsigned char FSR @ 0x004;
+
+
+
+volatile unsigned char PORTA @ 0x005;
+volatile unsigned char PORTB @ 0x006;
+volatile unsigned char IOCA @ 0x007;
+volatile unsigned char LVDCR @ 0x008;
+volatile unsigned char IOCB @ 0x009;
+
+volatile unsigned char PCLATH @ 0x00A;
+volatile unsigned char PDCON @ 0x00B;
+volatile unsigned char PHCON @ 0x00D;
+volatile unsigned char INTECON @ 0x00E;
+volatile unsigned char PIR @ 0x00F;
+
+volatile unsigned char PMCON @ 0x040;
+volatile unsigned char OPTION @ 0x041;
+volatile unsigned char PDCON1 @ 0x042;
+volatile unsigned char PHCON1 @ 0x043;
+volatile unsigned char TRISA @ 0x045;
+volatile unsigned char TRISB @ 0x046;
+
+volatile unsigned char PMADRL @ 0x047;
+volatile unsigned char PMADRH @ 0x048;
+volatile unsigned char PMDATL @ 0x049;
+volatile unsigned char PMDATH @ 0x04A;
+
+volatile unsigned char T1CR_AUXR @ 0x04B;
+volatile unsigned char T1CON @ 0x04C;
+volatile unsigned char T1 @ 0x04D;
+volatile unsigned char T1LOAD @ 0x04E;
+volatile unsigned char PWM0P @ 0x04F;
+
+volatile unsigned char T2CON @ 0x050;
+volatile unsigned char TMR2H @ 0x051;
+volatile unsigned char T2 @ 0x052;
+volatile unsigned char T2LOAD @ 0x053;
+volatile unsigned char PWM1P @ 0x054;
+volatile unsigned char PWMSET @ 0x055;
+volatile unsigned char ANSELL @ 0x056;
+volatile unsigned char ANSELH @ 0x057;
+volatile unsigned char ADRESL @ 0x058;
+
+volatile unsigned char ADRESH @ 0x059;
+volatile unsigned char ADCON0 @ 0x05A;
+volatile unsigned char ADCON1 @ 0x05B;
+
+
+
+volatile bit C @ ((unsigned)&STATUS*8)+0;
+volatile bit DC @ ((unsigned)&STATUS*8)+1;
+volatile bit Z @ ((unsigned)&STATUS*8)+2;
+volatile bit PD @ ((unsigned)&STATUS*8)+3;
+volatile bit TO @ ((unsigned)&STATUS*8)+4;
+volatile bit RP0 @ ((unsigned)&STATUS*8)+5;
+volatile bit RST @ ((unsigned)&STATUS*8)+7;
+
+
+volatile bit PORTA0 @ ((unsigned)&PORTA*8)+0;
+volatile bit PORTA1 @ ((unsigned)&PORTA*8)+1;
+volatile bit PORTA2 @ ((unsigned)&PORTA*8)+2;
+volatile bit PORTA3 @ ((unsigned)&PORTA*8)+3;
+volatile bit PORTA4 @ ((unsigned)&PORTA*8)+4;
+volatile bit PORTA5 @ ((unsigned)&PORTA*8)+5;
+volatile bit PORTA6 @ ((unsigned)&PORTA*8)+6;
+volatile bit PORTA7 @ ((unsigned)&PORTA*8)+7;
+
+volatile bit PORTB0 @ ((unsigned)&PORTB*8)+0;
+volatile bit PORTB1 @ ((unsigned)&PORTB*8)+1;
+volatile bit PORTB2 @ ((unsigned)&PORTB*8)+2;
+volatile bit PORTB3 @ ((unsigned)&PORTB*8)+3;
+volatile bit PORTB4 @ ((unsigned)&PORTB*8)+4;
+volatile bit PORTB5 @ ((unsigned)&PORTB*8)+5;
+volatile bit PORTB6 @ ((unsigned)&PORTB*8)+6;
+volatile bit PORTB7 @ ((unsigned)&PORTB*8)+7;
+
+
+volatile bit IOCA0 @ ((unsigned)&IOCA*8)+0;
+volatile bit IOCA1 @ ((unsigned)&IOCA*8)+1;
+volatile bit IOCA2 @ ((unsigned)&IOCA*8)+2;
+volatile bit IOCA3 @ ((unsigned)&IOCA*8)+3;
+volatile bit IOCA4 @ ((unsigned)&IOCA*8)+4;
+volatile bit IOCA5 @ ((unsigned)&IOCA*8)+5;
+volatile bit IOCA6 @ ((unsigned)&IOCA*8)+6;
+volatile bit IOCA7 @ ((unsigned)&IOCA*8)+7;
+
+
+volatile bit LVDEN @ ((unsigned)&LVDCR*8)+0;
+volatile bit LVDSEL0 @ ((unsigned)&LVDCR*8)+1;
+volatile bit LVDSEL1 @ ((unsigned)&LVDCR*8)+2;
+volatile bit LVDSEL2 @ ((unsigned)&LVDCR*8)+3;
+volatile bit LVDSEL3 @ ((unsigned)&LVDCR*8)+4;
+volatile bit LVDF @ ((unsigned)&LVDCR*8)+7;
+
+
+volatile bit IOCB0 @ ((unsigned)&IOCB*8)+0;
+volatile bit IOCB1 @ ((unsigned)&IOCB*8)+1;
+volatile bit IOCB2 @ ((unsigned)&IOCB*8)+2;
+volatile bit IOCB3 @ ((unsigned)&IOCB*8)+3;
+volatile bit IOCB4 @ ((unsigned)&IOCB*8)+4;
+volatile bit IOCB5 @ ((unsigned)&IOCB*8)+5;
+volatile bit IOCB6 @ ((unsigned)&IOCB*8)+6;
+volatile bit IOCB7 @ ((unsigned)&IOCB*8)+7;
+
+
+volatile bit PDB0 @ ((unsigned)&PDCON*8)+0;
+volatile bit PDB1 @ ((unsigned)&PDCON*8)+1;
+volatile bit PDB2 @ ((unsigned)&PDCON*8)+2;
+volatile bit PDB3 @ ((unsigned)&PDCON*8)+3;
+volatile bit PDB4 @ ((unsigned)&PDCON*8)+4;
+volatile bit PDB5 @ ((unsigned)&PDCON*8)+5;
+volatile bit PDB6 @ ((unsigned)&PDCON*8)+6;
+volatile bit PDB7 @ ((unsigned)&PDCON*8)+7;
+
+
+volatile bit PHB0 @ ((unsigned)&PHCON*8)+0;
+volatile bit PHB1 @ ((unsigned)&PHCON*8)+1;
+volatile bit PHB2 @ ((unsigned)&PHCON*8)+2;
+volatile bit PHB3 @ ((unsigned)&PHCON*8)+3;
+volatile bit PHB4 @ ((unsigned)&PHCON*8)+4;
+volatile bit PHB5 @ ((unsigned)&PHCON*8)+5;
+volatile bit PHB6 @ ((unsigned)&PHCON*8)+6;
+volatile bit PHB7 @ ((unsigned)&PHCON*8)+7;
+
+
+volatile bit T0IE @ ((unsigned)&INTECON*8)+0;
+volatile bit PBIE @ ((unsigned)&INTECON*8)+1;
+volatile bit INT0E @ ((unsigned)&INTECON*8)+2;
+volatile bit T0IF @ ((unsigned)&INTECON*8)+3;
+volatile bit PBIF @ ((unsigned)&INTECON*8)+4;
+volatile bit INT0F @ ((unsigned)&INTECON*8)+5;
+volatile bit GIE @ ((unsigned)&INTECON*8)+7;
+
+
+volatile bit PAIF @ ((unsigned)&PIR*8)+0;
+volatile bit PAIE @ ((unsigned)&PIR*8)+1;
+volatile bit ADIF @ ((unsigned)&PIR*8)+2;
+volatile bit ADIE @ ((unsigned)&PIR*8)+3;
+volatile bit INT1F @ ((unsigned)&PIR*8)+4;
+volatile bit INT1E @ ((unsigned)&PIR*8)+5;
+volatile bit INT1EDG @ ((unsigned)&PIR*8)+6;
+
+
+
+
+volatile bit RD_FLAG @ ((unsigned)&PMCON*8)+0;
+volatile bit MTP_CLEN @ ((unsigned)&PMCON*8)+1;
+
+
+volatile bit PS0 @ ((unsigned)&OPTION*8)+0;
+volatile bit PS1 @ ((unsigned)&OPTION*8)+1;
+volatile bit PS2 @ ((unsigned)&OPTION*8)+2;
+volatile bit PSA @ ((unsigned)&OPTION*8)+3;
+volatile bit T0SE @ ((unsigned)&OPTION*8)+4;
+volatile bit T0CS @ ((unsigned)&OPTION*8)+5;
+volatile bit INTEDG @ ((unsigned)&OPTION*8)+6;
+volatile bit WDTEN @ ((unsigned)&OPTION*8)+7;
+
+
+volatile bit PDA0 @ ((unsigned)&PDCON1*8)+0;
+volatile bit PDA1 @ ((unsigned)&PDCON1*8)+1;
+volatile bit PDA2 @ ((unsigned)&PDCON1*8)+2;
+volatile bit PDA3 @ ((unsigned)&PDCON1*8)+3;
+volatile bit PDA4 @ ((unsigned)&PDCON1*8)+4;
+volatile bit PDA5 @ ((unsigned)&PDCON1*8)+5;
+volatile bit PDA6 @ ((unsigned)&PDCON1*8)+6;
+volatile bit PDA7 @ ((unsigned)&PDCON1*8)+7;
+
+
+volatile bit PHA0 @ ((unsigned)&PHCON1*8)+0;
+volatile bit PHA1 @ ((unsigned)&PHCON1*8)+1;
+volatile bit PHA2 @ ((unsigned)&PHCON1*8)+2;
+volatile bit PHA3 @ ((unsigned)&PHCON1*8)+3;
+volatile bit PHA4 @ ((unsigned)&PHCON1*8)+4;
+volatile bit PHA5 @ ((unsigned)&PHCON1*8)+5;
+volatile bit PHA6 @ ((unsigned)&PHCON1*8)+6;
+volatile bit PHA7 @ ((unsigned)&PHCON1*8)+7;
+
+
+volatile bit TRISA0 @ ((unsigned)&TRISA*8)+0;
+volatile bit TRISA1 @ ((unsigned)&TRISA*8)+1;
+volatile bit TRISA2 @ ((unsigned)&TRISA*8)+2;
+volatile bit TRISA3 @ ((unsigned)&TRISA*8)+3;
+volatile bit TRISA4 @ ((unsigned)&TRISA*8)+4;
+volatile bit TRISA5 @ ((unsigned)&TRISA*8)+5;
+volatile bit TRISA6 @ ((unsigned)&TRISA*8)+6;
+volatile bit TRISA7 @ ((unsigned)&TRISA*8)+7;
+
+
+volatile bit TRISB0 @ ((unsigned)&TRISB*8)+0;
+volatile bit TRISB1 @ ((unsigned)&TRISB*8)+1;
+volatile bit TRISB2 @ ((unsigned)&TRISB*8)+2;
+volatile bit TRISB3 @ ((unsigned)&TRISB*8)+3;
+volatile bit TRISB4 @ ((unsigned)&TRISB*8)+4;
+volatile bit TRISB5 @ ((unsigned)&TRISB*8)+5;
+volatile bit TRISB6 @ ((unsigned)&TRISB*8)+6;
+volatile bit TRISB7 @ ((unsigned)&TRISB*8)+7;
+
+
+volatile bit T1IF @ ((unsigned)&T1CR_AUXR*8)+0;
+volatile bit T1IE @ ((unsigned)&T1CR_AUXR*8)+1;
+volatile bit BOREN @ ((unsigned)&T1CR_AUXR*8)+2;
+volatile bit BOR @ ((unsigned)&T1CR_AUXR*8)+3;
+volatile bit POR @ ((unsigned)&T1CR_AUXR*8)+4;
+volatile bit T2IF @ ((unsigned)&T1CR_AUXR*8)+5;
+volatile bit T2IE @ ((unsigned)&T1CR_AUXR*8)+6;
+volatile bit T0CK @ ((unsigned)&T1CR_AUXR*8)+7;
+
+
+volatile bit T1PR0 @ ((unsigned)&T1CON*8)+0;
+volatile bit T1PR1 @ ((unsigned)&T1CON*8)+1;
+volatile bit T1PR2 @ ((unsigned)&T1CON*8)+2;
+volatile bit T1CK0 @ ((unsigned)&T1CON*8)+3;
+volatile bit T1CK1 @ ((unsigned)&T1CON*8)+4;
+volatile bit T0OSCEN @ ((unsigned)&T1CON*8)+5;
+volatile bit PWM0E @ ((unsigned)&T1CON*8)+6;
+volatile bit T1EN @ ((unsigned)&T1CON*8)+7;
+
+
+
+volatile bit T2PR0 @ ((unsigned)&T2CON*8)+0;
+volatile bit T2PR1 @ ((unsigned)&T2CON*8)+1;
+volatile bit T2PR2 @ ((unsigned)&T2CON*8)+2;
+volatile bit T2CK0 @ ((unsigned)&T2CON*8)+3;
+volatile bit T2CK1 @ ((unsigned)&T2CON*8)+4;
+volatile bit SCS @ ((unsigned)&T2CON*8)+5;
+volatile bit PWM1E @ ((unsigned)&T2CON*8)+6;
+volatile bit T2EN @ ((unsigned)&T2CON*8)+7;
+
+
+volatile bit PWM1_8 @ ((unsigned)&TMR2H*8)+0;
+volatile bit PWM1_9 @ ((unsigned)&TMR2H*8)+1;
+volatile bit T2LOAD_8 @ ((unsigned)&TMR2H*8)+2;
+volatile bit T2LOAD_9 @ ((unsigned)&TMR2H*8)+3;
+volatile bit TIMER2_8 @ ((unsigned)&TMR2H*8)+4;
+volatile bit TIMER2_9 @ ((unsigned)&TMR2H*8)+5;
+volatile bit PWMS0 @ ((unsigned)&TMR2H*8)+6;
+volatile bit PWMS1 @ ((unsigned)&TMR2H*8)+7;
+
+
+volatile bit PWMM @ ((unsigned)&PWMSET*8)+0;
+
+volatile bit ANSEL0 @ ((unsigned)&ANSELL*8)+0;
+volatile bit ANSEL1 @ ((unsigned)&ANSELL*8)+1;
+volatile bit ANSEL2 @ ((unsigned)&ANSELL*8)+2;
+volatile bit ANSEL3 @ ((unsigned)&ANSELL*8)+3;
+volatile bit ANSEL4 @ ((unsigned)&ANSELL*8)+4;
+volatile bit ANSEL5 @ ((unsigned)&ANSELL*8)+5;
+volatile bit ANSEL6 @ ((unsigned)&ANSELL*8)+6;
+volatile bit ANSEL7 @ ((unsigned)&ANSELL*8)+7;
+
+
+volatile bit ANSEL8 @ ((unsigned)&ANSELH*8)+0;
+volatile bit ANSEL9 @ ((unsigned)&ANSELH*8)+1;
+volatile bit ANSEL10 @ ((unsigned)&ANSELH*8)+2;
+volatile bit ANSEL11 @ ((unsigned)&ANSELH*8)+3;
+volatile bit ANSEL14 @ ((unsigned)&ANSELH*8)+6;
+volatile bit ANSEL15 @ ((unsigned)&ANSELH*8)+7;
+
+
+volatile bit ADEN @ ((unsigned)&ADCON0*8)+0;
+volatile bit ADON @ ((unsigned)&ADCON0*8)+1;
+volatile bit CHS0 @ ((unsigned)&ADCON0*8)+2;
+volatile bit CHS1 @ ((unsigned)&ADCON0*8)+3;
+volatile bit CHS2 @ ((unsigned)&ADCON0*8)+4;
+volatile bit CHS3 @ ((unsigned)&ADCON0*8)+5;
+
+volatile bit ADREF @ ((unsigned)&ADCON1*8)+0;
+volatile bit VHS0 @ ((unsigned)&ADCON1*8)+1;
+volatile bit VHS1 @ ((unsigned)&ADCON1*8)+2;
+volatile bit VHS2 @ ((unsigned)&ADCON1*8)+3;
+volatile bit ADCS0 @ ((unsigned)&ADCON1*8)+4;
+volatile bit ADCS1 @ ((unsigned)&ADCON1*8)+5;
+volatile bit ADCS2 @ ((unsigned)&ADCON1*8)+6;
+
+
+# 27 "D:\оʥ\HCIDE_V3.0.17.8S\picc_compiler\include\sc.h"
+#pragma intrinsic(__nop)
+extern void __nop(void);
+
+# 76
+extern unsigned int flash_read(unsigned short addr);
+
+
+# 149
+#pragma intrinsic(_delay)
+extern __nonreentrant void _delay(unsigned long);
+
+# 184
+extern unsigned char __resetbits;
+extern __bit __powerdown;
+extern __bit __timeout;
+
+# 9 "inital.h"
+void inital(void);
+void sysinitial(void);
+void ramInitial(void);
+
+# 10 "PWM.h"
+void T1_PWM_inital(void);
+
+# 18 "main.c"
+unsigned char kcomm_state;
+unsigned int kcomm_timer;
+unsigned char kcomm_tx_buf;
+unsigned char kcomm_tx_shift;
+unsigned char kcomm_rx_buf;
+unsigned char kcomm_bit_idx;
+unsigned char kcomm_turn;
+unsigned char kcomm_cycle;
+unsigned char kcomm_rx_done;
+unsigned char kcomm_rx_shift;
+unsigned char kcomm_tx_done;
+unsigned int kcomm_low_cnt;
+unsigned char kcomm_wakeup;
+unsigned int kcomm_wakeup_cnt;
+
+# 89
+unsigned char adcon1_val = 0;
+
+union{
+
+struct{
+unsigned b0: 1;
+unsigned b1: 1;
+unsigned b2: 1;
+unsigned b3: 1;
+unsigned b4: 1;
+unsigned b5: 1;
+unsigned b6: 1;
+unsigned b7: 1;
+}OnrBit;
+
+
+unsigned char AllBits;
+}DIY_Flag1,DIY_Flag2;
+
+# 127
+unsigned int g_k1_hold_ms;
+unsigned int g_k2_hold_ms;
+unsigned char g_gear;
+unsigned char g_target_pwm;
+unsigned int g_current_pwm;
+unsigned char g_battery_empty;
+unsigned char g_warn_flash;
+unsigned char g_warn_led;
+unsigned char g_k1_prev;
+unsigned char g_k2_prev;
+
+unsigned char g_warn_cnt;
+unsigned int g_offshow_ms;
+unsigned char level;
+
+# 148
+unsigned int g_vdd_adc;
+unsigned char g_overclock_pwm;
+unsigned int g_pwr_delay_ms;
+unsigned int g_slave_alive_ms;
+const unsigned char c_fan_duty[7] = {0, 25, 50, 68, 87, 105, 124};
+void ADC_Init(void);
+void Comm_Process(void);
+void show_gear_led(unsigned char gear);
+
+# 163
+void Delay_Init(unsigned int Delay_Duty)
+{
+unsigned int i;
+
+for(i = 0; i <= Delay_Duty; i ++)
+{
+
+# 169
+#asm
+  clrwdt
+#endasm ;
+  }
+}
+
+void delay_us(unsigned int us)
+{
+unsigned int i;
+
+while(us--)
+{
+
+for(i = 0; i < 4; i++)
+{
+
+# 184
+#asm
+            nop
+#endasm 
+            }
+}
+}
+
+
+void Sleep_Func(void)
+{
+static unsigned int Sleep_Time = 0;
+
+
+if(DIY_Flag2.OnrBit.b0 || DIY_Flag1.OnrBit.b5 || DIY_Flag2.OnrBit.b2 || DIY_Flag2.OnrBit.b3 || DIY_Flag1.OnrBit.b7 || kcomm_wakeup)
+{
+Sleep_Time = 0;
+}
+Sleep_Time++;
+if(Sleep_Time >= 1000)
+{
+Sleep_Time = 0;
+(PORTB1 = 1); (PORTB0 = 1); (PORTA7 = 1); (PORTA6 = 1); (PORTA4 = 1);
+
+GIE = 0;
+T0IE = 0;
+T1IE = 0;
+T2IE = 0;
+INTECON = 0;
+PIR = 0;
+
+ADCON0 = 0;
+ADCON1 = 0;
+ANSELL = 0;
+ANSELH = 0;
+
+
+TRISA = 0x0E;
+TRISB = 0x48;
+
+PHCON1 = 0xF1;
+PHCON = 0xFF;
+PDCON1 = 0xFF;
+PDCON = 0xBF;
+
+delay_us(1000);
+
+BOREN = 0;
+WDTEN = 0;
+
+
+IOCA = 0x0E;
+IOCB = 0x40;
+
+unsigned char temp;
+temp = PORTA;
+temp = PORTB;
+(void)temp;
+
+PAIF = 0;
+PBIF = 0;
+PAIE = 1;
+PBIE = 1;
+
+
+# 248
+#asm
+        clrwdt
+        nop
+        sleep
+        nop
+#endasm  	 
+        WDTEN = 1;
+ADEN = 1;
+
+if(((PORTB & 0x40) ? 1 : 0))
+{
+
+DIY_Flag2.OnrBit.b2 = 1;
+g_slave_alive_ms = 3000;
+
+
+while(((PORTB & 0x40) ? 1 : 0))
+{
+
+# 266
+#asm
+                clrwdt
+#endasm 
+                }
+
+
+kcomm_cycle = 195;
+kcomm_wakeup = 0;
+}
+
+temp = PORTA;
+temp = PORTB;
+(void)temp;
+PAIF = 0;
+PBIF = 0;
+PAIE = 0;
+PBIE = 0;
+
+if(!PORTA2 || !PORTA1)
+{
+DIY_Flag1.OnrBit.b5 = 1;
+}
+inital();
+sysinitial();
+ADC_Init();
+BOREN = 1;
+Sleep_Time = 0;
+DIY_Flag1.OnrBit.b0 = 0;
+}
+}
+
+# 301
+void ADC_Init(void)
+{
+ANSELL=0X20;
+ANSELH=0X00;
+ADCON0=0X15;
+adcon1_val = 0X08;
+ADCON1 = adcon1_val;
+ADEN = 1;
+delay_us(100);
+}
+
+# 315
+unsigned int adc_read_vdd(void)
+{
+unsigned int result;
+
+ADCON0 = 0x15;
+ADCON1 = adcon1_val;
+ADEN = 1;
+
+ADIF = 0;
+ADON = 1;
+
+while(ADON)
+{
+
+# 328
+#asm
+        clrwdt
+#endasm 
+        }
+
+result = ((unsigned int)ADRESH << 4) | (ADRESL >> 4);
+return result;
+}
+void LedMode_Func(void)
+{
+
+static unsigned char chg_pwm_cnt = 0;
+static unsigned char breath_duty = 0;
+static unsigned char breath_dir = 1;
+static unsigned char breath_cnt = 0;
+
+
+if(g_battery_empty)
+{
+(PORTB1 = 1); (PORTB0 = 1); (PORTA7 = 1); (PORTA6 = 1); (PORTA4 = 1);
+return;
+}
+
+
+if((DIY_Flag2.OnrBit.b2 || DIY_Flag2.OnrBit.b3) && !DIY_Flag2.OnrBit.b0)
+{
+
+breath_cnt++;
+if(breath_cnt >= 50)
+{
+breath_cnt = 0;
+if(breath_dir)
+{
+if(breath_duty < 20) breath_duty++;
+else breath_dir = 0;
+}
+else
+{
+if(breath_duty > 0) breath_duty--;
+else breath_dir = 1;
+}
+}
+
+
+chg_pwm_cnt++;
+if(chg_pwm_cnt >= 20)
+chg_pwm_cnt = 0;
+
+if(DIY_Flag2.OnrBit.b3)
+{
+
+(PORTB1 = 0); (PORTB0 = 0); (PORTA7 = 0); (PORTA6 = 0); (PORTA4 = 0);
+breath_duty = 20;
+breath_dir = 0;
+breath_cnt = 0;
+}
+else
+{
+
+
+if(level >= 2) { (PORTA4 = 0); }
+else if(level == 1) { if(chg_pwm_cnt < breath_duty) (PORTA4 = 0); else (PORTA4 = 1); }
+else { (PORTA4 = 1); }
+
+
+if(level >= 3) { (PORTA6 = 0); }
+else if(level == 2) { if(chg_pwm_cnt < breath_duty) (PORTA6 = 0); else (PORTA6 = 1); }
+else { (PORTA6 = 1); }
+
+
+if(level >= 4) { (PORTA7 = 0); }
+else if(level == 3) { if(chg_pwm_cnt < breath_duty) (PORTA7 = 0); else (PORTA7 = 1); }
+else { (PORTA7 = 1); }
+
+
+if(level >= 5) { (PORTB0 = 0); }
+else if(level == 4) { if(chg_pwm_cnt < breath_duty) (PORTB0 = 0); else (PORTB0 = 1); }
+else { (PORTB0 = 1); }
+
+
+if(level >= 6) { (PORTB1 = 0); }
+else if(level == 5) { if(chg_pwm_cnt < breath_duty) (PORTB1 = 0); else (PORTB1 = 1); }
+else { (PORTB1 = 1); }
+}
+return;
+}
+
+
+if(DIY_Flag2.OnrBit.b0 && g_gear == 6)
+{
+breath_cnt++;
+if(breath_cnt >= 20)
+{
+breath_cnt = 0;
+if(breath_dir)
+{
+if(breath_duty < 50) breath_duty++;
+else breath_dir = 0;
+}
+else
+{
+if(breath_duty > 0) breath_duty--;
+else breath_dir = 1;
+}
+g_overclock_pwm = breath_duty;
+}
+return;
+}
+
+
+if(!DIY_Flag2.OnrBit.b2 && !DIY_Flag2.OnrBit.b3 && g_gear != 6)
+{
+breath_duty = 0;
+breath_dir = 1;
+breath_cnt = 0;
+chg_pwm_cnt = 0;
+}
+
+
+if(!DIY_Flag2.OnrBit.b0 && DIY_Flag1.OnrBit.b7)
+{
+show_gear_led(level);
+return;
+}
+
+
+if(DIY_Flag2.OnrBit.b0 && g_warn_flash > 0)
+return;
+
+
+if(DIY_Flag2.OnrBit.b0)
+{
+show_gear_led(g_gear);
+return;
+}
+
+(PORTB1 = 1); (PORTB0 = 1); (PORTA7 = 1); (PORTA6 = 1); (PORTA4 = 1);
+}
+
+void Battery_Update(void)
+{
+static unsigned char loop_num = 0;
+static unsigned int loop_sum = 0;
+static unsigned char low_debounce = 0;
+static unsigned char low_clr_debounce = 0;
+static unsigned char startup_cnt = 50;
+
+loop_sum += adc_read_vdd();
+loop_num++;
+if(loop_num < 8) return;
+
+g_vdd_adc = (unsigned int)(loop_sum >> 3);
+loop_num = 0;
+loop_sum = 0;
+
+if(DIY_Flag2.OnrBit.b3) level = 6;
+
+else if(DIY_Flag2.OnrBit.b2)
+{
+if(g_vdd_adc < 2363u) level = 0;
+else if(g_vdd_adc < 2678u) level = 1;
+else if(g_vdd_adc < 2914u) level = 2;
+else if(g_vdd_adc < 3072u) level = 3;
+else if(g_vdd_adc < 3229u) level = 4;
+else level = 5;
+}
+else
+{
+if(g_vdd_adc < 2363u) level = 0;
+else if(g_vdd_adc < 2678u) level = 1;
+else if(g_vdd_adc < 2914u) level = 2;
+else if(g_vdd_adc < 3072u) level = 3;
+else if(g_vdd_adc < 3229u) level = 4;
+else if(g_vdd_adc < 3268u) level = 5;
+else level = 6;
+}
+
+
+if(startup_cnt > 0) { startup_cnt--; DIY_Flag2.OnrBit.b1 = 0; return; }
+
+if(!DIY_Flag2.OnrBit.b1)
+{
+
+if(g_vdd_adc < 2521u) { if(++low_debounce >= 5) DIY_Flag2.OnrBit.b1 = 1; }
+else { low_debounce = 0; }
+}
+else
+{
+
+if(g_vdd_adc >= 2544u) { if(++low_clr_debounce >= 3) { DIY_Flag2.OnrBit.b1 = 0; low_debounce = 0; } }
+else { low_clr_debounce = 0; }
+}
+}
+
+# 527
+void show_gear_led(unsigned char gear)
+{
+(PORTB1 = 1); (PORTB0 = 1); (PORTA7 = 1); (PORTA6 = 1); (PORTA4 = 1);
+if(gear >= 1) (PORTA4 = 0);
+if(gear >= 2) (PORTA6 = 0);
+if(gear >= 3) (PORTA7 = 0);
+if(gear >= 4) (PORTB0 = 0);
+if(gear >= 5) (PORTB1 = 0);
+}
+
+# 542
+void set_fan(unsigned char gear)
+{
+if(gear == 0)
+{
+g_target_pwm = 0;
+return;
+}
+if(gear > 6)
+gear = 6;
+
+g_target_pwm = c_fan_duty[gear];
+}
+
+# 561
+void Gear5_Duty_Update(void)
+{
+static unsigned int ms_sub = 0;
+static unsigned int sec_cnt = 0;
+static unsigned char cur_percent = 85;
+
+if(g_gear != 5 || DIY_Flag2.OnrBit.b2 || DIY_Flag2.OnrBit.b3)
+{
+ms_sub = 0;
+sec_cnt = 0;
+cur_percent = 85;
+return;
+}
+ms_sub++;
+if(ms_sub < 1000)
+return;
+ms_sub = 0;
+sec_cnt++;
+if(cur_percent == 85)
+{
+if(sec_cnt >= 600)
+{
+sec_cnt = 0;
+cur_percent -= 3;
+}
+}
+else if(cur_percent > 76)
+{
+if(sec_cnt >= 60)
+{
+sec_cnt = 0;
+if(cur_percent >= 79)
+cur_percent -= 3;
+else
+cur_percent = 76;
+}
+}
+
+g_target_pwm = (unsigned char)(((unsigned int)cur_percent * 124u + 50u) / 100u);
+}
+
+# 605
+void fan_ramp_proc(void)
+{
+unsigned int target_fixed = (unsigned int)g_target_pwm << 4;
+
+if(g_target_pwm == 0)
+{
+g_current_pwm = 0;
+PWM0P = 0;
+PORTB2 = 0;
+return;
+}
+
+if(g_current_pwm < target_fixed)
+{
+g_current_pwm += 1;
+if(g_current_pwm > target_fixed) g_current_pwm = target_fixed;
+}
+else if(g_current_pwm > target_fixed)
+{
+g_current_pwm -= 1;
+if(g_current_pwm < target_fixed) g_current_pwm = target_fixed;
+}
+
+PWM0P = (unsigned char)(g_current_pwm >> 4);
+if(PWM0P == 0) PORTB2 = 0;
+}
+
+# 637
+void trigger_warn(unsigned char led_num)
+{
+if(g_warn_flash == 0)
+{
+g_warn_flash = 4;
+g_warn_led = led_num;
+DIY_Flag1.OnrBit.b6 = 0;
+g_warn_cnt = 0;
+}
+}
+
+# 650
+void warn_flash_proc(void)
+{
+if(g_warn_flash == 0)
+return;
+g_warn_cnt++;
+if(g_warn_cnt < 150)
+return;
+g_warn_cnt = 0;
+
+
+DIY_Flag1.OnrBit.b6 = !DIY_Flag1.OnrBit.b6;
+g_warn_flash--;
+
+if(g_warn_led == 1)
+{
+
+(PORTA4 = 0); (PORTA6 = 0); (PORTA7 = 0); (PORTB0 = 0);
+if(DIY_Flag1.OnrBit.b6) (PORTB1 = 1); else (PORTB1 = 0);
+}
+else if(g_warn_led == 5)
+{
+
+(PORTB1 = 1); (PORTB0 = 1); (PORTA7 = 1); (PORTA6 = 1); (PORTA4 = 1);
+if(!DIY_Flag1.OnrBit.b6)
+(PORTA4 = 0);
+}
+
+
+if(g_warn_flash == 0)
+{
+show_gear_led(g_gear);
+}
+}
+
+
+void Key_Func(void)
+{
+static unsigned char key1_time1 = 0;
+static unsigned char key1_time2 = 0;
+static unsigned char key2_time1 = 0;
+static unsigned char key2_time2 = 0;
+
+if(!PORTA2)
+{
+key1_time2 = 0;
+key1_time1 ++;
+if(key1_time1 >= 10)
+{
+key1_time1 = 0;
+DIY_Flag1.OnrBit.b1 = 1;
+}
+}
+else
+{
+
+key1_time1 = 0;
+key1_time2 ++;
+if(key1_time2 >= 10)
+{
+key1_time2 = 0;
+DIY_Flag1.OnrBit.b1 = 0;
+}
+}
+
+if(!PORTA1)
+{
+key2_time2 = 0;
+key2_time1 ++;
+if(key2_time1 >= 10)
+{
+key2_time1 = 0;
+DIY_Flag1.OnrBit.b2 = 1;
+}
+}
+else
+{
+
+key2_time1 = 0;
+key2_time2 ++;
+if(key2_time2 >= 10)
+{
+key2_time2 = 0;
+DIY_Flag1.OnrBit.b2 = 0;
+}
+}
+}
+
+void SW_Func()
+{
+static unsigned char sw_time1 = 0;
+static unsigned char sw_time2 = 0;
+
+if(PORTA3)
+{
+
+sw_time2 = 0;
+sw_time1 ++;
+if(sw_time1 >= 20)
+{
+sw_time1 = 0;
+if(DIY_Flag2.OnrBit.b0)
+{
+DIY_Flag1.OnrBit.b7 = 0;
+g_offshow_ms = 0;
+}
+DIY_Flag2.OnrBit.b0 = 0;
+DIY_Flag1.OnrBit.b5 = 0;
+
+g_pwr_delay_ms = 0;
+
+}
+}
+else
+{
+
+sw_time1 = 0;
+sw_time2 ++;
+if(sw_time2 >= 20)
+{
+sw_time2 = 0;
+DIY_Flag2.OnrBit.b0 = 1;
+DIY_Flag1.OnrBit.b5 = 0;
+}
+}
+}
+
+# 792
+void Key_Application()
+{
+unsigned char edge;
+unsigned char cur;
+static unsigned char off_key_prev = 0;
+warn_flash_proc();
+
+
+if(g_vdd_adc <= 2363u)
+{
+g_battery_empty = 1;
+}
+else if(g_vdd_adc >= 2387u)
+{
+g_battery_empty = 0;
+}
+
+if(g_battery_empty)
+{
+DIY_Flag2.OnrBit.b0 = 0;
+set_fan(0);
+(PORTB1 = 1); (PORTB0 = 1); (PORTA7 = 1); (PORTA6 = 1); (PORTA4 = 1);
+DIY_Flag1.OnrBit.b7 = 0;
+g_offshow_ms = 0;
+g_warn_flash = 0;
+g_gear = 0;
+g_k1_prev = DIY_Flag1.OnrBit.b1;
+g_k2_prev = DIY_Flag1.OnrBit.b2;
+g_k1_hold_ms = 0;
+g_k2_hold_ms = 0;
+return;
+}
+
+# 828
+if(DIY_Flag2.OnrBit.b0 == 0)
+{
+edge = 0;
+if(DIY_Flag1.OnrBit.b5)
+{
+edge = 1;
+DIY_Flag1.OnrBit.b5 = 0;
+}
+cur = DIY_Flag1.OnrBit.b1 || DIY_Flag1.OnrBit.b2;
+if(cur && !off_key_prev)
+edge = 1;
+off_key_prev = cur;
+if(edge)
+{
+Battery_Update();
+DIY_Flag1.OnrBit.b7 = 1;
+g_offshow_ms = 0;
+show_gear_led(level);
+}
+if(DIY_Flag1.OnrBit.b7)
+{
+g_offshow_ms++;
+if(g_offshow_ms >= 5000)
+{
+DIY_Flag1.OnrBit.b7 = 0;
+g_offshow_ms = 0;
+(PORTB1 = 1); (PORTB0 = 1); (PORTA7 = 1); (PORTA6 = 1); (PORTA4 = 1);
+}
+}
+
+if(g_gear != 0)
+{
+g_gear = 0;
+set_fan(0);
+(PORTB1 = 1); (PORTB0 = 1); (PORTA7 = 1); (PORTA6 = 1); (PORTA4 = 1);
+g_warn_flash = 0;
+}
+g_k1_prev = DIY_Flag1.OnrBit.b1;
+g_k2_prev = DIY_Flag1.OnrBit.b2;
+g_k1_hold_ms = 0;
+g_k2_hold_ms = 0;
+return;
+}
+
+# 875
+if(g_pwr_delay_ms < 1000)
+{
+g_pwr_delay_ms++;
+set_fan(0);
+(PORTB1 = 1); (PORTB0 = 1); (PORTA7 = 1); (PORTA6 = 1); (PORTA4 = 1);
+g_k1_prev = DIY_Flag1.OnrBit.b1;
+g_k2_prev = DIY_Flag1.OnrBit.b2;
+g_k1_hold_ms = 0;
+g_k2_hold_ms = 0;
+return;
+}
+
+
+if(DIY_Flag2.OnrBit.b2 || DIY_Flag2.OnrBit.b3)
+{
+g_gear = 1;
+set_fan(1);
+DIY_Flag1.OnrBit.b7 = 0;
+
+if(g_warn_flash == 0)
+show_gear_led(1);
+
+
+if(DIY_Flag1.OnrBit.b2 && !g_k2_prev) trigger_warn(5);
+if(DIY_Flag1.OnrBit.b1 && !g_k1_prev) trigger_warn(5);
+
+g_k1_prev = DIY_Flag1.OnrBit.b1;
+g_k2_prev = DIY_Flag1.OnrBit.b2;
+g_k1_hold_ms = 0;
+g_k2_hold_ms = 0;
+return;
+}
+else
+{
+
+if(g_gear == 0)
+{
+g_gear = 1;
+set_fan(1);
+show_gear_led(1);
+}
+
+if(g_warn_flash > 0)
+{
+g_k1_prev = DIY_Flag1.OnrBit.b1;
+g_k2_prev = DIY_Flag1.OnrBit.b2;
+g_k1_hold_ms = 0;
+g_k2_hold_ms = 0;
+return;
+}
+
+
+if(DIY_Flag1.OnrBit.b2)
+{
+g_k2_hold_ms++;
+
+if(g_k2_hold_ms == 500)
+{
+g_k2_hold_ms = 400;
+if(g_gear < 5)
+{
+g_gear++;
+set_fan(g_gear);
+show_gear_led(g_gear);
+}
+else if(g_gear == 5)
+{
+g_gear = 6;
+set_fan(6);
+}
+}
+}
+else
+{
+
+if(g_k2_prev)
+{
+if(g_gear == 6)
+{
+
+g_gear = 5;
+set_fan(5);
+show_gear_led(5);
+}
+else if(g_k2_hold_ms < 500)
+{
+
+if(g_gear < 5)
+{
+g_gear++;
+set_fan(g_gear);
+show_gear_led(g_gear);
+}
+else if(g_gear == 5)
+{
+trigger_warn(1);
+}
+}
+}
+g_k2_hold_ms = 0;
+}
+g_k2_prev = DIY_Flag1.OnrBit.b2;
+
+
+if(DIY_Flag1.OnrBit.b1)
+{
+g_k1_hold_ms++;
+
+if(g_k1_hold_ms == 500)
+{
+g_k1_hold_ms = 400;
+if(g_gear > 1)
+{
+g_gear--;
+set_fan(g_gear);
+show_gear_led(g_gear);
+}
+}
+}
+else
+{
+
+if(g_k1_prev)
+{
+if(g_k1_hold_ms < 500)
+{
+
+if(g_gear > 1)
+{
+g_gear--;
+set_fan(g_gear);
+show_gear_led(g_gear);
+}
+else if(g_gear == 1)
+{
+trigger_warn(5);
+}
+}
+}
+g_k1_hold_ms = 0;
+}
+g_k1_prev = DIY_Flag1.OnrBit.b1;
+}
+}
+
+# 1025
+static unsigned char comm_pack_tx(void)
+{
+unsigned char lo = 0;
+unsigned char hi;
+unsigned char result;
+
+if(DIY_Flag2.OnrBit.b0)
+{
+lo |= 0x04;
+
+
+if(DIY_Flag2.OnrBit.b1)
+lo |= 0x02;
+}
+
+
+lo = lo & 0x0F;
+hi = lo ^ 0x0F;
+result = (hi << 4) | lo;
+return result;
+}
+
+# 1051
+static unsigned char comm_parse_rx(unsigned char raw)
+{
+unsigned char lo;
+unsigned char hi;
+unsigned char check;
+
+lo = raw & 0x0F;
+hi = (raw >> 4) & 0x0F;
+check = lo + hi;
+
+if(check != 0x0F)
+return 0;
+
+
+if(lo & 0x04)
+DIY_Flag2.OnrBit.b2 = 1;
+else
+DIY_Flag2.OnrBit.b2 = 0;
+
+if(lo & 0x01)
+DIY_Flag2.OnrBit.b3 = 1;
+else
+DIY_Flag2.OnrBit.b3 = 0;
+
+return 1;
+}
+
+# 1080
+void Kcomm_ISR(void)
+{
+static unsigned char bit_wait_fall;
+kcomm_timer++;
+
+
+if(kcomm_wakeup)
+{
+kcomm_wakeup_cnt++;
+if(kcomm_wakeup_cnt == 1)
+{
+do { TRISB6 = 0; } while(0);
+PORTB6 = 1;
+}
+if(kcomm_wakeup_cnt >= 1000u)
+{
+PORTB6 = 0;
+do { TRISB6 = 1; } while(0);
+kcomm_wakeup = 0;
+kcomm_wakeup_cnt = 0;
+kcomm_low_cnt = 0;
+kcomm_state = 0;
+kcomm_cycle = 195;
+}
+return;
+}
+
+
+if(kcomm_state == 0)
+{
+kcomm_cycle++;
+
+if(!((PORTB & 0x40) ? 1 : 0))
+{
+if(kcomm_low_cnt < 1000)
+kcomm_low_cnt++;
+
+
+if(kcomm_low_cnt >= 1000)
+{
+kcomm_low_cnt = 1000;
+
+if(kcomm_wakeup == 0)
+{
+if(DIY_Flag2.OnrBit.b0 || DIY_Flag2.OnrBit.b2 || DIY_Flag2.OnrBit.b3 || DIY_Flag2.OnrBit.b4)
+{
+kcomm_wakeup = 1;
+kcomm_wakeup_cnt = 0;
+}
+}
+}
+}
+else
+{
+kcomm_low_cnt = 0;
+}
+
+
+if(kcomm_cycle >= 200)
+{
+kcomm_cycle = 0;
+
+if(kcomm_turn == 0)
+{
+
+kcomm_tx_buf = comm_pack_tx();
+kcomm_bit_idx = 0;
+kcomm_timer = 0;
+kcomm_tx_done = 0;
+do { TRISB6 = 0; } while(0);
+PORTB6 = 1;
+kcomm_state = 1;
+}
+else
+{
+
+kcomm_rx_buf = 0;
+kcomm_bit_idx = 0;
+kcomm_timer = 0;
+kcomm_rx_done = 0;
+do { TRISB6 = 0; } while(0);
+PORTB6 = 1;
+kcomm_state = 5;
+}
+}
+return;
+}
+
+if(kcomm_state == 1)
+{
+if(kcomm_timer >= 20)
+{
+kcomm_timer = 0;
+PORTB6 = 0;
+kcomm_state = 2;
+}
+else
+{
+PORTB6 = 1;
+}
+}
+else if(kcomm_state == 2)
+{
+if(kcomm_timer >= 10)
+{
+kcomm_timer = 0;
+kcomm_tx_shift = kcomm_tx_buf;
+kcomm_bit_idx = 0;
+PORTB6 = 1;
+kcomm_state = 3;
+}
+}
+else if(kcomm_state == 3)
+{
+
+
+if(kcomm_timer >= 14)
+{
+
+kcomm_timer = 0;
+kcomm_bit_idx ++;
+if(kcomm_bit_idx >= 8)
+{
+PORTB6 = 0;
+kcomm_state = 4;
+kcomm_cycle= 0;
+}
+else
+{
+kcomm_tx_shift <<= 1;
+}
+}
+else
+{
+if(kcomm_tx_shift & 0x80)
+{
+if(kcomm_timer <= 10)
+{
+PORTB6 = 1;
+}
+else
+{
+PORTB6 = 0;
+}
+}
+else
+{
+if(kcomm_timer <= 4)
+{
+PORTB6 = 1;
+}
+else
+{
+PORTB6 = 0;
+}
+}
+}
+}
+else if(kcomm_state == 4)
+{
+if(kcomm_timer >= 20)
+{
+PORTB6 = 0;
+do { TRISB6 = 1; } while(0);
+kcomm_tx_done = 1;
+kcomm_turn = 1;
+kcomm_timer = 0;
+kcomm_state = 0;
+}
+}
+else if(kcomm_state == 5)
+{
+if(kcomm_timer >= 40)
+{
+kcomm_timer = 0;
+PORTB6 = 0;
+kcomm_state = 6;
+}
+else
+{
+PORTB6 = 1;
+}
+}
+else if(kcomm_state == 6)
+{
+if(kcomm_timer >= 10)
+{
+kcomm_timer = 0;
+bit_wait_fall = 0;
+kcomm_bit_idx = 0;
+kcomm_rx_shift = 0;
+do { TRISB6 = 1; } while(0);
+PORTB6 = 0;
+kcomm_state = 9;
+}
+}
+else if(kcomm_state == 9)
+{
+if(kcomm_timer >= ((kcomm_bit_idx == 0 && bit_wait_fall == 0) ? 400u : 60u))
+{
+kcomm_rx_done = 0xFF;
+kcomm_turn = 0;
+kcomm_timer = 0;
+kcomm_state = 0;
+}
+else if(bit_wait_fall == 0)
+{
+
+if(((PORTB & 0x40) ? 1 : 0))
+{
+kcomm_timer = 0;
+bit_wait_fall = 1;
+}
+}
+else
+{
+
+if(!((PORTB & 0x40) ? 1 : 0))
+{
+kcomm_rx_shift <<= 1;
+if(kcomm_timer >= 7)
+kcomm_rx_shift |= 1;
+
+bit_wait_fall = 0;
+kcomm_bit_idx++;
+
+if(kcomm_bit_idx >= 8)
+{
+kcomm_rx_buf = kcomm_rx_shift;
+kcomm_rx_done = 1;
+kcomm_turn = 0;
+kcomm_timer = 0;
+kcomm_state = 10;
+}
+}
+}
+}
+else if(kcomm_state == 10)
+{
+if(kcomm_timer >= 10)
+{
+kcomm_timer = 0;
+kcomm_state = 0;
+}
+}
+else
+{
+kcomm_state = 0;
+}
+}
+
+void Comm_Process(void)
+{
+unsigned char rx_ok;
+
+if(kcomm_tx_done == 1)
+{
+kcomm_tx_done = 0;
+}
+
+if(kcomm_rx_done == 1)
+{
+kcomm_rx_done = 0;
+rx_ok = comm_parse_rx(kcomm_rx_buf);
+if(rx_ok)
+g_slave_alive_ms = 200;
+if(DIY_Flag2.OnrBit.b2 || DIY_Flag2.OnrBit.b3 || DIY_Flag2.OnrBit.b4)
+g_slave_alive_ms = 200;
+}
+else if(kcomm_rx_done == 0xFF)
+{
+kcomm_rx_done = 0;
+}
+}
+
+# 1424
+void main(void)
+{
+ramInitial();
+inital();
+Delay_Init(200);
+ADC_Init();
+T1_PWM_inital();
+sysinitial();
+WDTEN = 1;
+
+(PORTB1 = 1); (PORTB0 = 1); (PORTA7 = 1); (PORTA6 = 1); (PORTA4 = 1);
+g_vdd_adc = 3308u;
+set_fan(0);
+
+while(1)
+{
+T0IE = 1;
+GIE = 1;
+if(DIY_Flag1.OnrBit.b0)
+{
+DIY_Flag1.OnrBit.b0 = 0;
+
+# 1445
+#asm
+            clrwdt
+#endasm ;
+
+
+            Comm_Process();
+if(g_slave_alive_ms > 0)
+{
+g_slave_alive_ms--;
+}
+else
+{
+if(DIY_Flag2.OnrBit.b2 || DIY_Flag2.OnrBit.b3)
+{
+g_gear = 0;
+g_warn_flash = 0;
+}
+
+DIY_Flag2.OnrBit.b2 = 0;
+DIY_Flag2.OnrBit.b3 = 0;
+}
+
+Battery_Update();
+Key_Func();
+SW_Func();
+Key_Application();
+Gear5_Duty_Update();
+fan_ramp_proc();
+LedMode_Func();
+Sleep_Func();
+}
+}
+}
+
+
+void interrupt Timer1_Isr(void)
+{
+static unsigned char timer_ms = 0;
+static unsigned char pwm_cnt = 0;
+
+if(T0IF == 1)
+{
+T0IF = 0;
+T0 = 168;
+timer_ms++;
+
+if(timer_ms >= 20)
+{
+timer_ms = 0;
+DIY_Flag1.OnrBit.b0 = 1;
+}
+}
+
+if(DIY_Flag2.OnrBit.b0 && g_gear == 6 && !DIY_Flag2.OnrBit.b2 && !DIY_Flag2.OnrBit.b3)
+{
+pwm_cnt++;
+if(pwm_cnt >= 50) pwm_cnt = 0;
+
+if(pwm_cnt < g_overclock_pwm)
+{
+(PORTB1 = 0); (PORTB0 = 0); (PORTA7 = 0); (PORTA6 = 0); (PORTA4 = 0);
+}
+else
+{
+(PORTB1 = 1); (PORTB0 = 1); (PORTA7 = 1); (PORTA6 = 1); (PORTA4 = 1);
+}
+}
+
+Kcomm_ISR();
+T1IF = 0;
+}

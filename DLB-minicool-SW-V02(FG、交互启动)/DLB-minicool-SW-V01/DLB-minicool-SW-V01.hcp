@@ -1,0 +1,62 @@
+[HC-IDE]
+Version=3.0.11.S
+[File Count]
+Count=6
+[MCU]
+PowerSupply=2
+[Settings]
+Device=HC18M121B1
+ConfigBitValue0=11384
+ConfigBitValue1=4093
+ConfigBitValue2=0
+Output=.
+PostBuild=0
+PostBuildCommand=
+Library=
+ConfigBitValue3=240
+ConfigBitValue4=16375
+[Files]
+OpenFileCounts=6
+File0=main.c|3 84 1523 91 583
+File1=inital.c|1 52 1491 52 544
+File2=PWM.c|1 104 592 104 585
+File3=inital.h|1 0 1439 0 492
+File4=PWM.h|1 130 618 130 611
+File5=HOLYCHIP_DEFINE.H|1 26 1465 26 518
+File6=inital.h|1 75 1077 75 387
+File7=KEY.c|1 182 708 182 650
+File8=subroutine.h|1 208 734 208 676
+File9=PWM.h|1 52 578 52 520
+File10=pwm.c|1 26 552 26 494
+File11=KEY.h|1 156 682 156 624
+[Break]
+Count=0
+BP0=3 1744 1
+BP1=0 150 1
+BP2=0 164 1
+[Watch0]
+Count=5
+Watch0=ad_duty 0
+Watch1=ad_delay 0
+Watch2=Bat_adsum 0
+Watch3=Send_Data06 0
+Watch4=Send_Data07 0
+Watch5=Send_Data06 0
+Watch6=Send_Data07 0
+[Watch1]
+Count=0
+[Watch2]
+Count=0
+[Project Files]
+File0=HOLYCHIP_DEFINE.H
+File1=inital.c
+File2=inital.h
+File3=main.c
+File4=PWM.c
+File5=PWM.h
+File6=KEY.h
+File7=main.c
+File8=pwm.c
+File9=PWM.h
+File10=subroutine.c
+File11=subroutine.h

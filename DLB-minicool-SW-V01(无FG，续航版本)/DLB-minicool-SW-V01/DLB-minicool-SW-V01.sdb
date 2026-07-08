@@ -1,0 +1,151 @@
+[p PRO_MODE GLOBOPT AUTOSTATIC PIC14 PICREGULAR PICMID SPACEOPT ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16p122b1 ]
+[d frameptr 6 ]
+"27 C:\Users\16478\Desktop\PICC±‡“Î∆˜\HC16P122A1_B1_C”Ô—‘¿˝≥Ã\HC16P122A1_B1_test_AD_program\adc.c
+[v _delay_us delay_us `(v  1 e 1 0 ]
+"37
+[v _adc adc `(v  1 e 1 0 ]
+"62 C:\Users\16478\Desktop\PICC±‡“Î∆˜\HCIDE_V3.0.13.S\picc_compiler\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Users\16478\Desktop\PICC±‡“Î∆˜\HCIDE_V3.0.13.S\picc_compiler\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"18 C:\Users\16478\Desktop\PICC±‡“Î∆˜\HC16P122A1_B1_C”Ô—‘¿˝≥Ã\HC16P122A1_B1_test_AD_program\inital.c
+[v _inital inital `(v  1 e 1 0 ]
+"52
+[v _sysinitial sysinitial `(v  1 e 1 0 ]
+"64
+[v _ramInitial ramInitial `(v  1 e 1 0 ]
+"55 C:\Users\16478\Desktop\PICC±‡“Î∆˜\HC16P122A1_B1_C”Ô—‘¿˝≥Ã\HC16P122A1_B1_test_AD_program\main.c
+[v _main main `(v  1 e 1 0 ]
+"75
+[v _Timer0_Isr Timer0_Isr `II(v  1 e 1 0 ]
+"13 C:\Users\16478\Desktop\PICC±‡“Î∆˜\HC16P122A1_B1_C”Ô—‘¿˝≥Ã\HC16P122A1_B1_test_AD_program\adc.c
+[v _adcon1 adcon1 `ui  1 e 2 0 ]
+"18 C:\Users\16478\Desktop\PICC±‡“Î∆˜\HCIDE_V3.0.13.S\picc_compiler\include\hc16p122b1.h
+[v _INDF0 INDF0 `VEuc  1 e 1 @0 ]
+"22
+[v _FSR0L FSR0L `VEuc  1 e 1 @4 ]
+"23
+[v _FSR0H FSR0H `VEuc  1 e 1 @5 ]
+"27
+[v _INTCON INTCON `VEuc  1 e 1 @9 ]
+"29
+[v _TRISA TRISA `VEuc  1 e 1 @16 ]
+"30
+[v _TRISB TRISB `VEuc  1 e 1 @17 ]
+"31
+[v _PORTA PORTA `VEuc  1 e 1 @28 ]
+"32
+[v _PORTB PORTB `VEuc  1 e 1 @29 ]
+"33
+[v _WPUA WPUA `VEuc  1 e 1 @40 ]
+"34
+[v _WPUB WPUB `VEuc  1 e 1 @41 ]
+"35
+[v _WPDA WPDA `VEuc  1 e 1 @52 ]
+"36
+[v _WPDB WPDB `VEuc  1 e 1 @53 ]
+"37
+[v _IOCA IOCA `VEuc  1 e 1 @64 ]
+"38
+[v _IOCB IOCB `VEuc  1 e 1 @65 ]
+"39
+[v _PORCTR PORCTR `VEuc  1 e 1 @76 ]
+"56
+[v _PIE3 PIE3 `VEuc  1 e 1 @114 ]
+"57
+[v _OPTION OPTION `VEuc  1 e 1 @120 ]
+"58
+[v _PCON PCON `VEuc  1 e 1 @121 ]
+"59
+[v _OSCCON OSCCON `VEuc  1 e 1 @122 ]
+"66
+[v _ANSELL ANSELL `VEuc  1 e 1 @140 ]
+"67
+[v _ANSELH ANSELH `VEuc  1 e 1 @141 ]
+"68
+[v _ADRESL ADRESL `VEuc  1 e 1 @146 ]
+"69
+[v _ADRESH ADRESH `VEuc  1 e 1 @147 ]
+"70
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @148 ]
+"71
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @149 ]
+"72
+[v _ADCLK ADCLK `VEuc  1 e 1 @150 ]
+"124
+[v _TRISA0 TRISA0 `VEb  1 e 0 @128 ]
+"125
+[v _TRISA1 TRISA1 `VEb  1 e 0 @129 ]
+"126
+[v _TRISA2 TRISA2 `VEb  1 e 0 @130 ]
+"127
+[v _TRISA3 TRISA3 `VEb  1 e 0 @131 ]
+"128
+[v _TRISA4 TRISA4 `VEb  1 e 0 @132 ]
+"129
+[v _TRISA6 TRISA6 `VEb  1 e 0 @134 ]
+"130
+[v _TRISA7 TRISA7 `VEb  1 e 0 @135 ]
+"132
+[v _TRISB0 TRISB0 `VEb  1 e 0 @136 ]
+"133
+[v _TRISB1 TRISB1 `VEb  1 e 0 @137 ]
+"134
+[v _TRISB2 TRISB2 `VEb  1 e 0 @138 ]
+"135
+[v _TRISB3 TRISB3 `VEb  1 e 0 @139 ]
+"137
+[v _TRISB6 TRISB6 `VEb  1 e 0 @142 ]
+"138
+[v _TRISB7 TRISB7 `VEb  1 e 0 @143 ]
+"229
+[v _ADIF ADIF `VEb  1 e 0 @678 ]
+"264
+[v _ADIE ADIE `VEb  1 e 0 @902 ]
+"322
+[v _ADEN ADEN `VEb  1 e 0 @1184 ]
+"323
+[v _ADON ADON `VEb  1 e 0 @1185 ]
+"55 C:\Users\16478\Desktop\PICC±‡“Î∆˜\HC16P122A1_B1_C”Ô—‘¿˝≥Ã\HC16P122A1_B1_test_AD_program\main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"72
+} 0
+"52 C:\Users\16478\Desktop\PICC±‡“Î∆˜\HC16P122A1_B1_C”Ô—‘¿˝≥Ã\HC16P122A1_B1_test_AD_program\inital.c
+[v _sysinitial sysinitial `(v  1 e 1 0 ]
+{
+"62
+} 0
+"64
+[v _ramInitial ramInitial `(v  1 e 1 0 ]
+{
+"90
+} 0
+"18
+[v _inital inital `(v  1 e 1 0 ]
+{
+"47
+} 0
+"37 C:\Users\16478\Desktop\PICC±‡“Î∆˜\HC16P122A1_B1_C”Ô—‘¿˝≥Ã\HC16P122A1_B1_test_AD_program\adc.c
+[v _adc adc `(v  1 e 1 0 ]
+{
+[v adc@channel channel `uc  1 a 1 wreg ]
+[v adc@channel channel `uc  1 a 1 wreg ]
+[v adc@voltage voltage `uc  1 p 1 4 ]
+[v adc@channel channel `uc  1 a 1 5 ]
+"165
+} 0
+"27
+[v _delay_us delay_us `(v  1 e 1 0 ]
+{
+[v delay_us@t t `ui  1 p 2 2 ]
+"31
+} 0
+"75 C:\Users\16478\Desktop\PICC±‡“Î∆˜\HC16P122A1_B1_C”Ô—‘¿˝≥Ã\HC16P122A1_B1_test_AD_program\main.c
+[v _Timer0_Isr Timer0_Isr `II(v  1 e 1 0 ]
+{
+"87
+} 0

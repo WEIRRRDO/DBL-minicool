@@ -1,0 +1,1508 @@
+﻿///////////////////////////////////////////////////////////////////////
+////////////////////////////	  ͷ�ļ�	////////////////////////////
+////////////////////////////////////////////////////////////////////////
+
+#include "htc.h"
+#include "inital.h"
+#include "PWM.h"
+#define u16 unsigned int
+#define u8  unsigned char
+//***************************************************************
+#define KEDA_TRIS      TRISB6
+#define KEDA_PORT      PORTB6
+
+
+#define KEDA_SET_OUTPUT()   do { KEDA_TRIS = 0; } while(0)
+#define KEDA_SET_INPUT()    do { KEDA_TRIS = 1; } while(0)
+
+#define KEDA_READ()   		((PORTB & 0x40) ? 1 : 0)
+/*----------------------------------------------------------------------
+ *  ��������֡�ṹ��8bit��  D3D2D1D0-C3C2C1C0
+ *  ��4λ D[3:0] = ~C[3:0]����Ϊ����У�飩
+ *
+ *  C3 = 0��δ�ã�
+ *  C2 = 1 �п��� / 0 û�п���
+ *  C1 = 1 ������ / 0 ��������
+ *  C0 = 1 ��Ҫ������幩�� / 0 ����Ҫ
+ *----------------------------------------------------------------------*/
+typedef union {
+    unsigned char byte;
+    struct {
+        unsigned C0 : 1;   /* bit0 */
+        unsigned C1 : 1;   /* bit1 */
+        unsigned C2 : 1;   /* bit2 */
+        unsigned C3 : 1;   /* bit3���̶�0 */
+        unsigned D0 : 1;   /* bit4 = ~C0 */
+        unsigned D1 : 1;   /* bit5 = ~C1 */
+        unsigned D2 : 1;   /* bit6 = ~C2 */
+        unsigned D3 : 1;   /* bit7 = ~C3 */
+    } bits;
+} CommTxFrame;
+/*----------------------------------------------------------------------
+ *  �ӻ��ش�֡�ṹ��8bit��  B3B2B1B0-A3A2A1A0
+ *  ��4λ B[3:0] = ~A[3:0]����Ϊ����У�飩
+ *
+ *  A3A2 = 11 ���ڳ���� / 00 δ���
+ *  A1A0 = 01 �ѳ���    / 00 δ����
+ *----------------------------------------------------------------------*/
+typedef union {
+    unsigned char byte;
+    struct {
+        unsigned A0 : 1;
+        unsigned A1 : 1;
+        unsigned A2 : 1;
+        unsigned A3 : 1;
+        unsigned B0 : 1;
+        unsigned B1 : 1;
+        unsigned B2 : 1;
+        unsigned B3 : 1;
+    } bits;
+} CommRxFrame;
+typedef enum {
+    COMM_IDLE = 0,      /* ���У��������룩*/
+    COMM_TX_CMD,        /* ���ڷ�������֡ */
+    COMM_RX_CMD,        /* ���ڽ��մӻ�֡ */
+    COMM_SLEEP_DETECT,  /* ���Է��Ƿ����͹��� */
+    COMM_WAKEUP,        /* ���ѶԷ������50ms�ߵ�ƽ��*/
+} CommState;
+/* ͨ���ڲ�����*/
+bit B_OnOff_Flag;
+bit B_LowPower_Flag;  // �����͵��־
+// ÿ����ʱ��λ = 50us���ж����ڣ�
+unsigned char kcomm_state;
+unsigned int  kcomm_timer;    // ��ǰ״̬��ʱ
+unsigned char kcomm_tx_buf;    // �������ֽ�
+unsigned char kcomm_tx_shift;  // ����ʱ���ѷ���bit����0~8��������λ�ƺ��жϷ������
+unsigned char kcomm_rx_buf;    // ���ջ���
+unsigned char kcomm_bit_idx;    // bit���� 0~7
+unsigned char kcomm_turn;    // 0=������ 1=������
+u8  kcomm_cycle;    // 10ms���ڼ�ʱ�����ж��������
+unsigned char kcomm_rx_done;    // 1=�յ�һ֡������ѭ������
+unsigned char kcomm_rx_shift;	// ����ʱ���ѽ���bit����0~8��������λ�ƺ��жϽ������
+unsigned char kcomm_tx_done;    // 1=������һ֡
+unsigned int  kcomm_low_cnt;    // �ߵ͵�ƽ�������������߼�⣩
+unsigned char kcomm_wakeup;    // 1=����ִ�л���
+unsigned int  kcomm_wakeup_cnt; // ���Ѽ�ʱ
+
+/* ���Ⱪ¶��ͨ�Ž�� */
+bit g_slave_charging;   /* 1=�ӻ����ڳ��       */
+bit g_slave_chargefull; /* 1=�ӻ��ѳ���         */
+bit g_slave_motor_pwr_ok; /* 1=�ӻ�����ѹ��� (A3) */
+/**
+LED��ض���
+LED5---��һ�ŵ�
+LED4---�ڶ��ŵ�
+.		   
+.
+.
+LED1---����ŵ�
+**/
+#define Led1_io			PORTB1
+#define Led2_io			PORTB0
+#define Led3_io			PORTA7
+#define Led4_io			PORTA6
+#define Led5_io			PORTA4
+
+#define	LED1_OFF()		(Led1_io = 1)		
+#define	LED1_ON()		(Led1_io = 0)
+#define	LED2_OFF()		(Led2_io = 1)		
+#define	LED2_ON()		(Led2_io = 0)
+#define	LED3_OFF()		(Led3_io = 1)		
+#define	LED3_ON()		(Led3_io = 0)
+#define	LED4_OFF()		(Led4_io = 1)		
+#define	LED4_ON()		(Led4_io = 0)
+#define	LED5_OFF()		(Led5_io = 1)		
+#define	LED5_ON()		(Led5_io = 0)
+
+/**������ض���**/
+#define K1_io			PORTA2
+#define K2_io			PORTA1
+#define Switch_io		PORTA3
+
+/**ADC��ض���**/
+/* ---------------------------------------------------------------
+ *  ADC ��ֵ��12bit���ο�1.3V����AN5=VDD/4��
+ 	5200 = 4*1.3*1000
+ *  VDD_mV = adc * 5200 / 4096  �����ƣ����<0.1%��
+ *
+ *  3000mV �� adc = 3000*4096/5200 = 2363
+  	3200mV �� adc = 3200*4096/5200 = 2521
+ *  3400mV �� adc = 3400*4096/5200 = 2678
+ *  3700mV �� adc = 3700*4096/5200 = 2914
+ *  3900mV �� adc = 3900*4096/5200 = 3072
+ *  4100mV �� adc = 4100*4096/5200 = 3229
+ *  4200mV �� adc = 4200*4096/5200 = 3308
+ * --------------------------------------------------------------- */
+#define ADC_3000MV   2363u
+#define ADC_3030MV   2387u
+#define ADC_3100MV   2442u
+#define ADC_3200MV   2521u
+#define ADC_3230MV   2544u
+#define ADC_3300MV   2599u
+#define ADC_3400MV   2678u
+#define ADC_3700MV   2914u
+#define ADC_3900MV   3072u
+#define ADC_4100MV   3229u
+#define ADC_4200MV   3308u
+unsigned char  adcon1_val    = 0;   /* ADC���üĴ�������*/
+//���������
+union{
+	//���õ�ַ����ַ�����ɵ�ַ��ĳ�Ա����
+	//�ṹ��---1bit��ֵʱ���ýṹ��ĳ�Ա
+	struct{
+		unsigned b0: 1;
+		unsigned b1: 1;
+		unsigned b2: 1;
+		unsigned b3: 1;
+		unsigned b4: 1;
+		unsigned b5: 1;
+		unsigned b6: 1;
+		unsigned b7: 1;
+	}OnrBit;
+	
+	//8bit����---���帳ֵʱ���øñ���
+	unsigned char AllBits;
+}DIY_Flag1;
+
+//ͨ�� λ����
+#define B_ScanMain		DIY_Flag1.OnrBit.b0
+#define K1_Flag			DIY_Flag1.OnrBit.b1
+#define K2_Flag			DIY_Flag1.OnrBit.b2
+#define Switch_Flag		DIY_Flag1.OnrBit.b3
+
+//ͨ�� ����
+bit B_KEYHX_Flag;
+u16 g_k1_hold_ms;    /* K1��������ʱ�� */
+u16 g_k2_hold_ms;    /* K2��������ʱ�� */
+u8  g_gear;	/* ��ǰ��λ */
+u8  g_target_pwm;       /* Ŀ�� PWM ռ�ձ� */
+u16 g_current_pwm;      /* ��ǰʵ�� PWM (ʹ�ù̶��� 0.1 ������߽���ƽ����) */
+u16 g_pwr_delay_ms;     /* �����ӳټ��� */
+u8  g_battery_empty;    /* �����ľ���־ */
+u8  g_warn_flash;    /* ʣ�����������0=����ʾ */
+u8  g_warn_led;    /* ��ʾLED��ţ�1=LED1(���ܼ���), 5=LED5(���ܼӵ�) */
+u8  g_k1_prev;    /* K1�ϴ�״̬ */
+u8  g_k2_prev;    /* K2�ϴ�״̬ */
+bit g_warn_blink; 
+u8  g_warn_cnt;
+u16 g_offshow_ms;    /* ��ʾ��ʱ����1ms�� */
+bit g_offshow_flag;    /* 1=������ʾ���� */
+
+unsigned char level;
+u16 g_vdd_adc;
+u8  g_overclock_pwm;    /* ��Ƶģʽ PWM ռ�ձ� (0-50) */
+         
+u16 g_slave_alive_ms;
+const u8 c_fan_duty[7] = {0, 31, 50, 68, 87, 105, 124};// 0%, 25%, 40%, 55%, 70%, 85%, 100%
+void ADC_Init(void);
+void Comm_Process(void);
+ void show_gear_led(u8 gear);
+////////////////////////////////////////////////////////////////////////
+////////////////////////////	  �ӳ���	////////////////////////////
+////////////////////////////////////////////////////////////////////////
+//******************************��ʱ�ӳ���******************************
+/*------------------------------------------------
+�ϵ���ʱ
+------------------------------------------------*/
+void Delay_Init(u16 Delay_Duty)
+{   
+	u16 i;
+ 	
+	for(i = 0; i <= Delay_Duty; i ++)
+	{
+		#asm		//ι��
+		clrwdt
+		#endasm;
+	}
+}
+ 
+void delay_us(unsigned int us)
+{
+    unsigned int i;
+
+    while(us--)
+    {
+        /* ��Լ1us���������Ƶ΢���� */
+        for(i = 0; i < 4; i++)
+        {
+            #asm
+            nop
+            #endasm
+        }
+    }
+}
+/*---------------------------����---------------------------------------*/
+ void Sleep_Func(void)
+ {
+     static u16 Sleep_Time = 0;
+
+     // 1. �ػ�����߼���������κλ�Ծ�źţ����ü�ʱ��
+     if(B_OnOff_Flag || B_KEYHX_Flag || g_slave_charging || g_slave_chargefull || g_offshow_flag || kcomm_wakeup)
+     {
+         Sleep_Time = 0;
+     }
+     Sleep_Time++;
+     if(Sleep_Time >= 1000) // ����Э�飺1�������� (1ms * 1000)
+     { 
+        Sleep_Time = 0;
+        LED1_OFF();
+        LED2_OFF(); 
+        LED3_OFF(); 
+        LED4_OFF(); 
+        LED5_OFF();             // ǿ��Ϩ��
+
+         GIE = 0;
+         T0IE = 0;
+         T1IE = 0;
+         T2IE = 0;
+         INTECON = 0;
+         PIR = 0;
+
+         ADCON0 = 0;
+         ADCON1 = 0;
+         ANSELL = 0;
+         ANSELH = 0;
+
+         /* IO ״̬����������Э��ƽʱKEDA(PB6)Ϊ�������� */
+         TRISA = 0x0E;               // PA1,2,3 ����
+         TRISB = 0x48;               // PB3, PB6 ����
+         
+         PHCON1 = 0xF1;              // PA1,2,3 ����ʹ��
+         PHCON  = 0xFF;
+         PDCON1 = 0xFF;              // PB6 ����ʹ�� (�ؼ�������Э��Ҫ�����������)
+         PDCON  = 0xBF;
+
+         delay_us(1000);             // ��ʱ�ȶ�
+
+         BOREN = 0;
+         WDTEN = 0;
+
+         /* 4. ���û���Դ */
+         IOCA = 0x0E;                // ����/���ػ���
+         IOCB = 0x40;                // �ӻ�����ź�(PB6)����
+
+         unsigned char temp;
+         temp = PORTA;
+         temp = PORTB;
+         (void)temp;
+
+         PAIF = 0;
+         PBIF = 0;
+         PAIE = 1;
+         PBIE = 1;
+
+         /* 5. ִ������ */
+         #asm 
+         clrwdt 
+         nop 
+         sleep                   // ��������
+         nop 
+         #endasm 	 
+		 WDTEN = 1;    // �������Ź�
+         ADEN  = 1;   
+         
+        
+         if(KEDA_READ())
+         {
+                /* ȷ��Ϊ��Ч��绽�� */
+                g_slave_charging = 1;   // ������������ʾ״̬
+                g_slave_alive_ms = 3000; // ��������״̬����ֹ������
+                
+                /* �ȴ��ӻ� 200ms �ߵ�ƽ���峹�׽��� */
+                while(KEDA_READ())
+                {
+                    #asm
+                    clrwdt
+                    #endasm
+                }
+
+                /* ����ǿ������һ��ͨ�����֣�����ӻ�Ƶ�� */
+                kcomm_cycle = 195;      
+                kcomm_wakeup = 0;
+        }
+            // ������������Դ���簴��/���أ�
+        temp = PORTA;
+        temp = PORTB;
+        (void)temp;
+        PAIF = 0;
+        PBIF = 0;
+        PAIE = 0;
+        PBIE = 0;
+
+        if(!K1_io || !K2_io)
+        {
+            B_KEYHX_Flag = 1;   // ���Ӽ������ѱ��Ϊ��Ч������������ʾ����
+        }
+		inital();     // �ָ��˿�����
+		 sysinitial(); // �ָ���ʱ��  
+         ADC_Init();
+         BOREN = 1; 
+        Sleep_Time = 0;
+        B_ScanMain = 0;
+     }
+ }
+/*-------------------------------ADC--------------------------------------*/
+/* ---------------------------------------------------------------
+ *  ADC ��ʼ����ʹ���ڲ�AN5 = 1/4VDD���ο���ѹ1.3V��
+ *  channel=5, voltage=1(�ڲ�1.3V)
+ * --------------------------------------------------------------- */
+void ADC_Init(void)
+{
+		ANSELL=0X20;			//1=AD��simulation models��0=I/O��digital models��
+		ANSELH=0X00;			//1=AD��simulation models��0=I/O��digital models��
+		ADCON0=0X15;			//����ADͨ��5���ڲ�1/4VDD
+		adcon1_val = 0X08;		//�ڲ�1.3V
+		ADCON1 = adcon1_val;
+		ADEN = 1;           /* ʹ��ADCģ�� */
+    	delay_us(100);      /* �ȴ�ADC�ȶ� */
+}
+/* ---------------------------------------------------------------
+ *  ��ȡVDD��ͨ��AN5=VDD/4������12bit ADCԭʼֵ��
+ *  ����ֵ adc_val��VDD_mV �� adc_val �� 5200 / 4096
+ * --------------------------------------------------------------- */
+unsigned int adc_read_vdd(void)
+{
+    unsigned int result;
+    u16 ad_delay;
+
+    ADCON0 = 0x15;
+    ADCON1 = adcon1_val;
+    ADEN = 1;
+
+    ADIF = 0;
+    ADON = 1;           /* ������ */
+
+    ad_delay = 0;
+    while(ADON)         /* �ٵȽ��� */
+    {
+        #asm
+        clrwdt
+        #endasm
+        ad_delay++;
+        if(ad_delay >= 20000)
+            break;
+    }
+    static u8  disp_level   = 0;   /* 显示级数（去抖后）          */
+    static u8  lv_debounce  = 0;   /* 级数去抖计数器              */
+
+    result = ((unsigned int)ADRESH << 4) | (ADRESL >> 4);
+    return result;
+}
+void LedMode_Func(void)
+{
+    /* ���� ���������ڲ����� ���� */
+    static u8  chg_pwm_cnt  = 0;   /* ����PWM���� 0~19          */
+    static u8  breath_duty  = 0;   /* ��������   0~20           */
+    static u8  breath_dir   = 1;   /* 1=���� 0=����             */
+    static u8  breath_cnt   = 0;   /* ������������              */
+
+    /* �� �����ľ���ȫ��������� ���� */
+    if(g_battery_empty)
+    {
+        LED1_OFF();
+        LED2_OFF(); 
+        LED3_OFF(); 
+        LED4_OFF(); 
+        LED5_OFF();
+        return;
+    }
+    /* ��������� / �ѳ��� ���� */
+    if((g_slave_charging || g_slave_chargefull) && !B_OnOff_Flag)
+    {
+        /* ����������ÿ50ms��һ����*/
+        breath_cnt++;
+        if(breath_cnt >= 50)
+        {
+            breath_cnt = 0;
+            if(breath_dir)
+            {
+                if(breath_duty < 20) breath_duty++;
+                else                 breath_dir = 0;
+            }
+            else
+            {
+                if(breath_duty > 0)  breath_duty--;
+                else                 breath_dir = 1;
+            }
+        }
+
+        /* ����PWM����*/
+        chg_pwm_cnt++;
+        if(chg_pwm_cnt >= 20)
+            chg_pwm_cnt = 0;
+
+        if(g_slave_chargefull)
+        {
+            /* ���������ȫ������������Ϊ���� */
+            LED1_ON(); LED2_ON(); LED3_ON(); LED4_ON(); LED5_ON();
+            breath_duty = 20;
+            breath_dir  = 0;
+            breath_cnt  = 0;
+        }
+        else
+        {
+            /* ����У��ѳ��������ǰ�������δ����� */
+            /* level: 0~6����Ӧ����������Battery_Update()ά����  */
+            /* LED5=��1��(���), LED4=��2�� ... LED1=��5��(���) */
+
+            /* LED5 �� ��1�� */
+            if(disp_level >= 2)       { LED5_ON(); }
+            else if(disp_level == 1)  { if(chg_pwm_cnt < breath_duty) LED5_ON(); else LED5_OFF(); }
+            else                 { LED5_OFF(); }
+
+            /* LED4 �� ��2�� */
+            if(disp_level >= 3)       { LED4_ON(); }
+            else if(disp_level == 2)  { if(chg_pwm_cnt < breath_duty) LED4_ON(); else LED4_OFF(); }
+            else                 { LED4_OFF(); }
+
+            /* LED3 �� ��3�� */
+            if(disp_level >= 4)       { LED3_ON(); }
+            else if(disp_level == 3)  { if(chg_pwm_cnt < breath_duty) LED3_ON(); else LED3_OFF(); }
+            else                 { LED3_OFF(); }
+
+            /* LED2 �� ��4�� */
+            if(disp_level >= 5)       { LED2_ON(); }
+            else if(disp_level == 4)  { if(chg_pwm_cnt < breath_duty) LED2_ON(); else LED2_OFF(); }
+            else                 { LED2_OFF(); }
+
+            /* LED1 �� ��5�� */
+            if(disp_level >= 6)       { LED1_ON(); }
+            else if(disp_level == 5)  { if(chg_pwm_cnt < breath_duty) LED1_ON(); else LED1_OFF(); }
+            else                 { LED1_OFF(); }
+        }
+        return;
+    }
+
+    /* ���� ��Ƶģʽ������ (Requirement 8) ���� */
+    if(B_OnOff_Flag && g_gear == 6)
+    {
+        breath_cnt++;
+        if(breath_cnt >= 20) // ÿ20ms����һ�����ȣ�ʹ������ƽ��
+        {
+            breath_cnt = 0;
+            if(breath_dir)
+            {
+                if(breath_duty < 50) breath_duty++;
+                else                 breath_dir = 0;
+            }
+            else
+            {
+                if(breath_duty > 0)  breath_duty--;
+                else                 breath_dir = 1;
+            }
+            g_overclock_pwm = breath_duty; // ͬ�����ж��е� PWM �߼�
+        }
+        return;
+    }
+
+    /* �ǳ��/��Ƶʱ���ú����������´ν���ʱ��ͷ��ʼ */
+    if(!g_slave_charging && !g_slave_chargefull && g_gear != 6)
+    {
+        breath_duty = 0;
+        breath_dir  = 1;
+        breath_cnt  = 0;
+        chg_pwm_cnt = 0;
+    }
+
+    /* ���ػ�+������ʾ��ʱ ���� */
+    if(!B_OnOff_Flag && g_offshow_flag)
+    {
+        show_gear_led(level);
+        return;
+    }
+
+    /* ��������+������� ���� */
+    if(B_OnOff_Flag && g_warn_flash > 0)
+        return;
+
+    /* ����  ������������λ ���� */
+    if(B_OnOff_Flag)
+    {
+        show_gear_led(g_gear);
+        return;
+    }
+
+    /* ����  �ػ���������״̬��ȫ�� ���� */
+    LED1_OFF();
+    LED2_OFF(); 
+    LED3_OFF(); 
+    LED4_OFF(); 
+    LED5_OFF();
+}
+void Battery_Update(void)
+{
+    static unsigned char low_debounce = 0;
+    static unsigned char low_clr_debounce = 0;  /* ������� */
+    unsigned int adc_val;
+    static unsigned char loop_num = 0;
+    static unsigned int  loop_min = 0;
+    static unsigned int  loop_max = 0;
+    static unsigned int  loop_sum = 0;
+	static unsigned char startup_cnt = 50;//�ϵ��ǰ50���˲����жϵ�ѹ
+    adc_val = adc_read_vdd();
+
+    if(loop_num == 0)
+    {
+        loop_min = adc_val;
+        loop_max = adc_val;
+        loop_sum = 0;
+    }
+    else if(loop_min > adc_val)  loop_min = adc_val;
+    else if(loop_max < adc_val)  loop_max = adc_val;
+
+    loop_sum += adc_val;
+    loop_num++;
+
+    if(loop_num >= 10)
+    {
+        loop_num = 0;
+        loop_sum -= loop_min;
+        loop_sum -= loop_max;
+        loop_sum = loop_sum >> 3;
+        g_vdd_adc = loop_sum;
+
+        if(g_slave_chargefull)       level = 6;
+     	else if(g_vdd_adc < ADC_3000MV) level = 0;
+        else if(g_vdd_adc < ADC_3230MV) level = 1;
+        else if(g_vdd_adc < ADC_3700MV) level = 2;
+        else if(g_vdd_adc < ADC_3900MV) level = 3;
+        else if(g_vdd_adc < ADC_4100MV) level = 4;
+        else if(g_vdd_adc <= ADC_4200MV) level = 5;
+        else                             level = 6;
+		if(startup_cnt > 0)
+		{
+			startup_cnt--;
+			B_LowPower_Flag = 0;
+		}
+		else
+		{
+			if(B_LowPower_Flag == 0)
+       		{
+            /* �����ѹ���˲�ֵ < 3.2V������5���˲�ȷ�ϣ�5��20ms=100ms�� */
+	            if(g_vdd_adc < ADC_3200MV)
+	            {
+	                if(low_debounce < 5) low_debounce++;
+	                if(low_debounce >= 5) B_LowPower_Flag = 1;
+	            }
+	            else
+	            {
+	                low_debounce = 0;
+	            }
+       		}
+	        else
+	        {
+	            if(g_vdd_adc >= ADC_3230MV)  
+	            {
+	                if(low_clr_debounce < 3) low_clr_debounce++;
+	                if(low_clr_debounce >= 3)
+	                {
+	                    B_LowPower_Flag = 0;
+	                    low_debounce = 0;
+	                }
+	            }
+	            else
+	            {
+	                low_clr_debounce = 0;
+	            }
+	        }	
+		}
+    }
+}
+/*-------------------------------��λLED��ʾ-------------------------------*/
+/*
+ * ����ģʽ����ʾ��ǰ��λ������Ӧ����LED��
+ * gear=1����LED5; gear=2����LED5,LED4; �Դ����Ƶ�gear=5����ȫ��
+ * gear=6����Ƶ����LED5~1ȫ�������ϲ����LED1����
+ */
+ void show_gear_led(u8 gear)
+{
+    LED1_OFF();
+    LED2_OFF(); 
+    LED3_OFF(); 
+    LED4_OFF(); 
+    LED5_OFF();     
+	if(gear >= 1) LED5_ON();
+	if(gear >= 2) LED4_ON();
+	if(gear >= 3) LED3_ON();
+	if(gear >= 4) LED2_ON();
+	if(gear >= 5) LED1_ON();
+}
+
+/*-------------------------------���ȿ���-------------------------------*/
+/*
+ * ���÷��ȵ�λPWM��Timer1 PWM �� PB2/TM1PWM��
+ *	PWMƵ�ʣ�1KHZ
+ */
+void set_fan(u8 gear)
+{
+	if(gear == 0)
+	{
+		g_target_pwm = 0;
+		return;
+	}
+	if(gear > 6) 
+		gear = 6;
+	
+    g_target_pwm = c_fan_duty[gear];
+}
+
+/* 
+ * 1ms ���õķ��� PWM ���´���
+ */
+void fan_ramp_proc(void)
+{
+    u16 target_fixed = (u16)g_target_pwm << 4; // ���� 16 ������ƽ��
+    
+    if(g_current_pwm < target_fixed)
+    {
+        g_current_pwm += 1; // Լ 250ms �� 0% �� 100% (250ms * 16 / 16 = 250)
+        if(g_current_pwm > target_fixed) g_current_pwm = target_fixed;
+    }
+    else if(g_current_pwm > target_fixed)
+    {
+        g_current_pwm -= 1;
+        if(g_current_pwm < target_fixed) g_current_pwm = target_fixed;
+    }
+    
+    PWM0P = (u8)(g_current_pwm >> 4);
+    if(PWM0P == 0) PORTB2 = 0;
+}
+/*-------------------------------�������-------------------------------*/
+/*
+ * ������ʾ������2�룩
+ * led_num: 1=LED1(5��ʱ���ܼӵ� / 1��ʱ���ܼ���֪ͨLED)
+ *          ʵ�ʹ���
+ *            5���̰��Ӽ� �� LED1���������λ�ƣ�
+ *            1���̰����� �� LED5���������λ�ƣ�
+ */
+void trigger_warn(u8 led_num)
+{
+	if(g_warn_flash == 0)		//ʣ���������
+	{
+		g_warn_flash = 4;       // �����Σ���-��-��-�� (4���仯)
+		g_warn_led   = led_num;
+		g_warn_blink = 0;
+		g_warn_cnt   = 0;
+	}
+}
+/*
+ * �������������1ms���ã�
+ */
+void warn_flash_proc(void)
+{
+	if(g_warn_flash == 0) 
+		return;
+	g_warn_cnt++;
+	if(g_warn_cnt < 150) // 150ms ��˸����
+		return;
+	g_warn_cnt = 0;
+ 
+	/* ���ڵ����л�һ�� */
+	g_warn_blink = !g_warn_blink;
+	g_warn_flash--;
+
+	if(g_warn_led == 1)
+	{
+		/* ����5�����ӣ�LED5~2������LED1��˸���� */
+		LED5_ON(); LED4_ON(); LED3_ON(); LED2_ON();
+		if(g_warn_blink) LED1_OFF(); else LED1_ON();
+	}
+	else if(g_warn_led == 5)
+	{
+		/* 1������/���̶�1����������һ��LED(LED5)��˸���� */
+		LED1_OFF();
+        LED2_OFF(); 
+        LED3_OFF(); 
+        LED4_OFF(); 
+		if(g_warn_blink) LED5_OFF(); else LED5_ON();
+	}
+	
+	/* ��˸������ָ���ǰ��λ��ʾ */
+	if(g_warn_flash == 0)
+	{
+		show_gear_led(g_gear);
+	}
+}
+
+/*------------------------������غ���-----------------------------------*/
+void Key_Func(void)
+{
+	static u8 key1_time1 = 0;
+	static u8 key1_time2 = 0;
+	static u8 key2_time1 = 0;
+	static u8 key2_time2 = 0;
+	//����
+	if(!K1_io)		//S1����
+	{
+		key1_time2 = 0;
+		key1_time1 ++;
+		if(key1_time1 >= 10)
+		{
+			key1_time1 = 0;
+			K1_Flag = 1;
+		}
+	}
+	else
+	{
+		//S1�ɿ�
+		key1_time1 = 0;
+		key1_time2 ++;
+		if(key1_time2 >= 10)
+		{
+			key1_time2 = 0;
+			K1_Flag = 0;
+		}
+	}
+	//�Ӽ�
+	if(!K2_io)		//S2����
+	{
+		key2_time2 = 0;
+		key2_time1 ++;
+		if(key2_time1 >= 10)
+		{
+			key2_time1 = 0;
+			K2_Flag = 1;
+		}
+	}
+	else
+	{
+		//S2�ɿ�
+		key2_time1 = 0;
+		key2_time2 ++;
+		if(key2_time2 >= 10)
+		{
+			key2_time2 = 0;
+			K2_Flag = 0;
+		}
+	}
+}
+/**���ػ�������**/
+void SW_Func()
+{
+	static u8 sw_time1 = 0;
+	static u8 sw_time2 = 0;
+	
+	if(Switch_io)
+	{
+		//�ػ�
+		sw_time2 = 0;
+		sw_time1 ++;
+		if(sw_time1 >= 20)
+		{
+			sw_time1 = 0;
+			B_OnOff_Flag = 0;
+            B_KEYHX_Flag = 0; // �ػ�ʱ������ѱ�־��׼�����¼�ʱ����
+		}
+	}
+	else
+	{
+		//����
+		sw_time1 = 0;
+		sw_time2 ++;
+		if(sw_time2 >= 20)
+		{
+			sw_time2 = 0;
+            B_OnOff_Flag = 1;
+            B_KEYHX_Flag = 0; // ����ʱ������ѱ�־
+		}
+	}
+}
+//����Ӧ�ú���
+/*
+ * Key_Application() �� 1ms����
+ *
+ * ���ܣ�
+ *  ���ػ�״̬��B_OnOff_Flag=0����
+ *    �̰��Ӽ����������ʾ��ص�����5����Զ���ƣ�Sleep_Func�������ߣ�
+ *
+ *  ������״̬��B_OnOff_Flag=1���ϲ����أ���
+ *    ����һ����LED5��������һ��
+ *    �̰��Ӽ���������1��2��3��4��5��������Ӧ����LED
+ *    5�������̰��Ӽ���LED1����2����ʾ���ܼӵ�
+ *    �����Ӽ�1.5�룺���볬Ƶ��6����LED1������ʾ���������
+ *    �̰�������������5��4��3��2��1��������Ӧ����LED
+ *    1�������̰�������LED5����2����ʾ���ܼ���
+ *    �²����أ�SW_Func��B_OnOff_Flag=0����ͣ���ȣ�ȫ��LED������ػ�״̬
+ */
+void Key_Application(void)
+{
+	warn_flash_proc();	//������ʾ����
+
+    /* --- �㡢�����ľ����� (������ȼ�) --- */
+    if(g_vdd_adc <= ADC_3000MV)
+    {
+        g_battery_empty = 1;
+    }
+    else if(g_vdd_adc >= ADC_3030MV)
+    {
+        g_battery_empty = 0;
+    }
+
+    if(g_battery_empty)
+    {
+        B_OnOff_Flag = 0;
+        set_fan(0);
+        LED1_OFF(); LED2_OFF(); LED3_OFF(); LED4_OFF(); LED5_OFF();
+        g_offshow_flag = 0;
+        g_offshow_ms   = 0;
+        g_warn_flash   = 0;
+        g_gear         = 0;
+        g_k1_prev = K1_Flag;
+        g_k2_prev = K2_Flag;
+        g_k2_hold_ms = 0;
+        return;
+    }
+
+/* ================================================================
+ *  һ���ػ�״̬�߼� (Switch = OFF)
+ * ================================================================ */
+	if(Switch_io) 
+	{
+		B_OnOff_Flag = 0;
+        g_gear = 0;
+        set_fan(0);
+        
+        /* �����ػ�״̬�µĵ����鿴�߼� (��Sleep_Func���õ�B_KEYHX_Flag����) */
+		if(B_KEYHX_Flag)
+		{
+			B_KEYHX_Flag = 0;
+			g_offshow_flag = 1;
+			g_offshow_ms = 0;
+		}
+
+		if(g_offshow_flag)
+		{
+			g_offshow_ms++;
+			if(g_offshow_ms < 5000)
+			{
+				show_gear_led(level); // ��ʾ��ǰ������Ӧ�ȼ�
+			}
+			else
+			{
+				g_offshow_flag = 0;
+				g_offshow_ms = 0;
+				LED1_OFF(); LED2_OFF(); LED3_OFF(); LED4_OFF(); LED5_OFF();
+			}
+		}
+		else
+		{
+			LED1_OFF(); LED2_OFF(); LED3_OFF(); LED4_OFF(); LED5_OFF();
+			g_warn_flash = 0;
+		}
+		g_k1_prev = K1_Flag;
+		g_k2_prev = K2_Flag;
+		g_k2_hold_ms = 0;
+		return;
+	}
+
+/* ================================================================
+ *  �������������߼� (Switch = ON, �ȴ� A3 ����)
+ * ================================================================ */
+    if(!B_OnOff_Flag)
+    {
+        /* ֻҪ����������ON��comm_pack_tx �ͻᷢ�� C0=1 */
+        /* �ȴ��ӻ����� A3=1 (g_slave_motor_pwr_ok) */
+        if(!g_slave_motor_pwr_ok)
+        {
+            set_fan(0);
+            LED1_OFF(); LED2_OFF(); LED3_OFF(); LED4_OFF(); LED5_OFF();
+            g_k1_prev = K1_Flag;
+            g_k2_prev = K2_Flag;
+            g_k2_hold_ms = 0;
+            return;
+        }
+
+        /* ���ֳɹ�����������1������ */
+        B_OnOff_Flag = 1;
+        g_gear = 1;
+        set_fan(1);
+        show_gear_led(1);
+        g_offshow_flag = 0;
+        return;
+    }
+
+/* ================================================================
+ *  ������������״̬�߼� (B_OnOff_Flag = 1)
+ * ================================================================ */
+    /* 1. ����п��������߼� (�̶�1��) */
+	if(g_slave_charging || g_slave_chargefull)
+	{
+		g_gear = 1;
+		set_fan(1);
+        
+        if(g_warn_flash == 0)
+            show_gear_led(1);
+
+        /* ��繤��ģʽ�£�����/���������� LED5 ��˸������ʾ���ɵ� */
+        if(K2_Flag && !g_k2_prev) trigger_warn(5); 
+        if(K1_Flag && !g_k1_prev) trigger_warn(5); 
+
+		g_k1_prev = K1_Flag;
+		g_k2_prev = K2_Flag;
+		g_k2_hold_ms = 0;
+		return;
+	}
+
+    /* 2. ������λ�����߼� */
+    if(g_warn_flash > 0)
+    {
+        g_k1_prev = K1_Flag;
+        g_k2_prev = K2_Flag;
+        return;
+    }
+
+    /* �Ӽ����� (�Ż����̰���ͻ) */
+    if(K2_Flag)
+    {
+        g_k2_hold_ms++;
+        if(g_k2_hold_ms >= 1000)
+        {
+            if(g_gear != 6)
+            {
+                g_gear = 6;
+                set_fan(6);
+            }
+        }
+    }
+    else
+    {
+        if(g_k2_prev) // �ɿ�˲��
+        {
+            if(g_gear == 6) // �ӳ�Ƶ�˳�
+            {
+                g_gear = 5;
+                set_fan(5);
+                show_gear_led(5);
+            }
+            else if(g_k2_hold_ms < 1000)
+            {
+                if(g_gear < 5)
+                {
+                    g_gear++;
+                    set_fan(g_gear);
+                    show_gear_led(g_gear);
+                }
+                else if(g_gear == 5)
+                {
+                    trigger_warn(1);
+                }
+            }
+        }
+        g_k2_hold_ms = 0;
+    }
+    g_k2_prev = K2_Flag;
+
+    /* �������� */
+    if(K1_Flag && !g_k1_prev)
+    {
+        if(g_gear > 1 && g_gear <= 5)
+        {
+            g_gear--;
+            set_fan(g_gear);
+            show_gear_led(g_gear);
+        }
+        else if(g_gear == 1)
+        {
+            trigger_warn(5);
+        }
+    }
+    g_k1_prev = K1_Flag;
+}
+////////////////////////////////////////////////////////////////////////
+////////////////////////////  ͨ��ģ��  ////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+/*----------------------------------------------------------------------
+ *  �ڲ��������������֡
+ *----------------------------------------------------------------------*/
+static unsigned char comm_pack_tx(void)
+{
+    unsigned char lo = 0;
+    unsigned char hi;
+    unsigned char result;
+
+    /* C0: ��Ҫ������幩�� �� ֻҪ���������ڿ���λ��(Switch_io=0)���������ͣ����ȴ�1���ӳ� */
+    if(!Switch_io)
+    {
+        lo |= 0x01;
+    }
+
+    if(B_OnOff_Flag)
+    {
+        lo |= 0x04;   /* C2: �ѿ��� */
+
+        /* ��ѹ��־������Battery_Update()��ִ����ȷ�ϵ�ѹ����λ */
+        if(B_LowPower_Flag)
+            lo |= 0x02;   /* C1: ������ */
+    }
+    /* B_OnOff_Flag=0ʱ��C2/C1ȫ0���ӻ���ִ�й����߼�����C0����Ϊ1��ά�ֵ���幩�� */
+
+    lo  = lo & 0x0F;
+    hi  = lo ^ 0x0F;
+    result = (hi << 4) | lo;
+    return result;
+}
+
+/*----------------------------------------------------------------------
+ *  �ڲ��������ӻ��ش�֡������ȫ��״̬
+ *  ���� 1=У��ͨ����0=У��ʧ��
+ *----------------------------------------------------------------------*/
+static unsigned char comm_parse_rx(unsigned char raw)
+{
+    unsigned char lo;
+    unsigned char hi;
+    unsigned char check;
+
+    lo = raw & 0x0F;
+    hi = (raw >> 4) & 0x0F;
+    check = lo + hi;
+
+    if(check != 0x0F)
+        return 0;
+
+    /* A2 (bit 2): 0=�����, 1=����� */
+    if(lo & 0x04)
+        g_slave_charging = 1;
+    else
+        g_slave_charging = 0;
+
+    /* A3 (bit 3): 0=���δ����, 1=����ѹ��� */
+    if(lo & 0x08)
+        g_slave_motor_pwr_ok = 1;
+    else
+        g_slave_motor_pwr_ok = 0;
+
+    /* A0 (bit 0): ���� A0=1 ��ʾ���� (ԭ 0x0D=1101 �߼��Ʋ�) */
+    if((lo & 0x04) && (lo & 0x01))
+        g_slave_chargefull = 1;
+    else
+        g_slave_chargefull = 0;
+
+    return 1;
+}
+/*----------------------------------------------------------------------
+ *  Kcomm_ISR() �� ��50us�ж�����ã��ƽ�ͨ��״̬��
+ *----------------------------------------------------------------------*/
+void Kcomm_ISR(void)
+{
+	static unsigned char bit_wait_fall;
+    static unsigned int handshake_ms_cnt = 0;
+
+    kcomm_timer++;          /* �����ۼӼ�ʱ��������ͨ��״̬������ת */
+    /* ---- �������̣����ȼ���ߣ�---- */
+	if(kcomm_wakeup)
+    {
+        kcomm_wakeup_cnt++;
+        if(kcomm_wakeup_cnt == 1)
+        {
+            KEDA_SET_OUTPUT();
+            KEDA_PORT = 1;
+        }
+        if(kcomm_wakeup_cnt >= 1000u)   // 50ms ���� (50ms/50us = 1000)
+        {
+            KEDA_PORT = 0;
+            KEDA_SET_INPUT();
+            kcomm_wakeup     = 0;
+            kcomm_wakeup_cnt = 0;
+            kcomm_low_cnt    = 0;
+            kcomm_state      = 0;
+            kcomm_cycle      = 200; // ���Ѻ���������һ���շ���ѯ
+        }
+        return;
+    }
+
+    /* ---- �������շ���ʱ�߼� (Switch_io=0 ��δ�յ� A3=1) ---- */
+    if(!Switch_io && !g_slave_motor_pwr_ok)
+    { 
+        handshake_ms_cnt++;
+        if(handshake_ms_cnt >= 2000) // 100ms �л�һ����λ (2000 * 50us = 100ms)
+        { 
+            handshake_ms_cnt = 0;
+            kcomm_turn = !kcomm_turn; // �л� TX/RX ��λ
+            kcomm_state = 0;          // ǿ�ƻص�����̬����������λ
+            kcomm_cycle = 200;        // ��������
+        }
+    }
+    else
+    {
+        handshake_ms_cnt = 0;
+    }
+
+    /* ---- ���߼�⣨������ʱ��---- */
+    if(kcomm_state == 0)	//����
+    {
+        kcomm_cycle++;
+
+		if(!KEDA_READ())
+		{
+			if(kcomm_low_cnt < 1000)
+				kcomm_low_cnt++;
+
+			/* �����͵�ƽ��50ms��������Ҫ�����Ƿ��ѶԷ� */
+			if(kcomm_low_cnt >= 1000)
+			{
+				kcomm_low_cnt = 1000;  // �����
+
+				if(kcomm_wakeup == 0)
+				{
+					if(B_OnOff_Flag || g_slave_charging || g_slave_chargefull)
+					{
+						kcomm_wakeup     = 1;
+						kcomm_wakeup_cnt = 0;
+					}
+				}
+			}
+		}
+        else
+        {
+            kcomm_low_cnt = 0;  // ��⵽�ߵ�ƽ���Է���Ծ������
+        }
+// //------------------------------------------
+        /* 10ms���ڵ�������һ����/�� */
+        if(kcomm_cycle >= 200)  // 200��50us = 10ms
+        {
+            kcomm_cycle = 0;
+
+            if(kcomm_turn == 0)
+            {
+                /* �����֣���ʼ������ʼ�� */
+                kcomm_tx_buf  = comm_pack_tx();
+                kcomm_bit_idx = 0;
+                kcomm_timer   = 0;
+                kcomm_tx_done = 0;
+                KEDA_SET_OUTPUT();
+                KEDA_PORT = 1;
+				kcomm_state = 1;
+            }
+            else
+            {
+                /* �����֣������������ */
+                kcomm_rx_buf  = 0;
+                kcomm_bit_idx = 0;
+                kcomm_timer   = 0;
+                kcomm_rx_done = 0;
+                KEDA_SET_OUTPUT();
+                KEDA_PORT = 1;
+                kcomm_state   = 5;
+            }
+        }
+        return;
+    }
+    switch(kcomm_state)
+    {
+        /* ============ �������� ============ */
+		case 1:
+			if(kcomm_timer >= 20)      // ��ʼ��1ms
+			{
+				kcomm_timer = 0;
+				KEDA_PORT = 0;
+				kcomm_state = 2;
+			}
+			else
+			{
+				KEDA_PORT = 1;
+			}
+			break;
+
+		case 2:
+		if(kcomm_timer >= 10)			 // ��ʼ��0.5ms
+		{
+			kcomm_timer    = 0;
+			kcomm_tx_shift = kcomm_tx_buf;
+			kcomm_bit_idx = 0;
+			KEDA_PORT = 1;
+			kcomm_state = 3;
+		}
+		break;
+
+		case 3:
+		//bit=1:��ߵ�ƽ=500us �͵�ƽ=200us
+		//bit=0:��ߵ�ƽ=200us �͵�ƽ=500us
+			if(kcomm_timer >= 14)
+			{		
+				//�����ʾ1��bit�������
+				kcomm_timer = 0;
+				kcomm_bit_idx ++;
+				if(kcomm_bit_idx >= 8)
+				{    //�����ʾ��ǰ8bit�������
+					KEDA_PORT = 0;
+					kcomm_state = 4;
+
+					kcomm_cycle= 0;
+				}
+				else
+				{
+					kcomm_tx_shift <<= 1;				
+				}
+			}
+			else
+			{
+				if(kcomm_tx_shift & 0x80)
+				{			//��ʾ��Ҫ��bit = 1
+					if(kcomm_timer <= 10)
+					{
+						KEDA_PORT = 1;
+					}
+					else
+					{
+						KEDA_PORT = 0;
+					}
+				}
+				else
+				{
+					if(kcomm_timer <= 4)
+					{
+						KEDA_PORT = 1;
+					}
+					else
+					{
+						KEDA_PORT = 0;
+					}
+				}	
+			}
+			break;
+		case 4:
+			if(kcomm_timer >= 20)
+			{
+				KEDA_PORT = 0;
+				KEDA_SET_INPUT();
+				kcomm_tx_done = 1;
+				kcomm_turn = 1;
+				kcomm_timer = 0;
+				kcomm_state = 0;
+			}
+			break;
+        /* ============ �������� ============ */
+        case 5:
+            if(kcomm_timer >= 40)  // 	��ʼ��2ms
+            {
+                kcomm_timer = 0;
+                KEDA_PORT = 0;
+                kcomm_state = 6;
+            }
+			else 
+			{
+				KEDA_PORT = 1;
+			}
+            break;
+
+        case 6:
+            if(kcomm_timer >= 10)     // ��ʼ 0.5ms �͵�ƽ����
+            {
+                kcomm_timer = 0;
+				bit_wait_fall = 0;
+				kcomm_bit_idx = 0;
+				kcomm_rx_shift = 0;
+                KEDA_SET_INPUT();
+                KEDA_PORT = 0;
+                kcomm_state = 9;	  // ֱ�ӽ���λ����״̬���ȴ���һ��������
+            }
+            break;
+
+      	case 9:
+			 if(kcomm_timer >= ((kcomm_bit_idx == 0 && bit_wait_fall == 0) ? 400u : 60u))
+			{
+				kcomm_rx_done = 0xFF;
+				kcomm_turn = 0;
+				kcomm_timer = 0;
+				kcomm_state = 0;
+				break;
+			}
+			if(bit_wait_fall == 0)
+			{
+				/* �ȴ������� */
+				if(KEDA_READ())
+				{
+					kcomm_timer = 0;
+					bit_wait_fall = 1;
+				}
+			}
+			else
+			{
+				/* �ȴ��½��� */
+				if(!KEDA_READ())
+				{
+					kcomm_rx_shift <<= 1;
+					if(kcomm_timer >= 7)
+						kcomm_rx_shift |= 1;
+
+					bit_wait_fall = 0;
+					kcomm_bit_idx++;
+
+					if(kcomm_bit_idx >= 8)
+					{
+						kcomm_rx_buf = kcomm_rx_shift;
+						kcomm_rx_done = 1;
+						kcomm_turn = 0;
+						kcomm_timer = 0;
+						kcomm_state = 10;
+					}
+				}
+			}
+			break;
+		case 10:
+			if(kcomm_timer >= 10)
+			{
+				kcomm_timer = 0;
+				kcomm_state = 0;
+			}
+			break;
+        default:
+            kcomm_state = 0;
+            break;
+    }
+}
+void Comm_Process(void)
+{
+	unsigned char rx_ok;
+    /* ������ɣ�����ͨ��״̬ */
+    if(kcomm_tx_done == 1)
+    {
+        kcomm_tx_done = 0;
+    }
+    // /* ������ɣ��������� */
+    if(kcomm_rx_done == 1)
+    {
+        kcomm_rx_done = 0;
+        rx_ok = comm_parse_rx(kcomm_rx_buf);
+        if(rx_ok)
+            g_slave_alive_ms = 200;
+        if(g_slave_charging || g_slave_chargefull)
+        	g_slave_alive_ms = 200; 
+    }
+    else if(kcomm_rx_done == 0xFF)
+    {
+        kcomm_rx_done = 0;
+    }
+}
+
+void Flag_AllClear(void)
+{
+	LED1_OFF();
+	LED2_OFF(); 
+	LED3_OFF(); 
+	LED4_OFF(); 
+	LED5_OFF();
+	B_OnOff_Flag    = 0;
+    B_LowPower_Flag = 0;
+    g_gear          = 0;
+    g_warn_flash    = 0;
+    g_warn_cnt      = 0;
+    g_warn_led      = 0;
+    g_warn_blink    = 0;
+    g_offshow_flag  = 0;
+    g_offshow_ms    = 0;
+    g_slave_charging   = 0;
+    g_slave_chargefull = 0;
+    g_slave_motor_pwr_ok = 0;
+    g_slave_alive_ms   = 0;
+    g_k1_prev       = 0;
+    g_k2_prev       = 0;
+    g_k2_hold_ms    = 0;
+    B_KEYHX_Flag    = 0;
+    kcomm_state     = 0;
+    kcomm_turn      = 0;
+    kcomm_timer     = 0;
+    kcomm_cycle     = 0;
+    kcomm_wakeup    = 0;
+    kcomm_wakeup_cnt= 0;
+    kcomm_low_cnt   = 0;
+    kcomm_rx_done   = 0;
+    kcomm_tx_done   = 0;
+    level           = 0;
+    g_vdd_adc = ADC_4200MV;
+}
+
+////////////////////////////////////////////////////////////////////////
+////////////////////////////	  ������	////////////////////////////
+////////////////////////////////////////////////////////////////////////
+void main(void)
+{
+	ramInitial();		//��RAM
+	inital();			//�˿ڳ�ʼ��
+	Delay_Init(200);	//��ʱ�ȴ�ϵͳ�����ȶ�
+	ADC_Init();			//ADC��ʼ��
+	T1_PWM_inital();	//TM1PWM���ó�ʼ��
+	sysinitial();		//T0��ʱ�жϳ�ʼ��
+	WDTEN = 1;
+	/*��ʼ��״̬ */
+	Flag_AllClear();
+	set_fan(0);
+	while(1)
+	{
+		T0IE = 1;
+		GIE  = 1;
+		if(B_ScanMain)
+		{
+			B_ScanMain = 0;
+			#asm
+			clrwdt
+			#endasm;
+			
+			/* ��ͨ�� */
+			Comm_Process();
+			if(g_slave_alive_ms > 0)
+			{
+				g_slave_alive_ms--;
+			}
+			else
+			{
+			if(g_slave_charging || g_slave_chargefull)
+            {
+               
+                g_gear = 0;          
+                g_warn_flash = 0;    
+            }
+				/* ͨ�ų�ʱ������ӻ�״̬ */
+				g_slave_charging = 0;
+				g_slave_chargefull = 0;
+			}
+			/* �ٸ��µ�� */
+			Battery_Update();
+			Key_Func();
+			SW_Func();
+			Key_Application();
+			fan_ramp_proc();
+			LedMode_Func();
+			Sleep_Func();
+		}
+	}
+}
+
+//*****************************�жϷ������*****************************
+void interrupt Timer1_Isr(void)
+{
+    static unsigned char timer_ms = 0;
+    static unsigned char pwm_cnt = 0;
+
+    if(T0IF == 1)
+    {
+        T0IF = 0;
+        T0 = 168;           //162
+        timer_ms++;
+     
+        if(timer_ms >= 20)  /* 20 �� 50us =1ms */
+        {
+            timer_ms   = 0;
+            B_ScanMain = 1;
+        }
+    } 
+ 	
+    if(B_OnOff_Flag && g_gear == 6 && !g_slave_charging && !g_slave_chargefull)
+    {
+        pwm_cnt++;
+        if(pwm_cnt >= 50) pwm_cnt = 0;
+        
+        if(pwm_cnt < g_overclock_pwm)
+        {
+            LED1_ON(); LED2_ON(); LED3_ON(); LED4_ON(); LED5_ON();
+        }
+        else
+        {
+            LED1_OFF(); LED2_OFF(); LED3_OFF(); LED4_OFF(); LED5_OFF();
+        }
+    }
+
+   Kcomm_ISR();        /* ͨ��״̬����ÿ50us�ƽ� */
+    T1IF = 0;
+}
+ 

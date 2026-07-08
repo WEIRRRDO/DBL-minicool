@@ -1,0 +1,4563 @@
+Version 3.2 HI-TECH Software Intermediate Code
+"93 main.c
+[s S2 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2 . b0 b1 b2 b3 b4 b5 b6 b7 ]
+"91
+[u S1 `S2 1 `uc 1 ]
+[n S1 . OnrBit AllBits ]
+"9 inital.h
+[v _inital `(v ~T0 @X0 0 ef ]
+"10
+[v _sysinitial `(v ~T0 @X0 0 ef ]
+"153 main.c
+[v _ADC_Init `(v ~T0 @X0 0 ef ]
+"155
+[v _show_gear_led `(v ~T0 @X0 0 ef1`uc ]
+[p mainexit ]
+"11 inital.h
+[v _ramInitial `(v ~T0 @X0 0 ef ]
+"10 PWM.h
+[v _T1_PWM_inital `(v ~T0 @X0 0 ef ]
+[; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
+[; ;htc.h: 28: extern double __fpnormalize(double);
+[; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
+"12 D:\оʥ\HCIDE_V3.0.17.8S\picc_compiler\include\hc18m121b1.h
+[v _INDF `Vuc ~T0 @X0 1 e@0 ]
+[; ;hc18m121b1.h: 12: volatile unsigned char INDF @ 0x000;
+"13
+[v _T0 `Vuc ~T0 @X0 1 e@1 ]
+[; ;hc18m121b1.h: 13: volatile unsigned char T0 @ 0x001;
+"14
+[v _PCL `Vuc ~T0 @X0 1 e@2 ]
+[; ;hc18m121b1.h: 14: volatile unsigned char PCL @ 0x002;
+"15
+[v _STATUS `Vuc ~T0 @X0 1 e@3 ]
+[; ;hc18m121b1.h: 15: volatile unsigned char STATUS @ 0x003;
+"16
+[v _FSR `Vuc ~T0 @X0 1 e@4 ]
+[; ;hc18m121b1.h: 16: volatile unsigned char FSR @ 0x004;
+"20
+[v _PORTA `Vuc ~T0 @X0 1 e@5 ]
+[; ;hc18m121b1.h: 20: volatile unsigned char PORTA @ 0x005;
+"21
+[v _PORTB `Vuc ~T0 @X0 1 e@6 ]
+[; ;hc18m121b1.h: 21: volatile unsigned char PORTB @ 0x006;
+"22
+[v _IOCA `Vuc ~T0 @X0 1 e@7 ]
+[; ;hc18m121b1.h: 22: volatile unsigned char IOCA @ 0x007;
+"23
+[v _LVDCR `Vuc ~T0 @X0 1 e@8 ]
+[; ;hc18m121b1.h: 23: volatile unsigned char LVDCR @ 0x008;
+"24
+[v _IOCB `Vuc ~T0 @X0 1 e@9 ]
+[; ;hc18m121b1.h: 24: volatile unsigned char IOCB @ 0x009;
+"26
+[v _PCLATH `Vuc ~T0 @X0 1 e@10 ]
+[; ;hc18m121b1.h: 26: volatile unsigned char PCLATH @ 0x00A;
+"27
+[v _PDCON `Vuc ~T0 @X0 1 e@11 ]
+[; ;hc18m121b1.h: 27: volatile unsigned char PDCON @ 0x00B;
+"28
+[v _PHCON `Vuc ~T0 @X0 1 e@13 ]
+[; ;hc18m121b1.h: 28: volatile unsigned char PHCON @ 0x00D;
+"29
+[v _INTECON `Vuc ~T0 @X0 1 e@14 ]
+[; ;hc18m121b1.h: 29: volatile unsigned char INTECON @ 0x00E;
+"30
+[v _PIR `Vuc ~T0 @X0 1 e@15 ]
+[; ;hc18m121b1.h: 30: volatile unsigned char PIR @ 0x00F;
+"32
+[v _PMCON `Vuc ~T0 @X0 1 e@64 ]
+[; ;hc18m121b1.h: 32: volatile unsigned char PMCON @ 0x040;
+"33
+[v _OPTION `Vuc ~T0 @X0 1 e@65 ]
+[; ;hc18m121b1.h: 33: volatile unsigned char OPTION @ 0x041;
+"34
+[v _PDCON1 `Vuc ~T0 @X0 1 e@66 ]
+[; ;hc18m121b1.h: 34: volatile unsigned char PDCON1 @ 0x042;
+"35
+[v _PHCON1 `Vuc ~T0 @X0 1 e@67 ]
+[; ;hc18m121b1.h: 35: volatile unsigned char PHCON1 @ 0x043;
+"36
+[v _TRISA `Vuc ~T0 @X0 1 e@69 ]
+[; ;hc18m121b1.h: 36: volatile unsigned char TRISA @ 0x045;
+"37
+[v _TRISB `Vuc ~T0 @X0 1 e@70 ]
+[; ;hc18m121b1.h: 37: volatile unsigned char TRISB @ 0x046;
+"39
+[v _PMADRL `Vuc ~T0 @X0 1 e@71 ]
+[; ;hc18m121b1.h: 39: volatile unsigned char PMADRL @ 0x047;
+"40
+[v _PMADRH `Vuc ~T0 @X0 1 e@72 ]
+[; ;hc18m121b1.h: 40: volatile unsigned char PMADRH @ 0x048;
+"41
+[v _PMDATL `Vuc ~T0 @X0 1 e@73 ]
+[; ;hc18m121b1.h: 41: volatile unsigned char PMDATL @ 0x049;
+"42
+[v _PMDATH `Vuc ~T0 @X0 1 e@74 ]
+[; ;hc18m121b1.h: 42: volatile unsigned char PMDATH @ 0x04A;
+"44
+[v _T1CR_AUXR `Vuc ~T0 @X0 1 e@75 ]
+[; ;hc18m121b1.h: 44: volatile unsigned char T1CR_AUXR @ 0x04B;
+"45
+[v _T1CON `Vuc ~T0 @X0 1 e@76 ]
+[; ;hc18m121b1.h: 45: volatile unsigned char T1CON @ 0x04C;
+"46
+[v _T1 `Vuc ~T0 @X0 1 e@77 ]
+[; ;hc18m121b1.h: 46: volatile unsigned char T1 @ 0x04D;
+"47
+[v _T1LOAD `Vuc ~T0 @X0 1 e@78 ]
+[; ;hc18m121b1.h: 47: volatile unsigned char T1LOAD @ 0x04E;
+"48
+[v _PWM0P `Vuc ~T0 @X0 1 e@79 ]
+[; ;hc18m121b1.h: 48: volatile unsigned char PWM0P @ 0x04F;
+"50
+[v _T2CON `Vuc ~T0 @X0 1 e@80 ]
+[; ;hc18m121b1.h: 50: volatile unsigned char T2CON @ 0x050;
+"51
+[v _TMR2H `Vuc ~T0 @X0 1 e@81 ]
+[; ;hc18m121b1.h: 51: volatile unsigned char TMR2H @ 0x051;
+"52
+[v _T2 `Vuc ~T0 @X0 1 e@82 ]
+[; ;hc18m121b1.h: 52: volatile unsigned char T2 @ 0x052;
+"53
+[v _T2LOAD `Vuc ~T0 @X0 1 e@83 ]
+[; ;hc18m121b1.h: 53: volatile unsigned char T2LOAD @ 0x053;
+"54
+[v _PWM1P `Vuc ~T0 @X0 1 e@84 ]
+[; ;hc18m121b1.h: 54: volatile unsigned char PWM1P @ 0x054;
+"55
+[v _PWMSET `Vuc ~T0 @X0 1 e@85 ]
+[; ;hc18m121b1.h: 55: volatile unsigned char PWMSET @ 0x055;
+"56
+[v _ANSELL `Vuc ~T0 @X0 1 e@86 ]
+[; ;hc18m121b1.h: 56: volatile unsigned char ANSELL @ 0x056;
+"57
+[v _ANSELH `Vuc ~T0 @X0 1 e@87 ]
+[; ;hc18m121b1.h: 57: volatile unsigned char ANSELH @ 0x057;
+"58
+[v _ADRESL `Vuc ~T0 @X0 1 e@88 ]
+[; ;hc18m121b1.h: 58: volatile unsigned char ADRESL @ 0x058;
+"60
+[v _ADRESH `Vuc ~T0 @X0 1 e@89 ]
+[; ;hc18m121b1.h: 60: volatile unsigned char ADRESH @ 0x059;
+"61
+[v _ADCON0 `Vuc ~T0 @X0 1 e@90 ]
+[; ;hc18m121b1.h: 61: volatile unsigned char ADCON0 @ 0x05A;
+"62
+[v _ADCON1 `Vuc ~T0 @X0 1 e@91 ]
+[; ;hc18m121b1.h: 62: volatile unsigned char ADCON1 @ 0x05B;
+"66
+[v _C `Vb ~T0 @X0 1 e@24 ]
+[; ;hc18m121b1.h: 66: volatile bit C @ ((unsigned)&STATUS*8)+0;
+"67
+[v _DC `Vb ~T0 @X0 1 e@25 ]
+[; ;hc18m121b1.h: 67: volatile bit DC @ ((unsigned)&STATUS*8)+1;
+"68
+[v _Z `Vb ~T0 @X0 1 e@26 ]
+[; ;hc18m121b1.h: 68: volatile bit Z @ ((unsigned)&STATUS*8)+2;
+"69
+[v _PD `Vb ~T0 @X0 1 e@27 ]
+[; ;hc18m121b1.h: 69: volatile bit PD @ ((unsigned)&STATUS*8)+3;
+"70
+[v _TO `Vb ~T0 @X0 1 e@28 ]
+[; ;hc18m121b1.h: 70: volatile bit TO @ ((unsigned)&STATUS*8)+4;
+"71
+[v _RP0 `Vb ~T0 @X0 1 e@29 ]
+[; ;hc18m121b1.h: 71: volatile bit RP0 @ ((unsigned)&STATUS*8)+5;
+"72
+[v _RST `Vb ~T0 @X0 1 e@31 ]
+[; ;hc18m121b1.h: 72: volatile bit RST @ ((unsigned)&STATUS*8)+7;
+"75
+[v _PORTA0 `Vb ~T0 @X0 1 e@40 ]
+[; ;hc18m121b1.h: 75: volatile bit PORTA0 @ ((unsigned)&PORTA*8)+0;
+"76
+[v _PORTA1 `Vb ~T0 @X0 1 e@41 ]
+[; ;hc18m121b1.h: 76: volatile bit PORTA1 @ ((unsigned)&PORTA*8)+1;
+"77
+[v _PORTA2 `Vb ~T0 @X0 1 e@42 ]
+[; ;hc18m121b1.h: 77: volatile bit PORTA2 @ ((unsigned)&PORTA*8)+2;
+"78
+[v _PORTA3 `Vb ~T0 @X0 1 e@43 ]
+[; ;hc18m121b1.h: 78: volatile bit PORTA3 @ ((unsigned)&PORTA*8)+3;
+"79
+[v _PORTA4 `Vb ~T0 @X0 1 e@44 ]
+[; ;hc18m121b1.h: 79: volatile bit PORTA4 @ ((unsigned)&PORTA*8)+4;
+"80
+[v _PORTA5 `Vb ~T0 @X0 1 e@45 ]
+[; ;hc18m121b1.h: 80: volatile bit PORTA5 @ ((unsigned)&PORTA*8)+5;
+"81
+[v _PORTA6 `Vb ~T0 @X0 1 e@46 ]
+[; ;hc18m121b1.h: 81: volatile bit PORTA6 @ ((unsigned)&PORTA*8)+6;
+"82
+[v _PORTA7 `Vb ~T0 @X0 1 e@47 ]
+[; ;hc18m121b1.h: 82: volatile bit PORTA7 @ ((unsigned)&PORTA*8)+7;
+"84
+[v _PORTB0 `Vb ~T0 @X0 1 e@48 ]
+[; ;hc18m121b1.h: 84: volatile bit PORTB0 @ ((unsigned)&PORTB*8)+0;
+"85
+[v _PORTB1 `Vb ~T0 @X0 1 e@49 ]
+[; ;hc18m121b1.h: 85: volatile bit PORTB1 @ ((unsigned)&PORTB*8)+1;
+"86
+[v _PORTB2 `Vb ~T0 @X0 1 e@50 ]
+[; ;hc18m121b1.h: 86: volatile bit PORTB2 @ ((unsigned)&PORTB*8)+2;
+"87
+[v _PORTB3 `Vb ~T0 @X0 1 e@51 ]
+[; ;hc18m121b1.h: 87: volatile bit PORTB3 @ ((unsigned)&PORTB*8)+3;
+"88
+[v _PORTB4 `Vb ~T0 @X0 1 e@52 ]
+[; ;hc18m121b1.h: 88: volatile bit PORTB4 @ ((unsigned)&PORTB*8)+4;
+"89
+[v _PORTB5 `Vb ~T0 @X0 1 e@53 ]
+[; ;hc18m121b1.h: 89: volatile bit PORTB5 @ ((unsigned)&PORTB*8)+5;
+"90
+[v _PORTB6 `Vb ~T0 @X0 1 e@54 ]
+[; ;hc18m121b1.h: 90: volatile bit PORTB6 @ ((unsigned)&PORTB*8)+6;
+"91
+[v _PORTB7 `Vb ~T0 @X0 1 e@55 ]
+[; ;hc18m121b1.h: 91: volatile bit PORTB7 @ ((unsigned)&PORTB*8)+7;
+"94
+[v _IOCA0 `Vb ~T0 @X0 1 e@56 ]
+[; ;hc18m121b1.h: 94: volatile bit IOCA0 @ ((unsigned)&IOCA*8)+0;
+"95
+[v _IOCA1 `Vb ~T0 @X0 1 e@57 ]
+[; ;hc18m121b1.h: 95: volatile bit IOCA1 @ ((unsigned)&IOCA*8)+1;
+"96
+[v _IOCA2 `Vb ~T0 @X0 1 e@58 ]
+[; ;hc18m121b1.h: 96: volatile bit IOCA2 @ ((unsigned)&IOCA*8)+2;
+"97
+[v _IOCA3 `Vb ~T0 @X0 1 e@59 ]
+[; ;hc18m121b1.h: 97: volatile bit IOCA3 @ ((unsigned)&IOCA*8)+3;
+"98
+[v _IOCA4 `Vb ~T0 @X0 1 e@60 ]
+[; ;hc18m121b1.h: 98: volatile bit IOCA4 @ ((unsigned)&IOCA*8)+4;
+"99
+[v _IOCA5 `Vb ~T0 @X0 1 e@61 ]
+[; ;hc18m121b1.h: 99: volatile bit IOCA5 @ ((unsigned)&IOCA*8)+5;
+"100
+[v _IOCA6 `Vb ~T0 @X0 1 e@62 ]
+[; ;hc18m121b1.h: 100: volatile bit IOCA6 @ ((unsigned)&IOCA*8)+6;
+"101
+[v _IOCA7 `Vb ~T0 @X0 1 e@63 ]
+[; ;hc18m121b1.h: 101: volatile bit IOCA7 @ ((unsigned)&IOCA*8)+7;
+"104
+[v _LVDEN `Vb ~T0 @X0 1 e@64 ]
+[; ;hc18m121b1.h: 104: volatile bit LVDEN @ ((unsigned)&LVDCR*8)+0;
+"105
+[v _LVDSEL0 `Vb ~T0 @X0 1 e@65 ]
+[; ;hc18m121b1.h: 105: volatile bit LVDSEL0 @ ((unsigned)&LVDCR*8)+1;
+"106
+[v _LVDSEL1 `Vb ~T0 @X0 1 e@66 ]
+[; ;hc18m121b1.h: 106: volatile bit LVDSEL1 @ ((unsigned)&LVDCR*8)+2;
+"107
+[v _LVDSEL2 `Vb ~T0 @X0 1 e@67 ]
+[; ;hc18m121b1.h: 107: volatile bit LVDSEL2 @ ((unsigned)&LVDCR*8)+3;
+"108
+[v _LVDSEL3 `Vb ~T0 @X0 1 e@68 ]
+[; ;hc18m121b1.h: 108: volatile bit LVDSEL3 @ ((unsigned)&LVDCR*8)+4;
+"109
+[v _LVDF `Vb ~T0 @X0 1 e@71 ]
+[; ;hc18m121b1.h: 109: volatile bit LVDF @ ((unsigned)&LVDCR*8)+7;
+"112
+[v _IOCB0 `Vb ~T0 @X0 1 e@72 ]
+[; ;hc18m121b1.h: 112: volatile bit IOCB0 @ ((unsigned)&IOCB*8)+0;
+"113
+[v _IOCB1 `Vb ~T0 @X0 1 e@73 ]
+[; ;hc18m121b1.h: 113: volatile bit IOCB1 @ ((unsigned)&IOCB*8)+1;
+"114
+[v _IOCB2 `Vb ~T0 @X0 1 e@74 ]
+[; ;hc18m121b1.h: 114: volatile bit IOCB2 @ ((unsigned)&IOCB*8)+2;
+"115
+[v _IOCB3 `Vb ~T0 @X0 1 e@75 ]
+[; ;hc18m121b1.h: 115: volatile bit IOCB3 @ ((unsigned)&IOCB*8)+3;
+"116
+[v _IOCB4 `Vb ~T0 @X0 1 e@76 ]
+[; ;hc18m121b1.h: 116: volatile bit IOCB4 @ ((unsigned)&IOCB*8)+4;
+"117
+[v _IOCB5 `Vb ~T0 @X0 1 e@77 ]
+[; ;hc18m121b1.h: 117: volatile bit IOCB5 @ ((unsigned)&IOCB*8)+5;
+"118
+[v _IOCB6 `Vb ~T0 @X0 1 e@78 ]
+[; ;hc18m121b1.h: 118: volatile bit IOCB6 @ ((unsigned)&IOCB*8)+6;
+"119
+[v _IOCB7 `Vb ~T0 @X0 1 e@79 ]
+[; ;hc18m121b1.h: 119: volatile bit IOCB7 @ ((unsigned)&IOCB*8)+7;
+"122
+[v _PDB0 `Vb ~T0 @X0 1 e@88 ]
+[; ;hc18m121b1.h: 122: volatile bit PDB0 @ ((unsigned)&PDCON*8)+0;
+"123
+[v _PDB1 `Vb ~T0 @X0 1 e@89 ]
+[; ;hc18m121b1.h: 123: volatile bit PDB1 @ ((unsigned)&PDCON*8)+1;
+"124
+[v _PDB2 `Vb ~T0 @X0 1 e@90 ]
+[; ;hc18m121b1.h: 124: volatile bit PDB2 @ ((unsigned)&PDCON*8)+2;
+"125
+[v _PDB3 `Vb ~T0 @X0 1 e@91 ]
+[; ;hc18m121b1.h: 125: volatile bit PDB3 @ ((unsigned)&PDCON*8)+3;
+"126
+[v _PDB4 `Vb ~T0 @X0 1 e@92 ]
+[; ;hc18m121b1.h: 126: volatile bit PDB4 @ ((unsigned)&PDCON*8)+4;
+"127
+[v _PDB5 `Vb ~T0 @X0 1 e@93 ]
+[; ;hc18m121b1.h: 127: volatile bit PDB5 @ ((unsigned)&PDCON*8)+5;
+"128
+[v _PDB6 `Vb ~T0 @X0 1 e@94 ]
+[; ;hc18m121b1.h: 128: volatile bit PDB6 @ ((unsigned)&PDCON*8)+6;
+"129
+[v _PDB7 `Vb ~T0 @X0 1 e@95 ]
+[; ;hc18m121b1.h: 129: volatile bit PDB7 @ ((unsigned)&PDCON*8)+7;
+"132
+[v _PHB0 `Vb ~T0 @X0 1 e@104 ]
+[; ;hc18m121b1.h: 132: volatile bit PHB0 @ ((unsigned)&PHCON*8)+0;
+"133
+[v _PHB1 `Vb ~T0 @X0 1 e@105 ]
+[; ;hc18m121b1.h: 133: volatile bit PHB1 @ ((unsigned)&PHCON*8)+1;
+"134
+[v _PHB2 `Vb ~T0 @X0 1 e@106 ]
+[; ;hc18m121b1.h: 134: volatile bit PHB2 @ ((unsigned)&PHCON*8)+2;
+"135
+[v _PHB3 `Vb ~T0 @X0 1 e@107 ]
+[; ;hc18m121b1.h: 135: volatile bit PHB3 @ ((unsigned)&PHCON*8)+3;
+"136
+[v _PHB4 `Vb ~T0 @X0 1 e@108 ]
+[; ;hc18m121b1.h: 136: volatile bit PHB4 @ ((unsigned)&PHCON*8)+4;
+"137
+[v _PHB5 `Vb ~T0 @X0 1 e@109 ]
+[; ;hc18m121b1.h: 137: volatile bit PHB5 @ ((unsigned)&PHCON*8)+5;
+"138
+[v _PHB6 `Vb ~T0 @X0 1 e@110 ]
+[; ;hc18m121b1.h: 138: volatile bit PHB6 @ ((unsigned)&PHCON*8)+6;
+"139
+[v _PHB7 `Vb ~T0 @X0 1 e@111 ]
+[; ;hc18m121b1.h: 139: volatile bit PHB7 @ ((unsigned)&PHCON*8)+7;
+"142
+[v _T0IE `Vb ~T0 @X0 1 e@112 ]
+[; ;hc18m121b1.h: 142: volatile bit T0IE @ ((unsigned)&INTECON*8)+0;
+"143
+[v _PBIE `Vb ~T0 @X0 1 e@113 ]
+[; ;hc18m121b1.h: 143: volatile bit PBIE @ ((unsigned)&INTECON*8)+1;
+"144
+[v _INT0E `Vb ~T0 @X0 1 e@114 ]
+[; ;hc18m121b1.h: 144: volatile bit INT0E @ ((unsigned)&INTECON*8)+2;
+"145
+[v _T0IF `Vb ~T0 @X0 1 e@115 ]
+[; ;hc18m121b1.h: 145: volatile bit T0IF @ ((unsigned)&INTECON*8)+3;
+"146
+[v _PBIF `Vb ~T0 @X0 1 e@116 ]
+[; ;hc18m121b1.h: 146: volatile bit PBIF @ ((unsigned)&INTECON*8)+4;
+"147
+[v _INT0F `Vb ~T0 @X0 1 e@117 ]
+[; ;hc18m121b1.h: 147: volatile bit INT0F @ ((unsigned)&INTECON*8)+5;
+"148
+[v _GIE `Vb ~T0 @X0 1 e@119 ]
+[; ;hc18m121b1.h: 148: volatile bit GIE @ ((unsigned)&INTECON*8)+7;
+"151
+[v _PAIF `Vb ~T0 @X0 1 e@120 ]
+[; ;hc18m121b1.h: 151: volatile bit PAIF @ ((unsigned)&PIR*8)+0;
+"152
+[v _PAIE `Vb ~T0 @X0 1 e@121 ]
+[; ;hc18m121b1.h: 152: volatile bit PAIE @ ((unsigned)&PIR*8)+1;
+"153
+[v _ADIF `Vb ~T0 @X0 1 e@122 ]
+[; ;hc18m121b1.h: 153: volatile bit ADIF @ ((unsigned)&PIR*8)+2;
+"154
+[v _ADIE `Vb ~T0 @X0 1 e@123 ]
+[; ;hc18m121b1.h: 154: volatile bit ADIE @ ((unsigned)&PIR*8)+3;
+"155
+[v _INT1F `Vb ~T0 @X0 1 e@124 ]
+[; ;hc18m121b1.h: 155: volatile bit INT1F @ ((unsigned)&PIR*8)+4;
+"156
+[v _INT1E `Vb ~T0 @X0 1 e@125 ]
+[; ;hc18m121b1.h: 156: volatile bit INT1E @ ((unsigned)&PIR*8)+5;
+"157
+[v _INT1EDG `Vb ~T0 @X0 1 e@126 ]
+[; ;hc18m121b1.h: 157: volatile bit INT1EDG @ ((unsigned)&PIR*8)+6;
+"162
+[v _RD_FLAG `Vb ~T0 @X0 1 e@512 ]
+[; ;hc18m121b1.h: 162: volatile bit RD_FLAG @ ((unsigned)&PMCON*8)+0;
+"163
+[v _MTP_CLEN `Vb ~T0 @X0 1 e@513 ]
+[; ;hc18m121b1.h: 163: volatile bit MTP_CLEN @ ((unsigned)&PMCON*8)+1;
+"166
+[v _PS0 `Vb ~T0 @X0 1 e@520 ]
+[; ;hc18m121b1.h: 166: volatile bit PS0 @ ((unsigned)&OPTION*8)+0;
+"167
+[v _PS1 `Vb ~T0 @X0 1 e@521 ]
+[; ;hc18m121b1.h: 167: volatile bit PS1 @ ((unsigned)&OPTION*8)+1;
+"168
+[v _PS2 `Vb ~T0 @X0 1 e@522 ]
+[; ;hc18m121b1.h: 168: volatile bit PS2 @ ((unsigned)&OPTION*8)+2;
+"169
+[v _PSA `Vb ~T0 @X0 1 e@523 ]
+[; ;hc18m121b1.h: 169: volatile bit PSA @ ((unsigned)&OPTION*8)+3;
+"170
+[v _T0SE `Vb ~T0 @X0 1 e@524 ]
+[; ;hc18m121b1.h: 170: volatile bit T0SE @ ((unsigned)&OPTION*8)+4;
+"171
+[v _T0CS `Vb ~T0 @X0 1 e@525 ]
+[; ;hc18m121b1.h: 171: volatile bit T0CS @ ((unsigned)&OPTION*8)+5;
+"172
+[v _INTEDG `Vb ~T0 @X0 1 e@526 ]
+[; ;hc18m121b1.h: 172: volatile bit INTEDG @ ((unsigned)&OPTION*8)+6;
+"173
+[v _WDTEN `Vb ~T0 @X0 1 e@527 ]
+[; ;hc18m121b1.h: 173: volatile bit WDTEN @ ((unsigned)&OPTION*8)+7;
+"176
+[v _PDA0 `Vb ~T0 @X0 1 e@528 ]
+[; ;hc18m121b1.h: 176: volatile bit PDA0 @ ((unsigned)&PDCON1*8)+0;
+"177
+[v _PDA1 `Vb ~T0 @X0 1 e@529 ]
+[; ;hc18m121b1.h: 177: volatile bit PDA1 @ ((unsigned)&PDCON1*8)+1;
+"178
+[v _PDA2 `Vb ~T0 @X0 1 e@530 ]
+[; ;hc18m121b1.h: 178: volatile bit PDA2 @ ((unsigned)&PDCON1*8)+2;
+"179
+[v _PDA3 `Vb ~T0 @X0 1 e@531 ]
+[; ;hc18m121b1.h: 179: volatile bit PDA3 @ ((unsigned)&PDCON1*8)+3;
+"180
+[v _PDA4 `Vb ~T0 @X0 1 e@532 ]
+[; ;hc18m121b1.h: 180: volatile bit PDA4 @ ((unsigned)&PDCON1*8)+4;
+"181
+[v _PDA5 `Vb ~T0 @X0 1 e@533 ]
+[; ;hc18m121b1.h: 181: volatile bit PDA5 @ ((unsigned)&PDCON1*8)+5;
+"182
+[v _PDA6 `Vb ~T0 @X0 1 e@534 ]
+[; ;hc18m121b1.h: 182: volatile bit PDA6 @ ((unsigned)&PDCON1*8)+6;
+"183
+[v _PDA7 `Vb ~T0 @X0 1 e@535 ]
+[; ;hc18m121b1.h: 183: volatile bit PDA7 @ ((unsigned)&PDCON1*8)+7;
+"186
+[v _PHA0 `Vb ~T0 @X0 1 e@536 ]
+[; ;hc18m121b1.h: 186: volatile bit PHA0 @ ((unsigned)&PHCON1*8)+0;
+"187
+[v _PHA1 `Vb ~T0 @X0 1 e@537 ]
+[; ;hc18m121b1.h: 187: volatile bit PHA1 @ ((unsigned)&PHCON1*8)+1;
+"188
+[v _PHA2 `Vb ~T0 @X0 1 e@538 ]
+[; ;hc18m121b1.h: 188: volatile bit PHA2 @ ((unsigned)&PHCON1*8)+2;
+"189
+[v _PHA3 `Vb ~T0 @X0 1 e@539 ]
+[; ;hc18m121b1.h: 189: volatile bit PHA3 @ ((unsigned)&PHCON1*8)+3;
+"190
+[v _PHA4 `Vb ~T0 @X0 1 e@540 ]
+[; ;hc18m121b1.h: 190: volatile bit PHA4 @ ((unsigned)&PHCON1*8)+4;
+"191
+[v _PHA5 `Vb ~T0 @X0 1 e@541 ]
+[; ;hc18m121b1.h: 191: volatile bit PHA5 @ ((unsigned)&PHCON1*8)+5;
+"192
+[v _PHA6 `Vb ~T0 @X0 1 e@542 ]
+[; ;hc18m121b1.h: 192: volatile bit PHA6 @ ((unsigned)&PHCON1*8)+6;
+"193
+[v _PHA7 `Vb ~T0 @X0 1 e@543 ]
+[; ;hc18m121b1.h: 193: volatile bit PHA7 @ ((unsigned)&PHCON1*8)+7;
+"196
+[v _TRISA0 `Vb ~T0 @X0 1 e@552 ]
+[; ;hc18m121b1.h: 196: volatile bit TRISA0 @ ((unsigned)&TRISA*8)+0;
+"197
+[v _TRISA1 `Vb ~T0 @X0 1 e@553 ]
+[; ;hc18m121b1.h: 197: volatile bit TRISA1 @ ((unsigned)&TRISA*8)+1;
+"198
+[v _TRISA2 `Vb ~T0 @X0 1 e@554 ]
+[; ;hc18m121b1.h: 198: volatile bit TRISA2 @ ((unsigned)&TRISA*8)+2;
+"199
+[v _TRISA3 `Vb ~T0 @X0 1 e@555 ]
+[; ;hc18m121b1.h: 199: volatile bit TRISA3 @ ((unsigned)&TRISA*8)+3;
+"200
+[v _TRISA4 `Vb ~T0 @X0 1 e@556 ]
+[; ;hc18m121b1.h: 200: volatile bit TRISA4 @ ((unsigned)&TRISA*8)+4;
+"201
+[v _TRISA5 `Vb ~T0 @X0 1 e@557 ]
+[; ;hc18m121b1.h: 201: volatile bit TRISA5 @ ((unsigned)&TRISA*8)+5;
+"202
+[v _TRISA6 `Vb ~T0 @X0 1 e@558 ]
+[; ;hc18m121b1.h: 202: volatile bit TRISA6 @ ((unsigned)&TRISA*8)+6;
+"203
+[v _TRISA7 `Vb ~T0 @X0 1 e@559 ]
+[; ;hc18m121b1.h: 203: volatile bit TRISA7 @ ((unsigned)&TRISA*8)+7;
+"206
+[v _TRISB0 `Vb ~T0 @X0 1 e@560 ]
+[; ;hc18m121b1.h: 206: volatile bit TRISB0 @ ((unsigned)&TRISB*8)+0;
+"207
+[v _TRISB1 `Vb ~T0 @X0 1 e@561 ]
+[; ;hc18m121b1.h: 207: volatile bit TRISB1 @ ((unsigned)&TRISB*8)+1;
+"208
+[v _TRISB2 `Vb ~T0 @X0 1 e@562 ]
+[; ;hc18m121b1.h: 208: volatile bit TRISB2 @ ((unsigned)&TRISB*8)+2;
+"209
+[v _TRISB3 `Vb ~T0 @X0 1 e@563 ]
+[; ;hc18m121b1.h: 209: volatile bit TRISB3 @ ((unsigned)&TRISB*8)+3;
+"210
+[v _TRISB4 `Vb ~T0 @X0 1 e@564 ]
+[; ;hc18m121b1.h: 210: volatile bit TRISB4 @ ((unsigned)&TRISB*8)+4;
+"211
+[v _TRISB5 `Vb ~T0 @X0 1 e@565 ]
+[; ;hc18m121b1.h: 211: volatile bit TRISB5 @ ((unsigned)&TRISB*8)+5;
+"212
+[v _TRISB6 `Vb ~T0 @X0 1 e@566 ]
+[; ;hc18m121b1.h: 212: volatile bit TRISB6 @ ((unsigned)&TRISB*8)+6;
+"213
+[v _TRISB7 `Vb ~T0 @X0 1 e@567 ]
+[; ;hc18m121b1.h: 213: volatile bit TRISB7 @ ((unsigned)&TRISB*8)+7;
+"216
+[v _T1IF `Vb ~T0 @X0 1 e@600 ]
+[; ;hc18m121b1.h: 216: volatile bit T1IF @ ((unsigned)&T1CR_AUXR*8)+0;
+"217
+[v _T1IE `Vb ~T0 @X0 1 e@601 ]
+[; ;hc18m121b1.h: 217: volatile bit T1IE @ ((unsigned)&T1CR_AUXR*8)+1;
+"218
+[v _BOREN `Vb ~T0 @X0 1 e@602 ]
+[; ;hc18m121b1.h: 218: volatile bit BOREN @ ((unsigned)&T1CR_AUXR*8)+2;
+"219
+[v _BOR `Vb ~T0 @X0 1 e@603 ]
+[; ;hc18m121b1.h: 219: volatile bit BOR @ ((unsigned)&T1CR_AUXR*8)+3;
+"220
+[v _POR `Vb ~T0 @X0 1 e@604 ]
+[; ;hc18m121b1.h: 220: volatile bit POR @ ((unsigned)&T1CR_AUXR*8)+4;
+"221
+[v _T2IF `Vb ~T0 @X0 1 e@605 ]
+[; ;hc18m121b1.h: 221: volatile bit T2IF @ ((unsigned)&T1CR_AUXR*8)+5;
+"222
+[v _T2IE `Vb ~T0 @X0 1 e@606 ]
+[; ;hc18m121b1.h: 222: volatile bit T2IE @ ((unsigned)&T1CR_AUXR*8)+6;
+"223
+[v _T0CK `Vb ~T0 @X0 1 e@607 ]
+[; ;hc18m121b1.h: 223: volatile bit T0CK @ ((unsigned)&T1CR_AUXR*8)+7;
+"226
+[v _T1PR0 `Vb ~T0 @X0 1 e@608 ]
+[; ;hc18m121b1.h: 226: volatile bit T1PR0 @ ((unsigned)&T1CON*8)+0;
+"227
+[v _T1PR1 `Vb ~T0 @X0 1 e@609 ]
+[; ;hc18m121b1.h: 227: volatile bit T1PR1 @ ((unsigned)&T1CON*8)+1;
+"228
+[v _T1PR2 `Vb ~T0 @X0 1 e@610 ]
+[; ;hc18m121b1.h: 228: volatile bit T1PR2 @ ((unsigned)&T1CON*8)+2;
+"229
+[v _T1CK0 `Vb ~T0 @X0 1 e@611 ]
+[; ;hc18m121b1.h: 229: volatile bit T1CK0 @ ((unsigned)&T1CON*8)+3;
+"230
+[v _T1CK1 `Vb ~T0 @X0 1 e@612 ]
+[; ;hc18m121b1.h: 230: volatile bit T1CK1 @ ((unsigned)&T1CON*8)+4;
+"231
+[v _T0OSCEN `Vb ~T0 @X0 1 e@613 ]
+[; ;hc18m121b1.h: 231: volatile bit T0OSCEN @ ((unsigned)&T1CON*8)+5;
+"232
+[v _PWM0E `Vb ~T0 @X0 1 e@614 ]
+[; ;hc18m121b1.h: 232: volatile bit PWM0E @ ((unsigned)&T1CON*8)+6;
+"233
+[v _T1EN `Vb ~T0 @X0 1 e@615 ]
+[; ;hc18m121b1.h: 233: volatile bit T1EN @ ((unsigned)&T1CON*8)+7;
+"237
+[v _T2PR0 `Vb ~T0 @X0 1 e@640 ]
+[; ;hc18m121b1.h: 237: volatile bit T2PR0 @ ((unsigned)&T2CON*8)+0;
+"238
+[v _T2PR1 `Vb ~T0 @X0 1 e@641 ]
+[; ;hc18m121b1.h: 238: volatile bit T2PR1 @ ((unsigned)&T2CON*8)+1;
+"239
+[v _T2PR2 `Vb ~T0 @X0 1 e@642 ]
+[; ;hc18m121b1.h: 239: volatile bit T2PR2 @ ((unsigned)&T2CON*8)+2;
+"240
+[v _T2CK0 `Vb ~T0 @X0 1 e@643 ]
+[; ;hc18m121b1.h: 240: volatile bit T2CK0 @ ((unsigned)&T2CON*8)+3;
+"241
+[v _T2CK1 `Vb ~T0 @X0 1 e@644 ]
+[; ;hc18m121b1.h: 241: volatile bit T2CK1 @ ((unsigned)&T2CON*8)+4;
+"242
+[v _SCS `Vb ~T0 @X0 1 e@645 ]
+[; ;hc18m121b1.h: 242: volatile bit SCS @ ((unsigned)&T2CON*8)+5;
+"243
+[v _PWM1E `Vb ~T0 @X0 1 e@646 ]
+[; ;hc18m121b1.h: 243: volatile bit PWM1E @ ((unsigned)&T2CON*8)+6;
+"244
+[v _T2EN `Vb ~T0 @X0 1 e@647 ]
+[; ;hc18m121b1.h: 244: volatile bit T2EN @ ((unsigned)&T2CON*8)+7;
+"247
+[v _PWM1_8 `Vb ~T0 @X0 1 e@648 ]
+[; ;hc18m121b1.h: 247: volatile bit PWM1_8 @ ((unsigned)&TMR2H*8)+0;
+"248
+[v _PWM1_9 `Vb ~T0 @X0 1 e@649 ]
+[; ;hc18m121b1.h: 248: volatile bit PWM1_9 @ ((unsigned)&TMR2H*8)+1;
+"249
+[v _T2LOAD_8 `Vb ~T0 @X0 1 e@650 ]
+[; ;hc18m121b1.h: 249: volatile bit T2LOAD_8 @ ((unsigned)&TMR2H*8)+2;
+"250
+[v _T2LOAD_9 `Vb ~T0 @X0 1 e@651 ]
+[; ;hc18m121b1.h: 250: volatile bit T2LOAD_9 @ ((unsigned)&TMR2H*8)+3;
+"251
+[v _TIMER2_8 `Vb ~T0 @X0 1 e@652 ]
+[; ;hc18m121b1.h: 251: volatile bit TIMER2_8 @ ((unsigned)&TMR2H*8)+4;
+"252
+[v _TIMER2_9 `Vb ~T0 @X0 1 e@653 ]
+[; ;hc18m121b1.h: 252: volatile bit TIMER2_9 @ ((unsigned)&TMR2H*8)+5;
+"253
+[v _PWMS0 `Vb ~T0 @X0 1 e@654 ]
+[; ;hc18m121b1.h: 253: volatile bit PWMS0 @ ((unsigned)&TMR2H*8)+6;
+"254
+[v _PWMS1 `Vb ~T0 @X0 1 e@655 ]
+[; ;hc18m121b1.h: 254: volatile bit PWMS1 @ ((unsigned)&TMR2H*8)+7;
+"257
+[v _PWMM `Vb ~T0 @X0 1 e@680 ]
+[; ;hc18m121b1.h: 257: volatile bit PWMM @ ((unsigned)&PWMSET*8)+0;
+"259
+[v _ANSEL0 `Vb ~T0 @X0 1 e@688 ]
+[; ;hc18m121b1.h: 259: volatile bit ANSEL0 @ ((unsigned)&ANSELL*8)+0;
+"260
+[v _ANSEL1 `Vb ~T0 @X0 1 e@689 ]
+[; ;hc18m121b1.h: 260: volatile bit ANSEL1 @ ((unsigned)&ANSELL*8)+1;
+"261
+[v _ANSEL2 `Vb ~T0 @X0 1 e@690 ]
+[; ;hc18m121b1.h: 261: volatile bit ANSEL2 @ ((unsigned)&ANSELL*8)+2;
+"262
+[v _ANSEL3 `Vb ~T0 @X0 1 e@691 ]
+[; ;hc18m121b1.h: 262: volatile bit ANSEL3 @ ((unsigned)&ANSELL*8)+3;
+"263
+[v _ANSEL4 `Vb ~T0 @X0 1 e@692 ]
+[; ;hc18m121b1.h: 263: volatile bit ANSEL4 @ ((unsigned)&ANSELL*8)+4;
+"264
+[v _ANSEL5 `Vb ~T0 @X0 1 e@693 ]
+[; ;hc18m121b1.h: 264: volatile bit ANSEL5 @ ((unsigned)&ANSELL*8)+5;
+"265
+[v _ANSEL6 `Vb ~T0 @X0 1 e@694 ]
+[; ;hc18m121b1.h: 265: volatile bit ANSEL6 @ ((unsigned)&ANSELL*8)+6;
+"266
+[v _ANSEL7 `Vb ~T0 @X0 1 e@695 ]
+[; ;hc18m121b1.h: 266: volatile bit ANSEL7 @ ((unsigned)&ANSELL*8)+7;
+"269
+[v _ANSEL8 `Vb ~T0 @X0 1 e@696 ]
+[; ;hc18m121b1.h: 269: volatile bit ANSEL8 @ ((unsigned)&ANSELH*8)+0;
+"270
+[v _ANSEL9 `Vb ~T0 @X0 1 e@697 ]
+[; ;hc18m121b1.h: 270: volatile bit ANSEL9 @ ((unsigned)&ANSELH*8)+1;
+"271
+[v _ANSEL10 `Vb ~T0 @X0 1 e@698 ]
+[; ;hc18m121b1.h: 271: volatile bit ANSEL10 @ ((unsigned)&ANSELH*8)+2;
+"272
+[v _ANSEL11 `Vb ~T0 @X0 1 e@699 ]
+[; ;hc18m121b1.h: 272: volatile bit ANSEL11 @ ((unsigned)&ANSELH*8)+3;
+"273
+[v _ANSEL14 `Vb ~T0 @X0 1 e@702 ]
+[; ;hc18m121b1.h: 273: volatile bit ANSEL14 @ ((unsigned)&ANSELH*8)+6;
+"274
+[v _ANSEL15 `Vb ~T0 @X0 1 e@703 ]
+[; ;hc18m121b1.h: 274: volatile bit ANSEL15 @ ((unsigned)&ANSELH*8)+7;
+"277
+[v _ADEN `Vb ~T0 @X0 1 e@720 ]
+[; ;hc18m121b1.h: 277: volatile bit ADEN @ ((unsigned)&ADCON0*8)+0;
+"278
+[v _ADON `Vb ~T0 @X0 1 e@721 ]
+[; ;hc18m121b1.h: 278: volatile bit ADON @ ((unsigned)&ADCON0*8)+1;
+"279
+[v _CHS0 `Vb ~T0 @X0 1 e@722 ]
+[; ;hc18m121b1.h: 279: volatile bit CHS0 @ ((unsigned)&ADCON0*8)+2;
+"280
+[v _CHS1 `Vb ~T0 @X0 1 e@723 ]
+[; ;hc18m121b1.h: 280: volatile bit CHS1 @ ((unsigned)&ADCON0*8)+3;
+"281
+[v _CHS2 `Vb ~T0 @X0 1 e@724 ]
+[; ;hc18m121b1.h: 281: volatile bit CHS2 @ ((unsigned)&ADCON0*8)+4;
+"282
+[v _CHS3 `Vb ~T0 @X0 1 e@725 ]
+[; ;hc18m121b1.h: 282: volatile bit CHS3 @ ((unsigned)&ADCON0*8)+5;
+"284
+[v _ADREF `Vb ~T0 @X0 1 e@728 ]
+[; ;hc18m121b1.h: 284: volatile bit ADREF @ ((unsigned)&ADCON1*8)+0;
+"285
+[v _VHS0 `Vb ~T0 @X0 1 e@729 ]
+[; ;hc18m121b1.h: 285: volatile bit VHS0 @ ((unsigned)&ADCON1*8)+1;
+"286
+[v _VHS1 `Vb ~T0 @X0 1 e@730 ]
+[; ;hc18m121b1.h: 286: volatile bit VHS1 @ ((unsigned)&ADCON1*8)+2;
+"287
+[v _VHS2 `Vb ~T0 @X0 1 e@731 ]
+[; ;hc18m121b1.h: 287: volatile bit VHS2 @ ((unsigned)&ADCON1*8)+3;
+"288
+[v _ADCS0 `Vb ~T0 @X0 1 e@732 ]
+[; ;hc18m121b1.h: 288: volatile bit ADCS0 @ ((unsigned)&ADCON1*8)+4;
+"289
+[v _ADCS1 `Vb ~T0 @X0 1 e@733 ]
+[; ;hc18m121b1.h: 289: volatile bit ADCS1 @ ((unsigned)&ADCON1*8)+5;
+"290
+[v _ADCS2 `Vb ~T0 @X0 1 e@734 ]
+[; ;hc18m121b1.h: 290: volatile bit ADCS2 @ ((unsigned)&ADCON1*8)+6;
+[; ;sc.h: 28: extern void __nop(void);
+[; ;sc.h: 76: extern unsigned int flash_read(unsigned short addr);
+[; ;sc.h: 150: extern __nonreentrant void _delay(unsigned long);
+[; ;sc.h: 184: extern unsigned char __resetbits;
+[; ;sc.h: 185: extern __bit __powerdown;
+[; ;sc.h: 186: extern __bit __timeout;
+[; ;inital.h: 9: void inital(void);
+[; ;inital.h: 10: void sysinitial(void);
+[; ;inital.h: 11: void ramInitial(void);
+[; ;PWM.h: 10: void T1_PWM_inital(void);
+"18 main.c
+[v _kcomm_state `uc ~T0 @X0 1 e ]
+[; ;main.c: 18: unsigned char kcomm_state;
+"19
+[v _kcomm_timer `ui ~T0 @X0 1 e ]
+[; ;main.c: 19: unsigned int kcomm_timer;
+"20
+[v _kcomm_tx_buf `uc ~T0 @X0 1 e ]
+[; ;main.c: 20: unsigned char kcomm_tx_buf;
+"21
+[v _kcomm_tx_shift `uc ~T0 @X0 1 e ]
+[; ;main.c: 21: unsigned char kcomm_tx_shift;
+"22
+[v _kcomm_rx_buf `uc ~T0 @X0 1 e ]
+[; ;main.c: 22: unsigned char kcomm_rx_buf;
+"23
+[v _kcomm_bit_idx `uc ~T0 @X0 1 e ]
+[; ;main.c: 23: unsigned char kcomm_bit_idx;
+"24
+[v _kcomm_turn `uc ~T0 @X0 1 e ]
+[; ;main.c: 24: unsigned char kcomm_turn;
+"25
+[v _kcomm_cycle `uc ~T0 @X0 1 e ]
+[; ;main.c: 25: unsigned char kcomm_cycle;
+"26
+[v _kcomm_rx_done `uc ~T0 @X0 1 e ]
+[; ;main.c: 26: unsigned char kcomm_rx_done;
+"27
+[v _kcomm_rx_shift `uc ~T0 @X0 1 e ]
+[; ;main.c: 27: unsigned char kcomm_rx_shift;
+"28
+[v _kcomm_tx_done `uc ~T0 @X0 1 e ]
+[; ;main.c: 28: unsigned char kcomm_tx_done;
+"29
+[v _kcomm_low_cnt `ui ~T0 @X0 1 e ]
+[; ;main.c: 29: unsigned int kcomm_low_cnt;
+"30
+[v _kcomm_wakeup `uc ~T0 @X0 1 e ]
+[; ;main.c: 30: unsigned char kcomm_wakeup;
+"31
+[v _kcomm_wakeup_cnt `ui ~T0 @X0 1 e ]
+[; ;main.c: 31: unsigned int kcomm_wakeup_cnt;
+"89
+[v _adcon1_val `uc ~T0 @X0 1 e ]
+[i _adcon1_val
+-> -> 0 `i `uc
+]
+[; ;main.c: 89: unsigned char adcon1_val = 0;
+"106
+[v _DIY_Flag1 `S1 ~T0 @X0 1 e ]
+[v _DIY_Flag2 `S1 ~T0 @X0 1 e ]
+[; ;main.c: 91: union{
+[; ;main.c: 93: struct{
+[; ;main.c: 94: unsigned b0: 1;
+[; ;main.c: 95: unsigned b1: 1;
+[; ;main.c: 96: unsigned b2: 1;
+[; ;main.c: 97: unsigned b3: 1;
+[; ;main.c: 98: unsigned b4: 1;
+[; ;main.c: 99: unsigned b5: 1;
+[; ;main.c: 100: unsigned b6: 1;
+[; ;main.c: 101: unsigned b7: 1;
+[; ;main.c: 102: }OnrBit;
+[; ;main.c: 105: unsigned char AllBits;
+[; ;main.c: 106: }DIY_Flag1,DIY_Flag2;
+"127
+[v _g_k1_hold_ms `ui ~T0 @X0 1 e ]
+[; ;main.c: 127: unsigned int g_k1_hold_ms;
+"128
+[v _g_k2_hold_ms `ui ~T0 @X0 1 e ]
+[; ;main.c: 128: unsigned int g_k2_hold_ms;
+"129
+[v _g_gear `uc ~T0 @X0 1 e ]
+[; ;main.c: 129: unsigned char g_gear;
+"130
+[v _g_target_pwm `uc ~T0 @X0 1 e ]
+[; ;main.c: 130: unsigned char g_target_pwm;
+"131
+[v _g_current_pwm `ui ~T0 @X0 1 e ]
+[; ;main.c: 131: unsigned int g_current_pwm;
+"132
+[v _g_battery_empty `uc ~T0 @X0 1 e ]
+[; ;main.c: 132: unsigned char g_battery_empty;
+"133
+[v _g_warn_flash `uc ~T0 @X0 1 e ]
+[; ;main.c: 133: unsigned char g_warn_flash;
+"134
+[v _g_warn_led `uc ~T0 @X0 1 e ]
+[; ;main.c: 134: unsigned char g_warn_led;
+"135
+[v _g_k1_prev `uc ~T0 @X0 1 e ]
+[; ;main.c: 135: unsigned char g_k1_prev;
+"136
+[v _g_k2_prev `uc ~T0 @X0 1 e ]
+[; ;main.c: 136: unsigned char g_k2_prev;
+"138
+[v _g_warn_cnt `uc ~T0 @X0 1 e ]
+[; ;main.c: 138: unsigned char g_warn_cnt;
+"139
+[v _g_offshow_ms `ui ~T0 @X0 1 e ]
+[; ;main.c: 139: unsigned int g_offshow_ms;
+"140
+[v _level `uc ~T0 @X0 1 e ]
+[; ;main.c: 140: unsigned char level;
+"148
+[v _g_vdd_adc `ui ~T0 @X0 1 e ]
+[; ;main.c: 148: unsigned int g_vdd_adc;
+"149
+[v _g_overclock_pwm `uc ~T0 @X0 1 e ]
+[; ;main.c: 149: unsigned char g_overclock_pwm;
+"150
+[v _g_pwr_delay_ms `ui ~T0 @X0 1 e ]
+[; ;main.c: 150: unsigned int g_pwr_delay_ms;
+"151
+[v _g_slave_alive_ms `ui ~T0 @X0 1 e ]
+[; ;main.c: 151: unsigned int g_slave_alive_ms;
+"152
+[v _c_fan_duty `Cuc ~T0 @X0 -> 7 `i e ]
+[i _c_fan_duty
+:U ..
+-> -> 0 `i `uc
+-> -> 25 `i `uc
+-> -> 50 `i `uc
+-> -> 68 `i `uc
+-> -> 87 `i `uc
+-> -> 105 `i `uc
+-> -> 124 `i `uc
+..
+]
+[; ;main.c: 152: const unsigned char c_fan_duty[7] = {0, 25, 50, 68, 87, 105, 124};
+[; ;main.c: 153: void ADC_Init(void);
+[; ;main.c: 154: void Comm_Process(void);
+[; ;main.c: 155: void show_gear_led(unsigned char gear);
+"163
+[v _Delay_Init `(v ~T0 @X0 1 ef1`ui ]
+"164
+{
+[; ;main.c: 163: void Delay_Init(unsigned int Delay_Duty)
+[; ;main.c: 164: {
+[e :U _Delay_Init ]
+"163
+[v _Delay_Duty `ui ~T0 @X0 1 r1 ]
+"164
+[f ]
+"165
+[v _i `ui ~T0 @X0 1 a ]
+[; ;main.c: 165: unsigned int i;
+[; ;main.c: 167: for(i = 0; i <= Delay_Duty; i ++)
+"167
+{
+[e = _i -> -> 0 `i `ui ]
+[e $U 7  ]
+"168
+[e :U 4 ]
+[; ;main.c: 168: {
+{
+"170
+[; <"   clrwdt ;# ">
+"172
+}
+"167
+[e ++ _i -> -> 1 `i `ui ]
+[e :U 7 ]
+[e $ <= _i _Delay_Duty 4  ]
+[e :U 5 ]
+"172
+}
+[; ;main.c: 172: }
+[; ;main.c: 173: }
+"173
+[e :UE 3 ]
+}
+"175
+[v _delay_us `(v ~T0 @X0 1 ef1`ui ]
+"176
+{
+[; ;main.c: 175: void delay_us(unsigned int us)
+[; ;main.c: 176: {
+[e :U _delay_us ]
+"175
+[v _us `ui ~T0 @X0 1 r1 ]
+"176
+[f ]
+"177
+[v _i `ui ~T0 @X0 1 a ]
+[; ;main.c: 177: unsigned int i;
+[; ;main.c: 179: while(us--)
+"179
+[e $U 9  ]
+[e :U 10 ]
+[; ;main.c: 180: {
+"180
+{
+[; ;main.c: 182: for(i = 0; i < 4; i++)
+"182
+{
+[e = _i -> -> 0 `i `ui ]
+[e $ < _i -> -> 4 `i `ui 12  ]
+[e $U 13  ]
+"183
+[e :U 12 ]
+[; ;main.c: 183: {
+{
+"185
+[; <"             nop ;# ">
+"187
+}
+"182
+[e ++ _i -> -> 1 `i `ui ]
+[e $ < _i -> -> 4 `i `ui 12  ]
+[e :U 13 ]
+"187
+}
+"188
+}
+[e :U 9 ]
+"179
+[e $ != -- _us -> -> 1 `i `ui -> -> 0 `i `ui 10  ]
+[e :U 11 ]
+[; ;main.c: 187: }
+[; ;main.c: 188: }
+[; ;main.c: 189: }
+"189
+[e :UE 8 ]
+}
+"192
+[v _Sleep_Func `(v ~T0 @X0 1 ef ]
+"193
+{
+[; ;main.c: 192: void Sleep_Func(void)
+[; ;main.c: 193: {
+[e :U _Sleep_Func ]
+[f ]
+"194
+[v F481 `ui ~T0 @X0 1 s Sleep_Time ]
+[i F481
+-> -> 0 `i `ui
+]
+[; ;main.c: 194: static unsigned int Sleep_Time = 0;
+[; ;main.c: 197: if(DIY_Flag2.OnrBit.b0 || DIY_Flag1.OnrBit.b5 || DIY_Flag2.OnrBit.b2 || DIY_Flag2.OnrBit.b3 || DIY_Flag1.OnrBit.b7 || kcomm_wakeup)
+"197
+[e $ ! || || || || || != -> . . _DIY_Flag2 0 0 `i -> -> -> 0 `i `uc `i != -> . . _DIY_Flag1 0 5 `i -> -> -> 0 `i `uc `i != -> . . _DIY_Flag2 0 2 `i -> -> -> 0 `i `uc `i != -> . . _DIY_Flag2 0 3 `i -> -> -> 0 `i `uc `i != -> . . _DIY_Flag1 0 7 `i -> -> -> 0 `i `uc `i != -> _kcomm_wakeup `i -> -> -> 0 `i `uc `i 16  ]
+[; ;main.c: 198: {
+"198
+{
+[; ;main.c: 199: Sleep_Time = 0;
+"199
+[e = F481 -> -> 0 `i `ui ]
+"200
+}
+[e :U 16 ]
+[; ;main.c: 200: }
+[; ;main.c: 201: Sleep_Time++;
+"201
+[e ++ F481 -> -> 1 `i `ui ]
+[; ;main.c: 202: if(Sleep_Time >= 1000)
+"202
+[e $ ! >= F481 -> -> 1000 `i `ui 17  ]
+[; ;main.c: 203: {
+"203
+{
+[; ;main.c: 204: Sleep_Time = 0;
+"204
+[e = F481 -> -> 0 `i `ui ]
+[; ;main.c: 205: (PORTB1 = 1); (PORTB0 = 1); (PORTA7 = 1); (PORTA6 = 1); (PORTA4 = 1);
+"205
+[e = _PORTB1 -> -> 1 `i `b ]
+[e = _PORTB0 -> -> 1 `i `b ]
+[e = _PORTA7 -> -> 1 `i `b ]
+[e = _PORTA6 -> -> 1 `i `b ]
+[e = _PORTA4 -> -> 1 `i `b ]
+[; ;main.c: 207: GIE = 0;
+"207
+[e = _GIE -> -> 0 `i `b ]
+[; ;main.c: 208: T0IE = 0;
+"208
+[e = _T0IE -> -> 0 `i `b ]
+[; ;main.c: 209: T1IE = 0;
+"209
+[e = _T1IE -> -> 0 `i `b ]
+[; ;main.c: 210: T2IE = 0;
+"210
+[e = _T2IE -> -> 0 `i `b ]
+[; ;main.c: 211: INTECON = 0;
+"211
+[e = _INTECON -> -> 0 `i `uc ]
+[; ;main.c: 212: PIR = 0;
+"212
+[e = _PIR -> -> 0 `i `uc ]
+[; ;main.c: 214: ADCON0 = 0;
+"214
+[e = _ADCON0 -> -> 0 `i `uc ]
+[; ;main.c: 215: ADCON1 = 0;
+"215
+[e = _ADCON1 -> -> 0 `i `uc ]
+[; ;main.c: 216: ANSELL = 0;
+"216
+[e = _ANSELL -> -> 0 `i `uc ]
+[; ;main.c: 217: ANSELH = 0;
+"217
+[e = _ANSELH -> -> 0 `i `uc ]
+[; ;main.c: 220: TRISA = 0x0E;
+"220
+[e = _TRISA -> -> 14 `i `uc ]
+[; ;main.c: 221: TRISB = 0x48;
+"221
+[e = _TRISB -> -> 72 `i `uc ]
+[; ;main.c: 223: PHCON1 = 0xF1;
+"223
+[e = _PHCON1 -> -> 241 `i `uc ]
+[; ;main.c: 224: PHCON = 0xFF;
+"224
+[e = _PHCON -> -> 255 `i `uc ]
+[; ;main.c: 225: PDCON1 = 0xFF;
+"225
+[e = _PDCON1 -> -> 255 `i `uc ]
+[; ;main.c: 226: PDCON = 0xBF;
+"226
+[e = _PDCON -> -> 191 `i `uc ]
+[; ;main.c: 228: delay_us(1000);
+"228
+[e ( _delay_us (1 -> -> 1000 `i `ui ]
+[; ;main.c: 230: BOREN = 0;
+"230
+[e = _BOREN -> -> 0 `i `b ]
+[; ;main.c: 231: WDTEN = 0;
+"231
+[e = _WDTEN -> -> 0 `i `b ]
+[; ;main.c: 234: IOCA = 0x0E;
+"234
+[e = _IOCA -> -> 14 `i `uc ]
+[; ;main.c: 235: IOCB = 0x40;
+"235
+[e = _IOCB -> -> 64 `i `uc ]
+"237
+[v _temp `uc ~T0 @X0 1 a ]
+[; ;main.c: 237: unsigned char temp;
+[; ;main.c: 238: temp = PORTA;
+"238
+[e = _temp _PORTA ]
+[; ;main.c: 239: temp = PORTB;
+"239
+[e = _temp _PORTB ]
+[; ;main.c: 240: (void)temp;
+"240
+[e _temp ]
+[; ;main.c: 242: PAIF = 0;
+"242
+[e = _PAIF -> -> 0 `i `b ]
+[; ;main.c: 243: PBIF = 0;
+"243
+[e = _PBIF -> -> 0 `i `b ]
+[; ;main.c: 244: PAIE = 1;
+"244
+[e = _PAIE -> -> 1 `i `b ]
+[; ;main.c: 245: PBIE = 1;
+"245
+[e = _PBIE -> -> 1 `i `b ]
+"249
+[; <"         clrwdt ;# ">
+"250
+[; <"         nop ;# ">
+"251
+[; <"         sleep ;# ">
+"252
+[; <"         nop ;# ">
+[; ;main.c: 254: WDTEN = 1;
+"254
+[e = _WDTEN -> -> 1 `i `b ]
+[; ;main.c: 255: ADEN = 1;
+"255
+[e = _ADEN -> -> 1 `i `b ]
+[; ;main.c: 257: if(((PORTB & 0x40) ? 1 : 0))
+"257
+[e $ ! != ? != & -> _PORTB `i -> 64 `i -> 0 `i : -> 1 `i -> 0 `i -> 0 `i 18  ]
+[; ;main.c: 258: {
+"258
+{
+[; ;main.c: 260: DIY_Flag2.OnrBit.b2 = 1;
+"260
+[e = . . _DIY_Flag2 0 2 -> -> 1 `i `uc ]
+[; ;main.c: 261: g_slave_alive_ms = 3000;
+"261
+[e = _g_slave_alive_ms -> -> 3000 `i `ui ]
+[; ;main.c: 264: while(((PORTB & 0x40) ? 1 : 0))
+"264
+[e $U 19  ]
+[e :U 20 ]
+[; ;main.c: 265: {
+"265
+{
+"267
+[; <"                 clrwdt ;# ">
+"269
+}
+[e :U 19 ]
+"264
+[e $ != ? != & -> _PORTB `i -> 64 `i -> 0 `i : -> 1 `i -> 0 `i -> 0 `i 20  ]
+[e :U 21 ]
+[; ;main.c: 269: }
+[; ;main.c: 272: kcomm_cycle = 195;
+"272
+[e = _kcomm_cycle -> -> 195 `i `uc ]
+[; ;main.c: 273: kcomm_wakeup = 0;
+"273
+[e = _kcomm_wakeup -> -> 0 `i `uc ]
+"274
+}
+[e :U 18 ]
+[; ;main.c: 274: }
+[; ;main.c: 276: temp = PORTA;
+"276
+[e = _temp _PORTA ]
+[; ;main.c: 277: temp = PORTB;
+"277
+[e = _temp _PORTB ]
+[; ;main.c: 278: (void)temp;
+"278
+[e _temp ]
+[; ;main.c: 279: PAIF = 0;
+"279
+[e = _PAIF -> -> 0 `i `b ]
+[; ;main.c: 280: PBIF = 0;
+"280
+[e = _PBIF -> -> 0 `i `b ]
+[; ;main.c: 281: PAIE = 0;
+"281
+[e = _PAIE -> -> 0 `i `b ]
+[; ;main.c: 282: PBIE = 0;
+"282
+[e = _PBIE -> -> 0 `i `b ]
+[; ;main.c: 284: if(!PORTA2 || !PORTA1)
+"284
+[e $ ! || ! _PORTA2 ! _PORTA1 22  ]
+[; ;main.c: 285: {
+"285
+{
+[; ;main.c: 286: DIY_Flag1.OnrBit.b5 = 1;
+"286
+[e = . . _DIY_Flag1 0 5 -> -> 1 `i `uc ]
+"287
+}
+[e :U 22 ]
+[; ;main.c: 287: }
+[; ;main.c: 288: inital();
+"288
+[e ( _inital ..  ]
+[; ;main.c: 289: sysinitial();
+"289
+[e ( _sysinitial ..  ]
+[; ;main.c: 290: ADC_Init();
+"290
+[e ( _ADC_Init ..  ]
+[; ;main.c: 291: BOREN = 1;
+"291
+[e = _BOREN -> -> 1 `i `b ]
+[; ;main.c: 292: Sleep_Time = 0;
+"292
+[e = F481 -> -> 0 `i `ui ]
+[; ;main.c: 293: DIY_Flag1.OnrBit.b0 = 0;
+"293
+[e = . . _DIY_Flag1 0 0 -> -> 0 `i `uc ]
+"294
+}
+[e :U 17 ]
+[; ;main.c: 294: }
+[; ;main.c: 295: }
+"295
+[e :UE 15 ]
+}
+"301
+[v _ADC_Init `(v ~T0 @X0 1 ef ]
+"302
+{
+[; ;main.c: 301: void ADC_Init(void)
+[; ;main.c: 302: {
+[e :U _ADC_Init ]
+[f ]
+[; ;main.c: 303: ANSELL=0X20;
+"303
+[e = _ANSELL -> -> 32 `i `uc ]
+[; ;main.c: 304: ANSELH=0X00;
+"304
+[e = _ANSELH -> -> 0 `i `uc ]
+[; ;main.c: 305: ADCON0=0X15;
+"305
+[e = _ADCON0 -> -> 21 `i `uc ]
+[; ;main.c: 306: adcon1_val = 0X08;
+"306
+[e = _adcon1_val -> -> 8 `i `uc ]
+[; ;main.c: 307: ADCON1 = adcon1_val;
+"307
+[e = _ADCON1 _adcon1_val ]
+[; ;main.c: 308: ADEN = 1;
+"308
+[e = _ADEN -> -> 1 `i `b ]
+[; ;main.c: 309: delay_us(100);
+"309
+[e ( _delay_us (1 -> -> 100 `i `ui ]
+[; ;main.c: 310: }
+"310
+[e :UE 23 ]
+}
+"315
+[v _adc_read_vdd `(ui ~T0 @X0 1 ef ]
+"316
+{
+[; ;main.c: 315: unsigned int adc_read_vdd(void)
+[; ;main.c: 316: {
+[e :U _adc_read_vdd ]
+[f ]
+"317
+[v _result `ui ~T0 @X0 1 a ]
+[; ;main.c: 317: unsigned int result;
+[; ;main.c: 319: ADCON0 = 0x15;
+"319
+[e = _ADCON0 -> -> 21 `i `uc ]
+[; ;main.c: 320: ADCON1 = adcon1_val;
+"320
+[e = _ADCON1 _adcon1_val ]
+[; ;main.c: 321: ADEN = 1;
+"321
+[e = _ADEN -> -> 1 `i `b ]
+[; ;main.c: 323: ADIF = 0;
+"323
+[e = _ADIF -> -> 0 `i `b ]
+[; ;main.c: 324: ADON = 1;
+"324
+[e = _ADON -> -> 1 `i `b ]
+[; ;main.c: 326: while(ADON)
+"326
+[e $U 25  ]
+[e :U 26 ]
+[; ;main.c: 327: {
+"327
+{
+"329
+[; <"         clrwdt ;# ">
+"331
+}
+[e :U 25 ]
+"326
+[e $ _ADON 26  ]
+[e :U 27 ]
+[; ;main.c: 331: }
+[; ;main.c: 333: result = ((unsigned int)ADRESH << 4) | (ADRESL >> 4);
+"333
+[e = _result | << -> _ADRESH `ui -> 4 `i -> >> -> _ADRESL `i -> 4 `i `ui ]
+[; ;main.c: 334: return result;
+"334
+[e ) _result ]
+[e $UE 24  ]
+[; ;main.c: 335: }
+"335
+[e :UE 24 ]
+}
+"336
+[v _LedMode_Func `(v ~T0 @X0 1 ef ]
+"337
+{
+[; ;main.c: 336: void LedMode_Func(void)
+[; ;main.c: 337: {
+[e :U _LedMode_Func ]
+[f ]
+"339
+[v F492 `uc ~T0 @X0 1 s chg_pwm_cnt ]
+[i F492
+-> -> 0 `i `uc
+]
+"340
+[v F493 `uc ~T0 @X0 1 s breath_duty ]
+[i F493
+-> -> 0 `i `uc
+]
+"341
+[v F494 `uc ~T0 @X0 1 s breath_dir ]
+[i F494
+-> -> 1 `i `uc
+]
+"342
+[v F495 `uc ~T0 @X0 1 s breath_cnt ]
+[i F495
+-> -> 0 `i `uc
+]
+[; ;main.c: 339: static unsigned char chg_pwm_cnt = 0;
+[; ;main.c: 340: static unsigned char breath_duty = 0;
+[; ;main.c: 341: static unsigned char breath_dir = 1;
+[; ;main.c: 342: static unsigned char breath_cnt = 0;
+[; ;main.c: 345: if(g_battery_empty)
+"345
+[e $ ! != -> _g_battery_empty `i -> -> -> 0 `i `uc `i 29  ]
+[; ;main.c: 346: {
+"346
+{
+[; ;main.c: 347: (PORTB1 = 1); (PORTB0 = 1); (PORTA7 = 1); (PORTA6 = 1); (PORTA4 = 1);
+"347
+[e = _PORTB1 -> -> 1 `i `b ]
+[e = _PORTB0 -> -> 1 `i `b ]
+[e = _PORTA7 -> -> 1 `i `b ]
+[e = _PORTA6 -> -> 1 `i `b ]
+[e = _PORTA4 -> -> 1 `i `b ]
+[; ;main.c: 348: return;
+"348
+[e $UE 28  ]
+"349
+}
+[e :U 29 ]
+[; ;main.c: 349: }
+[; ;main.c: 352: if((DIY_Flag2.OnrBit.b2 || DIY_Flag2.OnrBit.b3) && !DIY_Flag2.OnrBit.b0)
+"352
+[e $ ! && || != -> . . _DIY_Flag2 0 2 `i -> -> -> 0 `i `uc `i != -> . . _DIY_Flag2 0 3 `i -> -> -> 0 `i `uc `i ! != -> . . _DIY_Flag2 0 0 `i -> -> -> 0 `i `uc `i 30  ]
+[; ;main.c: 353: {
+"353
+{
+[; ;main.c: 355: breath_cnt++;
+"355
+[e ++ F495 -> -> 1 `i `uc ]
+[; ;main.c: 356: if(breath_cnt >= 50)
+"356
+[e $ ! >= -> F495 `i -> 50 `i 31  ]
+[; ;main.c: 357: {
+"357
+{
+[; ;main.c: 358: breath_cnt = 0;
+"358
+[e = F495 -> -> 0 `i `uc ]
+[; ;main.c: 359: if(breath_dir)
+"359
+[e $ ! != -> F494 `i -> -> -> 0 `i `uc `i 32  ]
+[; ;main.c: 360: {
+"360
+{
+[; ;main.c: 361: if(breath_duty < 20) breath_duty++;
+"361
+[e $ ! < -> F493 `i -> 20 `i 33  ]
+[e ++ F493 -> -> 1 `i `uc ]
+[e $U 34  ]
+"362
+[e :U 33 ]
+[; ;main.c: 362: else breath_dir = 0;
+[e = F494 -> -> 0 `i `uc ]
+[e :U 34 ]
+"363
+}
+[; ;main.c: 363: }
+[e $U 35  ]
+"364
+[e :U 32 ]
+[; ;main.c: 364: else
+[; ;main.c: 365: {
+"365
+{
+[; ;main.c: 366: if(breath_duty > 0) breath_duty--;
+"366
+[e $ ! > -> F493 `i -> 0 `i 36  ]
+[e -- F493 -> -> 1 `i `uc ]
+[e $U 37  ]
+"367
+[e :U 36 ]
+[; ;main.c: 367: else breath_dir = 1;
+[e = F494 -> -> 1 `i `uc ]
+[e :U 37 ]
+"368
+}
+[e :U 35 ]
+"369
+}
+[e :U 31 ]
+[; ;main.c: 368: }
+[; ;main.c: 369: }
+[; ;main.c: 372: chg_pwm_cnt++;
+"372
+[e ++ F492 -> -> 1 `i `uc ]
+[; ;main.c: 373: if(chg_pwm_cnt >= 20)
+"373
+[e $ ! >= -> F492 `i -> 20 `i 38  ]
+[; ;main.c: 374: chg_pwm_cnt = 0;
+"374
+[e = F492 -> -> 0 `i `uc ]
+[e :U 38 ]
+[; ;main.c: 376: if(DIY_Flag2.OnrBit.b3)
+"376
+[e $ ! != -> . . _DIY_Flag2 0 3 `i -> -> -> 0 `i `uc `i 39  ]
+[; ;main.c: 377: {
+"377
+{
+[; ;main.c: 379: (PORTB1 = 0); (PORTB0 = 0); (PORTA7 = 0); (PORTA6 = 0); (PORTA4 = 0);
+"379
+[e = _PORTB1 -> -> 0 `i `b ]
+[e = _PORTB0 -> -> 0 `i `b ]
+[e = _PORTA7 -> -> 0 `i `b ]
+[e = _PORTA6 -> -> 0 `i `b ]
+[e = _PORTA4 -> -> 0 `i `b ]
+[; ;main.c: 380: breath_duty = 20;
+"380
+[e = F493 -> -> 20 `i `uc ]
+[; ;main.c: 381: breath_dir = 0;
+"381
+[e = F494 -> -> 0 `i `uc ]
+[; ;main.c: 382: breath_cnt = 0;
+"382
+[e = F495 -> -> 0 `i `uc ]
+"383
+}
+[; ;main.c: 383: }
+[e $U 40  ]
+"384
+[e :U 39 ]
+[; ;main.c: 384: else
+[; ;main.c: 385: {
+"385
+{
+[; ;main.c: 388: if(level >= 2) { (PORTA4 = 0); }
+"388
+[e $ ! >= -> _level `i -> 2 `i 41  ]
+{
+[e = _PORTA4 -> -> 0 `i `b ]
+}
+[e $U 42  ]
+"389
+[e :U 41 ]
+[; ;main.c: 389: else if(level == 1) { if(chg_pwm_cnt < breath_duty) (PORTA4 = 0); else (PORTA4 = 1); }
+[e $ ! == -> _level `i -> 1 `i 43  ]
+{
+[e $ ! < -> F492 `i -> F493 `i 44  ]
+[e = _PORTA4 -> -> 0 `i `b ]
+[e $U 45  ]
+[e :U 44 ]
+[e = _PORTA4 -> -> 1 `i `b ]
+[e :U 45 ]
+}
+[e $U 46  ]
+"390
+[e :U 43 ]
+[; ;main.c: 390: else { (PORTA4 = 1); }
+{
+[e = _PORTA4 -> -> 1 `i `b ]
+}
+[e :U 46 ]
+[e :U 42 ]
+[; ;main.c: 393: if(level >= 3) { (PORTA6 = 0); }
+"393
+[e $ ! >= -> _level `i -> 3 `i 47  ]
+{
+[e = _PORTA6 -> -> 0 `i `b ]
+}
+[e $U 48  ]
+"394
+[e :U 47 ]
+[; ;main.c: 394: else if(level == 2) { if(chg_pwm_cnt < breath_duty) (PORTA6 = 0); else (PORTA6 = 1); }
+[e $ ! == -> _level `i -> 2 `i 49  ]
+{
+[e $ ! < -> F492 `i -> F493 `i 50  ]
+[e = _PORTA6 -> -> 0 `i `b ]
+[e $U 51  ]
+[e :U 50 ]
+[e = _PORTA6 -> -> 1 `i `b ]
+[e :U 51 ]
+}
+[e $U 52  ]
+"395
+[e :U 49 ]
+[; ;main.c: 395: else { (PORTA6 = 1); }
+{
+[e = _PORTA6 -> -> 1 `i `b ]
+}
+[e :U 52 ]
+[e :U 48 ]
+[; ;main.c: 398: if(level >= 4) { (PORTA7 = 0); }
+"398
+[e $ ! >= -> _level `i -> 4 `i 53  ]
+{
+[e = _PORTA7 -> -> 0 `i `b ]
+}
+[e $U 54  ]
+"399
+[e :U 53 ]
+[; ;main.c: 399: else if(level == 3) { if(chg_pwm_cnt < breath_duty) (PORTA7 = 0); else (PORTA7 = 1); }
+[e $ ! == -> _level `i -> 3 `i 55  ]
+{
+[e $ ! < -> F492 `i -> F493 `i 56  ]
+[e = _PORTA7 -> -> 0 `i `b ]
+[e $U 57  ]
+[e :U 56 ]
+[e = _PORTA7 -> -> 1 `i `b ]
+[e :U 57 ]
+}
+[e $U 58  ]
+"400
+[e :U 55 ]
+[; ;main.c: 400: else { (PORTA7 = 1); }
+{
+[e = _PORTA7 -> -> 1 `i `b ]
+}
+[e :U 58 ]
+[e :U 54 ]
+[; ;main.c: 403: if(level >= 5) { (PORTB0 = 0); }
+"403
+[e $ ! >= -> _level `i -> 5 `i 59  ]
+{
+[e = _PORTB0 -> -> 0 `i `b ]
+}
+[e $U 60  ]
+"404
+[e :U 59 ]
+[; ;main.c: 404: else if(level == 4) { if(chg_pwm_cnt < breath_duty) (PORTB0 = 0); else (PORTB0 = 1); }
+[e $ ! == -> _level `i -> 4 `i 61  ]
+{
+[e $ ! < -> F492 `i -> F493 `i 62  ]
+[e = _PORTB0 -> -> 0 `i `b ]
+[e $U 63  ]
+[e :U 62 ]
+[e = _PORTB0 -> -> 1 `i `b ]
+[e :U 63 ]
+}
+[e $U 64  ]
+"405
+[e :U 61 ]
+[; ;main.c: 405: else { (PORTB0 = 1); }
+{
+[e = _PORTB0 -> -> 1 `i `b ]
+}
+[e :U 64 ]
+[e :U 60 ]
+[; ;main.c: 408: if(level >= 6) { (PORTB1 = 0); }
+"408
+[e $ ! >= -> _level `i -> 6 `i 65  ]
+{
+[e = _PORTB1 -> -> 0 `i `b ]
+}
+[e $U 66  ]
+"409
+[e :U 65 ]
+[; ;main.c: 409: else if(level == 5) { if(chg_pwm_cnt < breath_duty) (PORTB1 = 0); else (PORTB1 = 1); }
+[e $ ! == -> _level `i -> 5 `i 67  ]
+{
+[e $ ! < -> F492 `i -> F493 `i 68  ]
+[e = _PORTB1 -> -> 0 `i `b ]
+[e $U 69  ]
+[e :U 68 ]
+[e = _PORTB1 -> -> 1 `i `b ]
+[e :U 69 ]
+}
+[e $U 70  ]
+"410
+[e :U 67 ]
+[; ;main.c: 410: else { (PORTB1 = 1); }
+{
+[e = _PORTB1 -> -> 1 `i `b ]
+}
+[e :U 70 ]
+[e :U 66 ]
+"411
+}
+[e :U 40 ]
+[; ;main.c: 411: }
+[; ;main.c: 412: return;
+"412
+[e $UE 28  ]
+"413
+}
+[e :U 30 ]
+[; ;main.c: 413: }
+[; ;main.c: 416: if(DIY_Flag2.OnrBit.b0 && g_gear == 6)
+"416
+[e $ ! && != -> . . _DIY_Flag2 0 0 `i -> -> -> 0 `i `uc `i == -> _g_gear `i -> 6 `i 71  ]
+[; ;main.c: 417: {
+"417
+{
+[; ;main.c: 418: breath_cnt++;
+"418
+[e ++ F495 -> -> 1 `i `uc ]
+[; ;main.c: 419: if(breath_cnt >= 20)
+"419
+[e $ ! >= -> F495 `i -> 20 `i 72  ]
+[; ;main.c: 420: {
+"420
+{
+[; ;main.c: 421: breath_cnt = 0;
+"421
+[e = F495 -> -> 0 `i `uc ]
+[; ;main.c: 422: if(breath_dir)
+"422
+[e $ ! != -> F494 `i -> -> -> 0 `i `uc `i 73  ]
+[; ;main.c: 423: {
+"423
+{
+[; ;main.c: 424: if(breath_duty < 50) breath_duty++;
+"424
+[e $ ! < -> F493 `i -> 50 `i 74  ]
+[e ++ F493 -> -> 1 `i `uc ]
+[e $U 75  ]
+"425
+[e :U 74 ]
+[; ;main.c: 425: else breath_dir = 0;
+[e = F494 -> -> 0 `i `uc ]
+[e :U 75 ]
+"426
+}
+[; ;main.c: 426: }
+[e $U 76  ]
+"427
+[e :U 73 ]
+[; ;main.c: 427: else
+[; ;main.c: 428: {
+"428
+{
+[; ;main.c: 429: if(breath_duty > 0) breath_duty--;
+"429
+[e $ ! > -> F493 `i -> 0 `i 77  ]
+[e -- F493 -> -> 1 `i `uc ]
+[e $U 78  ]
+"430
+[e :U 77 ]
+[; ;main.c: 430: else breath_dir = 1;
+[e = F494 -> -> 1 `i `uc ]
+[e :U 78 ]
+"431
+}
+[e :U 76 ]
+[; ;main.c: 431: }
+[; ;main.c: 432: g_overclock_pwm = breath_duty;
+"432
+[e = _g_overclock_pwm F493 ]
+"433
+}
+[e :U 72 ]
+[; ;main.c: 433: }
+[; ;main.c: 434: return;
+"434
+[e $UE 28  ]
+"435
+}
+[e :U 71 ]
+[; ;main.c: 435: }
+[; ;main.c: 438: if(!DIY_Flag2.OnrBit.b2 && !DIY_Flag2.OnrBit.b3 && g_gear != 6)
+"438
+[e $ ! && && ! != -> . . _DIY_Flag2 0 2 `i -> -> -> 0 `i `uc `i ! != -> . . _DIY_Flag2 0 3 `i -> -> -> 0 `i `uc `i != -> _g_gear `i -> 6 `i 79  ]
+[; ;main.c: 439: {
+"439
+{
+[; ;main.c: 440: breath_duty = 0;
+"440
+[e = F493 -> -> 0 `i `uc ]
+[; ;main.c: 441: breath_dir = 1;
+"441
+[e = F494 -> -> 1 `i `uc ]
+[; ;main.c: 442: breath_cnt = 0;
+"442
+[e = F495 -> -> 0 `i `uc ]
+[; ;main.c: 443: chg_pwm_cnt = 0;
+"443
+[e = F492 -> -> 0 `i `uc ]
+"444
+}
+[e :U 79 ]
+[; ;main.c: 444: }
+[; ;main.c: 447: if(!DIY_Flag2.OnrBit.b0 && DIY_Flag1.OnrBit.b7)
+"447
+[e $ ! && ! != -> . . _DIY_Flag2 0 0 `i -> -> -> 0 `i `uc `i != -> . . _DIY_Flag1 0 7 `i -> -> -> 0 `i `uc `i 80  ]
+[; ;main.c: 448: {
+"448
+{
+[; ;main.c: 449: show_gear_led(level);
+"449
+[e ( _show_gear_led (1 _level ]
+[; ;main.c: 450: return;
+"450
+[e $UE 28  ]
+"451
+}
+[e :U 80 ]
+[; ;main.c: 451: }
+[; ;main.c: 454: if(DIY_Flag2.OnrBit.b0 && g_warn_flash > 0)
+"454
+[e $ ! && != -> . . _DIY_Flag2 0 0 `i -> -> -> 0 `i `uc `i > -> _g_warn_flash `i -> 0 `i 81  ]
+[; ;main.c: 455: return;
+"455
+[e $UE 28  ]
+[e :U 81 ]
+[; ;main.c: 458: if(DIY_Flag2.OnrBit.b0)
+"458
+[e $ ! != -> . . _DIY_Flag2 0 0 `i -> -> -> 0 `i `uc `i 82  ]
+[; ;main.c: 459: {
+"459
+{
+[; ;main.c: 460: show_gear_led(g_gear);
+"460
+[e ( _show_gear_led (1 _g_gear ]
+[; ;main.c: 461: return;
+"461
+[e $UE 28  ]
+"462
+}
+[e :U 82 ]
+[; ;main.c: 462: }
+[; ;main.c: 464: (PORTB1 = 1); (PORTB0 = 1); (PORTA7 = 1); (PORTA6 = 1); (PORTA4 = 1);
+"464
+[e = _PORTB1 -> -> 1 `i `b ]
+[e = _PORTB0 -> -> 1 `i `b ]
+[e = _PORTA7 -> -> 1 `i `b ]
+[e = _PORTA6 -> -> 1 `i `b ]
+[e = _PORTA4 -> -> 1 `i `b ]
+[; ;main.c: 465: }
+"465
+[e :UE 28 ]
+}
+"467
+[v _Battery_Update `(v ~T0 @X0 1 ef ]
+"468
+{
+[; ;main.c: 467: void Battery_Update(void)
+[; ;main.c: 468: {
+[e :U _Battery_Update ]
+[f ]
+"469
+[v F498 `uc ~T0 @X0 1 s loop_num ]
+[i F498
+-> -> 0 `i `uc
+]
+"470
+[v F499 `ui ~T0 @X0 1 s loop_sum ]
+[i F499
+-> -> 0 `i `ui
+]
+"471
+[v F500 `uc ~T0 @X0 1 s low_debounce ]
+[i F500
+-> -> 0 `i `uc
+]
+"472
+[v F501 `uc ~T0 @X0 1 s low_clr_debounce ]
+[i F501
+-> -> 0 `i `uc
+]
+"473
+[v F502 `uc ~T0 @X0 1 s startup_cnt ]
+[i F502
+-> -> 50 `i `uc
+]
+[; ;main.c: 469: static unsigned char loop_num = 0;
+[; ;main.c: 470: static unsigned int loop_sum = 0;
+[; ;main.c: 471: static unsigned char low_debounce = 0;
+[; ;main.c: 472: static unsigned char low_clr_debounce = 0;
+[; ;main.c: 473: static unsigned char startup_cnt = 50;
+[; ;main.c: 475: loop_sum += adc_read_vdd();
+"475
+[e =+ F499 ( _adc_read_vdd ..  ]
+[; ;main.c: 476: loop_num++;
+"476
+[e ++ F498 -> -> 1 `i `uc ]
+[; ;main.c: 477: if(loop_num < 8) return;
+"477
+[e $ ! < -> F498 `i -> 8 `i 84  ]
+[e $UE 83  ]
+[e :U 84 ]
+[; ;main.c: 479: g_vdd_adc = (unsigned int)(loop_sum >> 3);
+"479
+[e = _g_vdd_adc >> F499 -> 3 `i ]
+[; ;main.c: 480: loop_num = 0;
+"480
+[e = F498 -> -> 0 `i `uc ]
+[; ;main.c: 481: loop_sum = 0;
+"481
+[e = F499 -> -> 0 `i `ui ]
+[; ;main.c: 483: if(DIY_Flag2.OnrBit.b3) level = 6;
+"483
+[e $ ! != -> . . _DIY_Flag2 0 3 `i -> -> -> 0 `i `uc `i 85  ]
+[e = _level -> -> 6 `i `uc ]
+[e $U 86  ]
+"485
+[e :U 85 ]
+[; ;main.c: 485: else if(DIY_Flag2.OnrBit.b2)
+[e $ ! != -> . . _DIY_Flag2 0 2 `i -> -> -> 0 `i `uc `i 87  ]
+[; ;main.c: 486: {
+"486
+{
+[; ;main.c: 487: if(g_vdd_adc < 2363u) level = 0;
+"487
+[e $ ! < _g_vdd_adc -> 2363 `ui 88  ]
+[e = _level -> -> 0 `i `uc ]
+[e $U 89  ]
+"488
+[e :U 88 ]
+[; ;main.c: 488: else if(g_vdd_adc < 2678u) level = 1;
+[e $ ! < _g_vdd_adc -> 2678 `ui 90  ]
+[e = _level -> -> 1 `i `uc ]
+[e $U 91  ]
+"489
+[e :U 90 ]
+[; ;main.c: 489: else if(g_vdd_adc < 2914u) level = 2;
+[e $ ! < _g_vdd_adc -> 2914 `ui 92  ]
+[e = _level -> -> 2 `i `uc ]
+[e $U 93  ]
+"490
+[e :U 92 ]
+[; ;main.c: 490: else if(g_vdd_adc < 3072u) level = 3;
+[e $ ! < _g_vdd_adc -> 3072 `ui 94  ]
+[e = _level -> -> 3 `i `uc ]
+[e $U 95  ]
+"491
+[e :U 94 ]
+[; ;main.c: 491: else if(g_vdd_adc < 3229u) level = 4;
+[e $ ! < _g_vdd_adc -> 3229 `ui 96  ]
+[e = _level -> -> 4 `i `uc ]
+[e $U 97  ]
+"492
+[e :U 96 ]
+[; ;main.c: 492: else level = 5;
+[e = _level -> -> 5 `i `uc ]
+[e :U 97 ]
+[e :U 95 ]
+[e :U 93 ]
+[e :U 91 ]
+[e :U 89 ]
+"493
+}
+[; ;main.c: 493: }
+[e $U 98  ]
+"494
+[e :U 87 ]
+[; ;main.c: 494: else
+[; ;main.c: 495: {
+"495
+{
+[; ;main.c: 496: if(g_vdd_adc < 2363u) level = 0;
+"496
+[e $ ! < _g_vdd_adc -> 2363 `ui 99  ]
+[e = _level -> -> 0 `i `uc ]
+[e $U 100  ]
+"497
+[e :U 99 ]
+[; ;main.c: 497: else if(g_vdd_adc < 2678u) level = 1;
+[e $ ! < _g_vdd_adc -> 2678 `ui 101  ]
+[e = _level -> -> 1 `i `uc ]
+[e $U 102  ]
+"498
+[e :U 101 ]
+[; ;main.c: 498: else if(g_vdd_adc < 2914u) level = 2;
+[e $ ! < _g_vdd_adc -> 2914 `ui 103  ]
+[e = _level -> -> 2 `i `uc ]
+[e $U 104  ]
+"499
+[e :U 103 ]
+[; ;main.c: 499: else if(g_vdd_adc < 3072u) level = 3;
+[e $ ! < _g_vdd_adc -> 3072 `ui 105  ]
+[e = _level -> -> 3 `i `uc ]
+[e $U 106  ]
+"500
+[e :U 105 ]
+[; ;main.c: 500: else if(g_vdd_adc < 3229u) level = 4;
+[e $ ! < _g_vdd_adc -> 3229 `ui 107  ]
+[e = _level -> -> 4 `i `uc ]
+[e $U 108  ]
+"501
+[e :U 107 ]
+[; ;main.c: 501: else if(g_vdd_adc < 3268u) level = 5;
+[e $ ! < _g_vdd_adc -> 3268 `ui 109  ]
+[e = _level -> -> 5 `i `uc ]
+[e $U 110  ]
+"502
+[e :U 109 ]
+[; ;main.c: 502: else level = 6;
+[e = _level -> -> 6 `i `uc ]
+[e :U 110 ]
+[e :U 108 ]
+[e :U 106 ]
+[e :U 104 ]
+[e :U 102 ]
+[e :U 100 ]
+"503
+}
+[e :U 98 ]
+[e :U 86 ]
+[; ;main.c: 503: }
+[; ;main.c: 506: if(startup_cnt > 0) { startup_cnt--; DIY_Flag2.OnrBit.b1 = 0; return; }
+"506
+[e $ ! > -> F502 `i -> 0 `i 111  ]
+{
+[e -- F502 -> -> 1 `i `uc ]
+[e = . . _DIY_Flag2 0 1 -> -> 0 `i `uc ]
+[e $UE 83  ]
+}
+[e :U 111 ]
+[; ;main.c: 508: if(!DIY_Flag2.OnrBit.b1)
+"508
+[e $ ! ! != -> . . _DIY_Flag2 0 1 `i -> -> -> 0 `i `uc `i 112  ]
+[; ;main.c: 509: {
+"509
+{
+[; ;main.c: 511: if(g_vdd_adc < 2521u) { if(++low_debounce >= 5) DIY_Flag2.OnrBit.b1 = 1; }
+"511
+[e $ ! < _g_vdd_adc -> 2521 `ui 113  ]
+{
+[e $ ! >= -> =+ F500 -> -> 1 `i `uc `i -> 5 `i 114  ]
+[e = . . _DIY_Flag2 0 1 -> -> 1 `i `uc ]
+[e :U 114 ]
+}
+[e $U 115  ]
+"512
+[e :U 113 ]
+[; ;main.c: 512: else { low_debounce = 0; }
+{
+[e = F500 -> -> 0 `i `uc ]
+}
+[e :U 115 ]
+"513
+}
+[; ;main.c: 513: }
+[e $U 116  ]
+"514
+[e :U 112 ]
+[; ;main.c: 514: else
+[; ;main.c: 515: {
+"515
+{
+[; ;main.c: 517: if(g_vdd_adc >= 2544u) { if(++low_clr_debounce >= 3) { DIY_Flag2.OnrBit.b1 = 0; low_debounce = 0; } }
+"517
+[e $ ! >= _g_vdd_adc -> 2544 `ui 117  ]
+{
+[e $ ! >= -> =+ F501 -> -> 1 `i `uc `i -> 3 `i 118  ]
+{
+[e = . . _DIY_Flag2 0 1 -> -> 0 `i `uc ]
+[e = F500 -> -> 0 `i `uc ]
+}
+[e :U 118 ]
+}
+[e $U 119  ]
+"518
+[e :U 117 ]
+[; ;main.c: 518: else { low_clr_debounce = 0; }
+{
+[e = F501 -> -> 0 `i `uc ]
+}
+[e :U 119 ]
+"519
+}
+[e :U 116 ]
+[; ;main.c: 519: }
+[; ;main.c: 520: }
+"520
+[e :UE 83 ]
+}
+"527
+[v _show_gear_led `(v ~T0 @X0 1 ef1`uc ]
+"528
+{
+[; ;main.c: 527: void show_gear_led(unsigned char gear)
+[; ;main.c: 528: {
+[e :U _show_gear_led ]
+"527
+[v _gear `uc ~T0 @X0 1 r1 ]
+"528
+[f ]
+[; ;main.c: 529: (PORTB1 = 1); (PORTB0 = 1); (PORTA7 = 1); (PORTA6 = 1); (PORTA4 = 1);
+"529
+[e = _PORTB1 -> -> 1 `i `b ]
+[e = _PORTB0 -> -> 1 `i `b ]
+[e = _PORTA7 -> -> 1 `i `b ]
+[e = _PORTA6 -> -> 1 `i `b ]
+[e = _PORTA4 -> -> 1 `i `b ]
+[; ;main.c: 530: if(gear >= 1) (PORTA4 = 0);
+"530
+[e $ ! >= -> _gear `i -> 1 `i 121  ]
+[e = _PORTA4 -> -> 0 `i `b ]
+[e :U 121 ]
+[; ;main.c: 531: if(gear >= 2) (PORTA6 = 0);
+"531
+[e $ ! >= -> _gear `i -> 2 `i 122  ]
+[e = _PORTA6 -> -> 0 `i `b ]
+[e :U 122 ]
+[; ;main.c: 532: if(gear >= 3) (PORTA7 = 0);
+"532
+[e $ ! >= -> _gear `i -> 3 `i 123  ]
+[e = _PORTA7 -> -> 0 `i `b ]
+[e :U 123 ]
+[; ;main.c: 533: if(gear >= 4) (PORTB0 = 0);
+"533
+[e $ ! >= -> _gear `i -> 4 `i 124  ]
+[e = _PORTB0 -> -> 0 `i `b ]
+[e :U 124 ]
+[; ;main.c: 534: if(gear >= 5) (PORTB1 = 0);
+"534
+[e $ ! >= -> _gear `i -> 5 `i 125  ]
+[e = _PORTB1 -> -> 0 `i `b ]
+[e :U 125 ]
+[; ;main.c: 535: }
+"535
+[e :UE 120 ]
+}
+"542
+[v _set_fan `(v ~T0 @X0 1 ef1`uc ]
+"543
+{
+[; ;main.c: 542: void set_fan(unsigned char gear)
+[; ;main.c: 543: {
+[e :U _set_fan ]
+"542
+[v _gear `uc ~T0 @X0 1 r1 ]
+"543
+[f ]
+[; ;main.c: 544: if(gear == 0)
+"544
+[e $ ! == -> _gear `i -> 0 `i 127  ]
+[; ;main.c: 545: {
+"545
+{
+[; ;main.c: 546: g_target_pwm = 0;
+"546
+[e = _g_target_pwm -> -> 0 `i `uc ]
+[; ;main.c: 547: return;
+"547
+[e $UE 126  ]
+"548
+}
+[e :U 127 ]
+[; ;main.c: 548: }
+[; ;main.c: 549: if(gear > 6)
+"549
+[e $ ! > -> _gear `i -> 6 `i 128  ]
+[; ;main.c: 550: gear = 6;
+"550
+[e = _gear -> -> 6 `i `uc ]
+[e :U 128 ]
+[; ;main.c: 552: g_target_pwm = c_fan_duty[gear];
+"552
+[e = _g_target_pwm *U + &U _c_fan_duty * -> _gear `ux -> -> # *U &U _c_fan_duty `ui `ux ]
+[; ;main.c: 553: }
+"553
+[e :UE 126 ]
+}
+"561
+[v _Gear5_Duty_Update `(v ~T0 @X0 1 ef ]
+"562
+{
+[; ;main.c: 561: void Gear5_Duty_Update(void)
+[; ;main.c: 562: {
+[e :U _Gear5_Duty_Update ]
+[f ]
+"563
+[v F509 `ui ~T0 @X0 1 s ms_sub ]
+[i F509
+-> -> 0 `i `ui
+]
+"564
+[v F510 `ui ~T0 @X0 1 s sec_cnt ]
+[i F510
+-> -> 0 `i `ui
+]
+"565
+[v F511 `uc ~T0 @X0 1 s cur_percent ]
+[i F511
+-> -> 85 `i `uc
+]
+[; ;main.c: 563: static unsigned int ms_sub = 0;
+[; ;main.c: 564: static unsigned int sec_cnt = 0;
+[; ;main.c: 565: static unsigned char cur_percent = 85;
+[; ;main.c: 567: if(g_gear != 5 || DIY_Flag2.OnrBit.b2 || DIY_Flag2.OnrBit.b3)
+"567
+[e $ ! || || != -> _g_gear `i -> 5 `i != -> . . _DIY_Flag2 0 2 `i -> -> -> 0 `i `uc `i != -> . . _DIY_Flag2 0 3 `i -> -> -> 0 `i `uc `i 130  ]
+[; ;main.c: 568: {
+"568
+{
+[; ;main.c: 569: ms_sub = 0;
+"569
+[e = F509 -> -> 0 `i `ui ]
+[; ;main.c: 570: sec_cnt = 0;
+"570
+[e = F510 -> -> 0 `i `ui ]
+[; ;main.c: 571: cur_percent = 85;
+"571
+[e = F511 -> -> 85 `i `uc ]
+[; ;main.c: 572: return;
+"572
+[e $UE 129  ]
+"573
+}
+[e :U 130 ]
+[; ;main.c: 573: }
+[; ;main.c: 574: ms_sub++;
+"574
+[e ++ F509 -> -> 1 `i `ui ]
+[; ;main.c: 575: if(ms_sub < 1000)
+"575
+[e $ ! < F509 -> -> 1000 `i `ui 131  ]
+[; ;main.c: 576: return;
+"576
+[e $UE 129  ]
+[e :U 131 ]
+[; ;main.c: 577: ms_sub = 0;
+"577
+[e = F509 -> -> 0 `i `ui ]
+[; ;main.c: 578: sec_cnt++;
+"578
+[e ++ F510 -> -> 1 `i `ui ]
+[; ;main.c: 579: if(cur_percent == 85)
+"579
+[e $ ! == -> F511 `i -> 85 `i 132  ]
+[; ;main.c: 580: {
+"580
+{
+[; ;main.c: 581: if(sec_cnt >= 600)
+"581
+[e $ ! >= F510 -> -> 600 `i `ui 133  ]
+[; ;main.c: 582: {
+"582
+{
+[; ;main.c: 583: sec_cnt = 0;
+"583
+[e = F510 -> -> 0 `i `ui ]
+[; ;main.c: 584: cur_percent -= 3;
+"584
+[e =- F511 -> -> 3 `i `uc ]
+"585
+}
+[e :U 133 ]
+"586
+}
+[; ;main.c: 585: }
+[; ;main.c: 586: }
+[e $U 134  ]
+"587
+[e :U 132 ]
+[; ;main.c: 587: else if(cur_percent > 76)
+[e $ ! > -> F511 `i -> 76 `i 135  ]
+[; ;main.c: 588: {
+"588
+{
+[; ;main.c: 589: if(sec_cnt >= 60)
+"589
+[e $ ! >= F510 -> -> 60 `i `ui 136  ]
+[; ;main.c: 590: {
+"590
+{
+[; ;main.c: 591: sec_cnt = 0;
+"591
+[e = F510 -> -> 0 `i `ui ]
+[; ;main.c: 592: if(cur_percent >= 79)
+"592
+[e $ ! >= -> F511 `i -> 79 `i 137  ]
+[; ;main.c: 593: cur_percent -= 3;
+"593
+[e =- F511 -> -> 3 `i `uc ]
+[e $U 138  ]
+"594
+[e :U 137 ]
+[; ;main.c: 594: else
+[; ;main.c: 595: cur_percent = 76;
+"595
+[e = F511 -> -> 76 `i `uc ]
+[e :U 138 ]
+"596
+}
+[e :U 136 ]
+"597
+}
+[e :U 135 ]
+"599
+[e :U 134 ]
+[; ;main.c: 596: }
+[; ;main.c: 597: }
+[; ;main.c: 599: g_target_pwm = (unsigned char)(((unsigned int)cur_percent * 124u + 50u) / 100u);
+[e = _g_target_pwm -> / + * -> F511 `ui -> 124 `ui -> 50 `ui -> 100 `ui `uc ]
+[; ;main.c: 600: }
+"600
+[e :UE 129 ]
+}
+"605
+[v _fan_ramp_proc `(v ~T0 @X0 1 ef ]
+"606
+{
+[; ;main.c: 605: void fan_ramp_proc(void)
+[; ;main.c: 606: {
+[e :U _fan_ramp_proc ]
+[f ]
+"607
+[v _target_fixed `ui ~T0 @X0 1 a ]
+[; ;main.c: 607: unsigned int target_fixed = (unsigned int)g_target_pwm << 4;
+[e = _target_fixed << -> _g_target_pwm `ui -> 4 `i ]
+[; ;main.c: 609: if(g_target_pwm == 0)
+"609
+[e $ ! == -> _g_target_pwm `i -> 0 `i 140  ]
+[; ;main.c: 610: {
+"610
+{
+[; ;main.c: 611: g_current_pwm = 0;
+"611
+[e = _g_current_pwm -> -> 0 `i `ui ]
+[; ;main.c: 612: PWM0P = 0;
+"612
+[e = _PWM0P -> -> 0 `i `uc ]
+[; ;main.c: 613: PORTB2 = 0;
+"613
+[e = _PORTB2 -> -> 0 `i `b ]
+[; ;main.c: 614: return;
+"614
+[e $UE 139  ]
+"615
+}
+[e :U 140 ]
+[; ;main.c: 615: }
+[; ;main.c: 617: if(g_current_pwm < target_fixed)
+"617
+[e $ ! < _g_current_pwm _target_fixed 141  ]
+[; ;main.c: 618: {
+"618
+{
+[; ;main.c: 619: g_current_pwm += 1;
+"619
+[e =+ _g_current_pwm -> -> 1 `i `ui ]
+[; ;main.c: 620: if(g_current_pwm > target_fixed) g_current_pwm = target_fixed;
+"620
+[e $ ! > _g_current_pwm _target_fixed 142  ]
+[e = _g_current_pwm _target_fixed ]
+[e :U 142 ]
+"621
+}
+[; ;main.c: 621: }
+[e $U 143  ]
+"622
+[e :U 141 ]
+[; ;main.c: 622: else if(g_current_pwm > target_fixed)
+[e $ ! > _g_current_pwm _target_fixed 144  ]
+[; ;main.c: 623: {
+"623
+{
+[; ;main.c: 624: g_current_pwm -= 1;
+"624
+[e =- _g_current_pwm -> -> 1 `i `ui ]
+[; ;main.c: 625: if(g_current_pwm < target_fixed) g_current_pwm = target_fixed;
+"625
+[e $ ! < _g_current_pwm _target_fixed 145  ]
+[e = _g_current_pwm _target_fixed ]
+[e :U 145 ]
+"626
+}
+[e :U 144 ]
+"628
+[e :U 143 ]
+[; ;main.c: 626: }
+[; ;main.c: 628: PWM0P = (unsigned char)(g_current_pwm >> 4);
+[e = _PWM0P -> >> _g_current_pwm -> 4 `i `uc ]
+[; ;main.c: 629: if(PWM0P == 0) PORTB2 = 0;
+"629
+[e $ ! == -> _PWM0P `i -> 0 `i 146  ]
+[e = _PORTB2 -> -> 0 `i `b ]
+[e :U 146 ]
+[; ;main.c: 630: }
+"630
+[e :UE 139 ]
+}
+"637
+[v _trigger_warn `(v ~T0 @X0 1 ef1`uc ]
+"638
+{
+[; ;main.c: 637: void trigger_warn(unsigned char led_num)
+[; ;main.c: 638: {
+[e :U _trigger_warn ]
+"637
+[v _led_num `uc ~T0 @X0 1 r1 ]
+"638
+[f ]
+[; ;main.c: 639: if(g_warn_flash == 0)
+"639
+[e $ ! == -> _g_warn_flash `i -> 0 `i 148  ]
+[; ;main.c: 640: {
+"640
+{
+[; ;main.c: 641: g_warn_flash = 4;
+"641
+[e = _g_warn_flash -> -> 4 `i `uc ]
+[; ;main.c: 642: g_warn_led = led_num;
+"642
+[e = _g_warn_led _led_num ]
+[; ;main.c: 643: DIY_Flag1.OnrBit.b6 = 0;
+"643
+[e = . . _DIY_Flag1 0 6 -> -> 0 `i `uc ]
+[; ;main.c: 644: g_warn_cnt = 0;
+"644
+[e = _g_warn_cnt -> -> 0 `i `uc ]
+"645
+}
+[e :U 148 ]
+[; ;main.c: 645: }
+[; ;main.c: 646: }
+"646
+[e :UE 147 ]
+}
+"650
+[v _warn_flash_proc `(v ~T0 @X0 1 ef ]
+"651
+{
+[; ;main.c: 650: void warn_flash_proc(void)
+[; ;main.c: 651: {
+[e :U _warn_flash_proc ]
+[f ]
+[; ;main.c: 652: if(g_warn_flash == 0)
+"652
+[e $ ! == -> _g_warn_flash `i -> 0 `i 150  ]
+[; ;main.c: 653: return;
+"653
+[e $UE 149  ]
+[e :U 150 ]
+[; ;main.c: 654: g_warn_cnt++;
+"654
+[e ++ _g_warn_cnt -> -> 1 `i `uc ]
+[; ;main.c: 655: if(g_warn_cnt < 150)
+"655
+[e $ ! < -> _g_warn_cnt `i -> 150 `i 151  ]
+[; ;main.c: 656: return;
+"656
+[e $UE 149  ]
+[e :U 151 ]
+[; ;main.c: 657: g_warn_cnt = 0;
+"657
+[e = _g_warn_cnt -> -> 0 `i `uc ]
+[; ;main.c: 660: DIY_Flag1.OnrBit.b6 = !DIY_Flag1.OnrBit.b6;
+"660
+[e = . . _DIY_Flag1 0 6 -> -> ! != -> . . _DIY_Flag1 0 6 `i -> -> -> 0 `i `uc `i `i `uc ]
+[; ;main.c: 661: g_warn_flash--;
+"661
+[e -- _g_warn_flash -> -> 1 `i `uc ]
+[; ;main.c: 663: if(g_warn_led == 1)
+"663
+[e $ ! == -> _g_warn_led `i -> 1 `i 152  ]
+[; ;main.c: 664: {
+"664
+{
+[; ;main.c: 666: (PORTA4 = 0); (PORTA6 = 0); (PORTA7 = 0); (PORTB0 = 0);
+"666
+[e = _PORTA4 -> -> 0 `i `b ]
+[e = _PORTA6 -> -> 0 `i `b ]
+[e = _PORTA7 -> -> 0 `i `b ]
+[e = _PORTB0 -> -> 0 `i `b ]
+[; ;main.c: 667: if(DIY_Flag1.OnrBit.b6) (PORTB1 = 1); else (PORTB1 = 0);
+"667
+[e $ ! != -> . . _DIY_Flag1 0 6 `i -> -> -> 0 `i `uc `i 153  ]
+[e = _PORTB1 -> -> 1 `i `b ]
+[e $U 154  ]
+[e :U 153 ]
+[e = _PORTB1 -> -> 0 `i `b ]
+[e :U 154 ]
+"668
+}
+[; ;main.c: 668: }
+[e $U 155  ]
+"669
+[e :U 152 ]
+[; ;main.c: 669: else if(g_warn_led == 5)
+[e $ ! == -> _g_warn_led `i -> 5 `i 156  ]
+[; ;main.c: 670: {
+"670
+{
+[; ;main.c: 672: (PORTB1 = 1); (PORTB0 = 1); (PORTA7 = 1); (PORTA6 = 1); (PORTA4 = 1);
+"672
+[e = _PORTB1 -> -> 1 `i `b ]
+[e = _PORTB0 -> -> 1 `i `b ]
+[e = _PORTA7 -> -> 1 `i `b ]
+[e = _PORTA6 -> -> 1 `i `b ]
+[e = _PORTA4 -> -> 1 `i `b ]
+[; ;main.c: 673: if(!DIY_Flag1.OnrBit.b6)
+"673
+[e $ ! ! != -> . . _DIY_Flag1 0 6 `i -> -> -> 0 `i `uc `i 157  ]
+[; ;main.c: 674: (PORTA4 = 0);
+"674
+[e = _PORTA4 -> -> 0 `i `b ]
+[e :U 157 ]
+"675
+}
+[e :U 156 ]
+"678
+[e :U 155 ]
+[; ;main.c: 675: }
+[; ;main.c: 678: if(g_warn_flash == 0)
+[e $ ! == -> _g_warn_flash `i -> 0 `i 158  ]
+[; ;main.c: 679: {
+"679
+{
+[; ;main.c: 680: show_gear_led(g_gear);
+"680
+[e ( _show_gear_led (1 _g_gear ]
+"681
+}
+[e :U 158 ]
+[; ;main.c: 681: }
+[; ;main.c: 682: }
+"682
+[e :UE 149 ]
+}
+"685
+[v _Key_Func `(v ~T0 @X0 1 ef ]
+"686
+{
+[; ;main.c: 685: void Key_Func(void)
+[; ;main.c: 686: {
+[e :U _Key_Func ]
+[f ]
+"687
+[v F525 `uc ~T0 @X0 1 s key1_time1 ]
+[i F525
+-> -> 0 `i `uc
+]
+"688
+[v F526 `uc ~T0 @X0 1 s key1_time2 ]
+[i F526
+-> -> 0 `i `uc
+]
+"689
+[v F527 `uc ~T0 @X0 1 s key2_time1 ]
+[i F527
+-> -> 0 `i `uc
+]
+"690
+[v F528 `uc ~T0 @X0 1 s key2_time2 ]
+[i F528
+-> -> 0 `i `uc
+]
+[; ;main.c: 687: static unsigned char key1_time1 = 0;
+[; ;main.c: 688: static unsigned char key1_time2 = 0;
+[; ;main.c: 689: static unsigned char key2_time1 = 0;
+[; ;main.c: 690: static unsigned char key2_time2 = 0;
+[; ;main.c: 692: if(!PORTA2)
+"692
+[e $ ! ! _PORTA2 160  ]
+[; ;main.c: 693: {
+"693
+{
+[; ;main.c: 694: key1_time2 = 0;
+"694
+[e = F526 -> -> 0 `i `uc ]
+[; ;main.c: 695: key1_time1 ++;
+"695
+[e ++ F525 -> -> 1 `i `uc ]
+[; ;main.c: 696: if(key1_time1 >= 10)
+"696
+[e $ ! >= -> F525 `i -> 10 `i 161  ]
+[; ;main.c: 697: {
+"697
+{
+[; ;main.c: 698: key1_time1 = 0;
+"698
+[e = F525 -> -> 0 `i `uc ]
+[; ;main.c: 699: DIY_Flag1.OnrBit.b1 = 1;
+"699
+[e = . . _DIY_Flag1 0 1 -> -> 1 `i `uc ]
+"700
+}
+[e :U 161 ]
+"701
+}
+[; ;main.c: 700: }
+[; ;main.c: 701: }
+[e $U 162  ]
+"702
+[e :U 160 ]
+[; ;main.c: 702: else
+[; ;main.c: 703: {
+"703
+{
+[; ;main.c: 705: key1_time1 = 0;
+"705
+[e = F525 -> -> 0 `i `uc ]
+[; ;main.c: 706: key1_time2 ++;
+"706
+[e ++ F526 -> -> 1 `i `uc ]
+[; ;main.c: 707: if(key1_time2 >= 10)
+"707
+[e $ ! >= -> F526 `i -> 10 `i 163  ]
+[; ;main.c: 708: {
+"708
+{
+[; ;main.c: 709: key1_time2 = 0;
+"709
+[e = F526 -> -> 0 `i `uc ]
+[; ;main.c: 710: DIY_Flag1.OnrBit.b1 = 0;
+"710
+[e = . . _DIY_Flag1 0 1 -> -> 0 `i `uc ]
+"711
+}
+[e :U 163 ]
+"712
+}
+[e :U 162 ]
+[; ;main.c: 711: }
+[; ;main.c: 712: }
+[; ;main.c: 714: if(!PORTA1)
+"714
+[e $ ! ! _PORTA1 164  ]
+[; ;main.c: 715: {
+"715
+{
+[; ;main.c: 716: key2_time2 = 0;
+"716
+[e = F528 -> -> 0 `i `uc ]
+[; ;main.c: 717: key2_time1 ++;
+"717
+[e ++ F527 -> -> 1 `i `uc ]
+[; ;main.c: 718: if(key2_time1 >= 10)
+"718
+[e $ ! >= -> F527 `i -> 10 `i 165  ]
+[; ;main.c: 719: {
+"719
+{
+[; ;main.c: 720: key2_time1 = 0;
+"720
+[e = F527 -> -> 0 `i `uc ]
+[; ;main.c: 721: DIY_Flag1.OnrBit.b2 = 1;
+"721
+[e = . . _DIY_Flag1 0 2 -> -> 1 `i `uc ]
+"722
+}
+[e :U 165 ]
+"723
+}
+[; ;main.c: 722: }
+[; ;main.c: 723: }
+[e $U 166  ]
+"724
+[e :U 164 ]
+[; ;main.c: 724: else
+[; ;main.c: 725: {
+"725
+{
+[; ;main.c: 727: key2_time1 = 0;
+"727
+[e = F527 -> -> 0 `i `uc ]
+[; ;main.c: 728: key2_time2 ++;
+"728
+[e ++ F528 -> -> 1 `i `uc ]
+[; ;main.c: 729: if(key2_time2 >= 10)
+"729
+[e $ ! >= -> F528 `i -> 10 `i 167  ]
+[; ;main.c: 730: {
+"730
+{
+[; ;main.c: 731: key2_time2 = 0;
+"731
+[e = F528 -> -> 0 `i `uc ]
+[; ;main.c: 732: DIY_Flag1.OnrBit.b2 = 0;
+"732
+[e = . . _DIY_Flag1 0 2 -> -> 0 `i `uc ]
+"733
+}
+[e :U 167 ]
+"734
+}
+[e :U 166 ]
+[; ;main.c: 733: }
+[; ;main.c: 734: }
+[; ;main.c: 735: }
+"735
+[e :UE 159 ]
+}
+"737
+[v _SW_Func `(v ~T0 @X0 1 ef ]
+"738
+{
+[; ;main.c: 737: void SW_Func()
+[; ;main.c: 738: {
+[e :U _SW_Func ]
+[f ]
+"739
+[v F530 `uc ~T0 @X0 1 s sw_time1 ]
+[i F530
+-> -> 0 `i `uc
+]
+"740
+[v F531 `uc ~T0 @X0 1 s sw_time2 ]
+[i F531
+-> -> 0 `i `uc
+]
+[; ;main.c: 739: static unsigned char sw_time1 = 0;
+[; ;main.c: 740: static unsigned char sw_time2 = 0;
+[; ;main.c: 742: if(PORTA3)
+"742
+[e $ ! _PORTA3 169  ]
+[; ;main.c: 743: {
+"743
+{
+[; ;main.c: 745: sw_time2 = 0;
+"745
+[e = F531 -> -> 0 `i `uc ]
+[; ;main.c: 746: sw_time1 ++;
+"746
+[e ++ F530 -> -> 1 `i `uc ]
+[; ;main.c: 747: if(sw_time1 >= 20)
+"747
+[e $ ! >= -> F530 `i -> 20 `i 170  ]
+[; ;main.c: 748: {
+"748
+{
+[; ;main.c: 749: sw_time1 = 0;
+"749
+[e = F530 -> -> 0 `i `uc ]
+[; ;main.c: 750: if(DIY_Flag2.OnrBit.b0)
+"750
+[e $ ! != -> . . _DIY_Flag2 0 0 `i -> -> -> 0 `i `uc `i 171  ]
+[; ;main.c: 751: {
+"751
+{
+[; ;main.c: 752: DIY_Flag1.OnrBit.b7 = 0;
+"752
+[e = . . _DIY_Flag1 0 7 -> -> 0 `i `uc ]
+[; ;main.c: 753: g_offshow_ms = 0;
+"753
+[e = _g_offshow_ms -> -> 0 `i `ui ]
+"754
+}
+[e :U 171 ]
+[; ;main.c: 754: }
+[; ;main.c: 755: DIY_Flag2.OnrBit.b0 = 0;
+"755
+[e = . . _DIY_Flag2 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 756: DIY_Flag1.OnrBit.b5 = 0;
+"756
+[e = . . _DIY_Flag1 0 5 -> -> 0 `i `uc ]
+[; ;main.c: 758: g_pwr_delay_ms = 0;
+"758
+[e = _g_pwr_delay_ms -> -> 0 `i `ui ]
+"760
+}
+[e :U 170 ]
+"761
+}
+[; ;main.c: 760: }
+[; ;main.c: 761: }
+[e $U 172  ]
+"762
+[e :U 169 ]
+[; ;main.c: 762: else
+[; ;main.c: 763: {
+"763
+{
+[; ;main.c: 765: sw_time1 = 0;
+"765
+[e = F530 -> -> 0 `i `uc ]
+[; ;main.c: 766: sw_time2 ++;
+"766
+[e ++ F531 -> -> 1 `i `uc ]
+[; ;main.c: 767: if(sw_time2 >= 20)
+"767
+[e $ ! >= -> F531 `i -> 20 `i 173  ]
+[; ;main.c: 768: {
+"768
+{
+[; ;main.c: 769: sw_time2 = 0;
+"769
+[e = F531 -> -> 0 `i `uc ]
+[; ;main.c: 770: DIY_Flag2.OnrBit.b0 = 1;
+"770
+[e = . . _DIY_Flag2 0 0 -> -> 1 `i `uc ]
+[; ;main.c: 771: DIY_Flag1.OnrBit.b5 = 0;
+"771
+[e = . . _DIY_Flag1 0 5 -> -> 0 `i `uc ]
+"772
+}
+[e :U 173 ]
+"773
+}
+[e :U 172 ]
+[; ;main.c: 772: }
+[; ;main.c: 773: }
+[; ;main.c: 774: }
+"774
+[e :UE 168 ]
+}
+"792
+[v _Key_Application `(v ~T0 @X0 1 ef ]
+"793
+{
+[; ;main.c: 792: void Key_Application()
+[; ;main.c: 793: {
+[e :U _Key_Application ]
+[f ]
+"794
+[v _edge `uc ~T0 @X0 1 a ]
+"795
+[v _cur `uc ~T0 @X0 1 a ]
+"796
+[v F535 `uc ~T0 @X0 1 s off_key_prev ]
+[i F535
+-> -> 0 `i `uc
+]
+[; ;main.c: 794: unsigned char edge;
+[; ;main.c: 795: unsigned char cur;
+[; ;main.c: 796: static unsigned char off_key_prev = 0;
+[; ;main.c: 797: warn_flash_proc();
+"797
+[e ( _warn_flash_proc ..  ]
+[; ;main.c: 800: if(g_vdd_adc <= 2363u)
+"800
+[e $ ! <= _g_vdd_adc -> 2363 `ui 175  ]
+[; ;main.c: 801: {
+"801
+{
+[; ;main.c: 802: g_battery_empty = 1;
+"802
+[e = _g_battery_empty -> -> 1 `i `uc ]
+"803
+}
+[; ;main.c: 803: }
+[e $U 176  ]
+"804
+[e :U 175 ]
+[; ;main.c: 804: else if(g_vdd_adc >= 2387u)
+[e $ ! >= _g_vdd_adc -> 2387 `ui 177  ]
+[; ;main.c: 805: {
+"805
+{
+[; ;main.c: 806: g_battery_empty = 0;
+"806
+[e = _g_battery_empty -> -> 0 `i `uc ]
+"807
+}
+[e :U 177 ]
+"809
+[e :U 176 ]
+[; ;main.c: 807: }
+[; ;main.c: 809: if(g_battery_empty)
+[e $ ! != -> _g_battery_empty `i -> -> -> 0 `i `uc `i 178  ]
+[; ;main.c: 810: {
+"810
+{
+[; ;main.c: 811: DIY_Flag2.OnrBit.b0 = 0;
+"811
+[e = . . _DIY_Flag2 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 812: set_fan(0);
+"812
+[e ( _set_fan (1 -> -> 0 `i `uc ]
+[; ;main.c: 813: (PORTB1 = 1); (PORTB0 = 1); (PORTA7 = 1); (PORTA6 = 1); (PORTA4 = 1);
+"813
+[e = _PORTB1 -> -> 1 `i `b ]
+[e = _PORTB0 -> -> 1 `i `b ]
+[e = _PORTA7 -> -> 1 `i `b ]
+[e = _PORTA6 -> -> 1 `i `b ]
+[e = _PORTA4 -> -> 1 `i `b ]
+[; ;main.c: 814: DIY_Flag1.OnrBit.b7 = 0;
+"814
+[e = . . _DIY_Flag1 0 7 -> -> 0 `i `uc ]
+[; ;main.c: 815: g_offshow_ms = 0;
+"815
+[e = _g_offshow_ms -> -> 0 `i `ui ]
+[; ;main.c: 816: g_warn_flash = 0;
+"816
+[e = _g_warn_flash -> -> 0 `i `uc ]
+[; ;main.c: 817: g_gear = 0;
+"817
+[e = _g_gear -> -> 0 `i `uc ]
+[; ;main.c: 818: g_k1_prev = DIY_Flag1.OnrBit.b1;
+"818
+[e = _g_k1_prev . . _DIY_Flag1 0 1 ]
+[; ;main.c: 819: g_k2_prev = DIY_Flag1.OnrBit.b2;
+"819
+[e = _g_k2_prev . . _DIY_Flag1 0 2 ]
+[; ;main.c: 820: g_k1_hold_ms = 0;
+"820
+[e = _g_k1_hold_ms -> -> 0 `i `ui ]
+[; ;main.c: 821: g_k2_hold_ms = 0;
+"821
+[e = _g_k2_hold_ms -> -> 0 `i `ui ]
+[; ;main.c: 822: return;
+"822
+[e $UE 174  ]
+"823
+}
+[e :U 178 ]
+[; ;main.c: 823: }
+[; ;main.c: 828: if(DIY_Flag2.OnrBit.b0 == 0)
+"828
+[e $ ! == -> . . _DIY_Flag2 0 0 `i -> 0 `i 179  ]
+[; ;main.c: 829: {
+"829
+{
+[; ;main.c: 830: edge = 0;
+"830
+[e = _edge -> -> 0 `i `uc ]
+[; ;main.c: 831: if(DIY_Flag1.OnrBit.b5)
+"831
+[e $ ! != -> . . _DIY_Flag1 0 5 `i -> -> -> 0 `i `uc `i 180  ]
+[; ;main.c: 832: {
+"832
+{
+[; ;main.c: 833: edge = 1;
+"833
+[e = _edge -> -> 1 `i `uc ]
+[; ;main.c: 834: DIY_Flag1.OnrBit.b5 = 0;
+"834
+[e = . . _DIY_Flag1 0 5 -> -> 0 `i `uc ]
+"835
+}
+[e :U 180 ]
+[; ;main.c: 835: }
+[; ;main.c: 836: cur = DIY_Flag1.OnrBit.b1 || DIY_Flag1.OnrBit.b2;
+"836
+[e = _cur -> -> || != -> . . _DIY_Flag1 0 1 `i -> -> -> 0 `i `uc `i != -> . . _DIY_Flag1 0 2 `i -> -> -> 0 `i `uc `i `i `uc ]
+[; ;main.c: 837: if(cur && !off_key_prev)
+"837
+[e $ ! && != -> _cur `i -> -> -> 0 `i `uc `i ! != -> F535 `i -> -> -> 0 `i `uc `i 181  ]
+[; ;main.c: 838: edge = 1;
+"838
+[e = _edge -> -> 1 `i `uc ]
+[e :U 181 ]
+[; ;main.c: 839: off_key_prev = cur;
+"839
+[e = F535 _cur ]
+[; ;main.c: 840: if(edge)
+"840
+[e $ ! != -> _edge `i -> -> -> 0 `i `uc `i 182  ]
+[; ;main.c: 841: {
+"841
+{
+[; ;main.c: 842: Battery_Update();
+"842
+[e ( _Battery_Update ..  ]
+[; ;main.c: 843: DIY_Flag1.OnrBit.b7 = 1;
+"843
+[e = . . _DIY_Flag1 0 7 -> -> 1 `i `uc ]
+[; ;main.c: 844: g_offshow_ms = 0;
+"844
+[e = _g_offshow_ms -> -> 0 `i `ui ]
+[; ;main.c: 845: show_gear_led(level);
+"845
+[e ( _show_gear_led (1 _level ]
+"846
+}
+[e :U 182 ]
+[; ;main.c: 846: }
+[; ;main.c: 847: if(DIY_Flag1.OnrBit.b7)
+"847
+[e $ ! != -> . . _DIY_Flag1 0 7 `i -> -> -> 0 `i `uc `i 183  ]
+[; ;main.c: 848: {
+"848
+{
+[; ;main.c: 849: g_offshow_ms++;
+"849
+[e ++ _g_offshow_ms -> -> 1 `i `ui ]
+[; ;main.c: 850: if(g_offshow_ms >= 5000)
+"850
+[e $ ! >= _g_offshow_ms -> -> 5000 `i `ui 184  ]
+[; ;main.c: 851: {
+"851
+{
+[; ;main.c: 852: DIY_Flag1.OnrBit.b7 = 0;
+"852
+[e = . . _DIY_Flag1 0 7 -> -> 0 `i `uc ]
+[; ;main.c: 853: g_offshow_ms = 0;
+"853
+[e = _g_offshow_ms -> -> 0 `i `ui ]
+[; ;main.c: 854: (PORTB1 = 1); (PORTB0 = 1); (PORTA7 = 1); (PORTA6 = 1); (PORTA4 = 1);
+"854
+[e = _PORTB1 -> -> 1 `i `b ]
+[e = _PORTB0 -> -> 1 `i `b ]
+[e = _PORTA7 -> -> 1 `i `b ]
+[e = _PORTA6 -> -> 1 `i `b ]
+[e = _PORTA4 -> -> 1 `i `b ]
+"855
+}
+[e :U 184 ]
+"856
+}
+[e :U 183 ]
+[; ;main.c: 855: }
+[; ;main.c: 856: }
+[; ;main.c: 858: if(g_gear != 0)
+"858
+[e $ ! != -> _g_gear `i -> 0 `i 185  ]
+[; ;main.c: 859: {
+"859
+{
+[; ;main.c: 860: g_gear = 0;
+"860
+[e = _g_gear -> -> 0 `i `uc ]
+[; ;main.c: 861: set_fan(0);
+"861
+[e ( _set_fan (1 -> -> 0 `i `uc ]
+[; ;main.c: 862: (PORTB1 = 1); (PORTB0 = 1); (PORTA7 = 1); (PORTA6 = 1); (PORTA4 = 1);
+"862
+[e = _PORTB1 -> -> 1 `i `b ]
+[e = _PORTB0 -> -> 1 `i `b ]
+[e = _PORTA7 -> -> 1 `i `b ]
+[e = _PORTA6 -> -> 1 `i `b ]
+[e = _PORTA4 -> -> 1 `i `b ]
+[; ;main.c: 863: g_warn_flash = 0;
+"863
+[e = _g_warn_flash -> -> 0 `i `uc ]
+"864
+}
+[e :U 185 ]
+[; ;main.c: 864: }
+[; ;main.c: 865: g_k1_prev = DIY_Flag1.OnrBit.b1;
+"865
+[e = _g_k1_prev . . _DIY_Flag1 0 1 ]
+[; ;main.c: 866: g_k2_prev = DIY_Flag1.OnrBit.b2;
+"866
+[e = _g_k2_prev . . _DIY_Flag1 0 2 ]
+[; ;main.c: 867: g_k1_hold_ms = 0;
+"867
+[e = _g_k1_hold_ms -> -> 0 `i `ui ]
+[; ;main.c: 868: g_k2_hold_ms = 0;
+"868
+[e = _g_k2_hold_ms -> -> 0 `i `ui ]
+[; ;main.c: 869: return;
+"869
+[e $UE 174  ]
+"870
+}
+[e :U 179 ]
+[; ;main.c: 870: }
+[; ;main.c: 875: if(g_pwr_delay_ms < 1000)
+"875
+[e $ ! < _g_pwr_delay_ms -> -> 1000 `i `ui 186  ]
+[; ;main.c: 876: {
+"876
+{
+[; ;main.c: 877: g_pwr_delay_ms++;
+"877
+[e ++ _g_pwr_delay_ms -> -> 1 `i `ui ]
+[; ;main.c: 878: set_fan(0);
+"878
+[e ( _set_fan (1 -> -> 0 `i `uc ]
+[; ;main.c: 879: (PORTB1 = 1); (PORTB0 = 1); (PORTA7 = 1); (PORTA6 = 1); (PORTA4 = 1);
+"879
+[e = _PORTB1 -> -> 1 `i `b ]
+[e = _PORTB0 -> -> 1 `i `b ]
+[e = _PORTA7 -> -> 1 `i `b ]
+[e = _PORTA6 -> -> 1 `i `b ]
+[e = _PORTA4 -> -> 1 `i `b ]
+[; ;main.c: 880: g_k1_prev = DIY_Flag1.OnrBit.b1;
+"880
+[e = _g_k1_prev . . _DIY_Flag1 0 1 ]
+[; ;main.c: 881: g_k2_prev = DIY_Flag1.OnrBit.b2;
+"881
+[e = _g_k2_prev . . _DIY_Flag1 0 2 ]
+[; ;main.c: 882: g_k1_hold_ms = 0;
+"882
+[e = _g_k1_hold_ms -> -> 0 `i `ui ]
+[; ;main.c: 883: g_k2_hold_ms = 0;
+"883
+[e = _g_k2_hold_ms -> -> 0 `i `ui ]
+[; ;main.c: 884: return;
+"884
+[e $UE 174  ]
+"885
+}
+[e :U 186 ]
+[; ;main.c: 885: }
+[; ;main.c: 888: if(DIY_Flag2.OnrBit.b2 || DIY_Flag2.OnrBit.b3)
+"888
+[e $ ! || != -> . . _DIY_Flag2 0 2 `i -> -> -> 0 `i `uc `i != -> . . _DIY_Flag2 0 3 `i -> -> -> 0 `i `uc `i 187  ]
+[; ;main.c: 889: {
+"889
+{
+[; ;main.c: 890: g_gear = 1;
+"890
+[e = _g_gear -> -> 1 `i `uc ]
+[; ;main.c: 891: set_fan(1);
+"891
+[e ( _set_fan (1 -> -> 1 `i `uc ]
+[; ;main.c: 892: DIY_Flag1.OnrBit.b7 = 0;
+"892
+[e = . . _DIY_Flag1 0 7 -> -> 0 `i `uc ]
+[; ;main.c: 894: if(g_warn_flash == 0)
+"894
+[e $ ! == -> _g_warn_flash `i -> 0 `i 188  ]
+[; ;main.c: 895: show_gear_led(1);
+"895
+[e ( _show_gear_led (1 -> -> 1 `i `uc ]
+[e :U 188 ]
+[; ;main.c: 898: if(DIY_Flag1.OnrBit.b2 && !g_k2_prev) trigger_warn(5);
+"898
+[e $ ! && != -> . . _DIY_Flag1 0 2 `i -> -> -> 0 `i `uc `i ! != -> _g_k2_prev `i -> -> -> 0 `i `uc `i 189  ]
+[e ( _trigger_warn (1 -> -> 5 `i `uc ]
+[e :U 189 ]
+[; ;main.c: 899: if(DIY_Flag1.OnrBit.b1 && !g_k1_prev) trigger_warn(5);
+"899
+[e $ ! && != -> . . _DIY_Flag1 0 1 `i -> -> -> 0 `i `uc `i ! != -> _g_k1_prev `i -> -> -> 0 `i `uc `i 190  ]
+[e ( _trigger_warn (1 -> -> 5 `i `uc ]
+[e :U 190 ]
+[; ;main.c: 901: g_k1_prev = DIY_Flag1.OnrBit.b1;
+"901
+[e = _g_k1_prev . . _DIY_Flag1 0 1 ]
+[; ;main.c: 902: g_k2_prev = DIY_Flag1.OnrBit.b2;
+"902
+[e = _g_k2_prev . . _DIY_Flag1 0 2 ]
+[; ;main.c: 903: g_k1_hold_ms = 0;
+"903
+[e = _g_k1_hold_ms -> -> 0 `i `ui ]
+[; ;main.c: 904: g_k2_hold_ms = 0;
+"904
+[e = _g_k2_hold_ms -> -> 0 `i `ui ]
+[; ;main.c: 905: return;
+"905
+[e $UE 174  ]
+"906
+}
+[; ;main.c: 906: }
+[e $U 191  ]
+"907
+[e :U 187 ]
+[; ;main.c: 907: else
+[; ;main.c: 908: {
+"908
+{
+[; ;main.c: 910: if(g_gear == 0)
+"910
+[e $ ! == -> _g_gear `i -> 0 `i 192  ]
+[; ;main.c: 911: {
+"911
+{
+[; ;main.c: 912: g_gear = 1;
+"912
+[e = _g_gear -> -> 1 `i `uc ]
+[; ;main.c: 913: set_fan(1);
+"913
+[e ( _set_fan (1 -> -> 1 `i `uc ]
+[; ;main.c: 914: show_gear_led(1);
+"914
+[e ( _show_gear_led (1 -> -> 1 `i `uc ]
+"915
+}
+[e :U 192 ]
+[; ;main.c: 915: }
+[; ;main.c: 917: if(g_warn_flash > 0)
+"917
+[e $ ! > -> _g_warn_flash `i -> 0 `i 193  ]
+[; ;main.c: 918: {
+"918
+{
+[; ;main.c: 919: g_k1_prev = DIY_Flag1.OnrBit.b1;
+"919
+[e = _g_k1_prev . . _DIY_Flag1 0 1 ]
+[; ;main.c: 920: g_k2_prev = DIY_Flag1.OnrBit.b2;
+"920
+[e = _g_k2_prev . . _DIY_Flag1 0 2 ]
+[; ;main.c: 921: g_k1_hold_ms = 0;
+"921
+[e = _g_k1_hold_ms -> -> 0 `i `ui ]
+[; ;main.c: 922: g_k2_hold_ms = 0;
+"922
+[e = _g_k2_hold_ms -> -> 0 `i `ui ]
+[; ;main.c: 923: return;
+"923
+[e $UE 174  ]
+"924
+}
+[e :U 193 ]
+[; ;main.c: 924: }
+[; ;main.c: 927: if(DIY_Flag1.OnrBit.b2)
+"927
+[e $ ! != -> . . _DIY_Flag1 0 2 `i -> -> -> 0 `i `uc `i 194  ]
+[; ;main.c: 928: {
+"928
+{
+[; ;main.c: 929: g_k2_hold_ms++;
+"929
+[e ++ _g_k2_hold_ms -> -> 1 `i `ui ]
+[; ;main.c: 931: if(g_k2_hold_ms == 500)
+"931
+[e $ ! == _g_k2_hold_ms -> -> 500 `i `ui 195  ]
+[; ;main.c: 932: {
+"932
+{
+[; ;main.c: 933: g_k2_hold_ms = 400;
+"933
+[e = _g_k2_hold_ms -> -> 400 `i `ui ]
+[; ;main.c: 934: if(g_gear < 5)
+"934
+[e $ ! < -> _g_gear `i -> 5 `i 196  ]
+[; ;main.c: 935: {
+"935
+{
+[; ;main.c: 936: g_gear++;
+"936
+[e ++ _g_gear -> -> 1 `i `uc ]
+[; ;main.c: 937: set_fan(g_gear);
+"937
+[e ( _set_fan (1 _g_gear ]
+[; ;main.c: 938: show_gear_led(g_gear);
+"938
+[e ( _show_gear_led (1 _g_gear ]
+"939
+}
+[; ;main.c: 939: }
+[e $U 197  ]
+"940
+[e :U 196 ]
+[; ;main.c: 940: else if(g_gear == 5)
+[e $ ! == -> _g_gear `i -> 5 `i 198  ]
+[; ;main.c: 941: {
+"941
+{
+[; ;main.c: 942: g_gear = 6;
+"942
+[e = _g_gear -> -> 6 `i `uc ]
+[; ;main.c: 943: set_fan(6);
+"943
+[e ( _set_fan (1 -> -> 6 `i `uc ]
+"944
+}
+[e :U 198 ]
+"945
+[e :U 197 ]
+}
+[e :U 195 ]
+"946
+}
+[; ;main.c: 944: }
+[; ;main.c: 945: }
+[; ;main.c: 946: }
+[e $U 199  ]
+"947
+[e :U 194 ]
+[; ;main.c: 947: else
+[; ;main.c: 948: {
+"948
+{
+[; ;main.c: 950: if(g_k2_prev)
+"950
+[e $ ! != -> _g_k2_prev `i -> -> -> 0 `i `uc `i 200  ]
+[; ;main.c: 951: {
+"951
+{
+[; ;main.c: 952: if(g_gear == 6)
+"952
+[e $ ! == -> _g_gear `i -> 6 `i 201  ]
+[; ;main.c: 953: {
+"953
+{
+[; ;main.c: 955: g_gear = 5;
+"955
+[e = _g_gear -> -> 5 `i `uc ]
+[; ;main.c: 956: set_fan(5);
+"956
+[e ( _set_fan (1 -> -> 5 `i `uc ]
+[; ;main.c: 957: show_gear_led(5);
+"957
+[e ( _show_gear_led (1 -> -> 5 `i `uc ]
+"958
+}
+[; ;main.c: 958: }
+[e $U 202  ]
+"959
+[e :U 201 ]
+[; ;main.c: 959: else if(g_k2_hold_ms < 500)
+[e $ ! < _g_k2_hold_ms -> -> 500 `i `ui 203  ]
+[; ;main.c: 960: {
+"960
+{
+[; ;main.c: 962: if(g_gear < 5)
+"962
+[e $ ! < -> _g_gear `i -> 5 `i 204  ]
+[; ;main.c: 963: {
+"963
+{
+[; ;main.c: 964: g_gear++;
+"964
+[e ++ _g_gear -> -> 1 `i `uc ]
+[; ;main.c: 965: set_fan(g_gear);
+"965
+[e ( _set_fan (1 _g_gear ]
+[; ;main.c: 966: show_gear_led(g_gear);
+"966
+[e ( _show_gear_led (1 _g_gear ]
+"967
+}
+[; ;main.c: 967: }
+[e $U 205  ]
+"968
+[e :U 204 ]
+[; ;main.c: 968: else if(g_gear == 5)
+[e $ ! == -> _g_gear `i -> 5 `i 206  ]
+[; ;main.c: 969: {
+"969
+{
+[; ;main.c: 970: trigger_warn(1);
+"970
+[e ( _trigger_warn (1 -> -> 1 `i `uc ]
+"971
+}
+[e :U 206 ]
+"972
+[e :U 205 ]
+}
+[e :U 203 ]
+"973
+[e :U 202 ]
+}
+[e :U 200 ]
+[; ;main.c: 971: }
+[; ;main.c: 972: }
+[; ;main.c: 973: }
+[; ;main.c: 974: g_k2_hold_ms = 0;
+"974
+[e = _g_k2_hold_ms -> -> 0 `i `ui ]
+"975
+}
+[e :U 199 ]
+[; ;main.c: 975: }
+[; ;main.c: 976: g_k2_prev = DIY_Flag1.OnrBit.b2;
+"976
+[e = _g_k2_prev . . _DIY_Flag1 0 2 ]
+[; ;main.c: 979: if(DIY_Flag1.OnrBit.b1)
+"979
+[e $ ! != -> . . _DIY_Flag1 0 1 `i -> -> -> 0 `i `uc `i 207  ]
+[; ;main.c: 980: {
+"980
+{
+[; ;main.c: 981: g_k1_hold_ms++;
+"981
+[e ++ _g_k1_hold_ms -> -> 1 `i `ui ]
+[; ;main.c: 983: if(g_k1_hold_ms == 500)
+"983
+[e $ ! == _g_k1_hold_ms -> -> 500 `i `ui 208  ]
+[; ;main.c: 984: {
+"984
+{
+[; ;main.c: 985: g_k1_hold_ms = 400;
+"985
+[e = _g_k1_hold_ms -> -> 400 `i `ui ]
+[; ;main.c: 986: if(g_gear > 1)
+"986
+[e $ ! > -> _g_gear `i -> 1 `i 209  ]
+[; ;main.c: 987: {
+"987
+{
+[; ;main.c: 988: g_gear--;
+"988
+[e -- _g_gear -> -> 1 `i `uc ]
+[; ;main.c: 989: set_fan(g_gear);
+"989
+[e ( _set_fan (1 _g_gear ]
+[; ;main.c: 990: show_gear_led(g_gear);
+"990
+[e ( _show_gear_led (1 _g_gear ]
+"991
+}
+[e :U 209 ]
+"992
+}
+[e :U 208 ]
+"993
+}
+[; ;main.c: 991: }
+[; ;main.c: 992: }
+[; ;main.c: 993: }
+[e $U 210  ]
+"994
+[e :U 207 ]
+[; ;main.c: 994: else
+[; ;main.c: 995: {
+"995
+{
+[; ;main.c: 997: if(g_k1_prev)
+"997
+[e $ ! != -> _g_k1_prev `i -> -> -> 0 `i `uc `i 211  ]
+[; ;main.c: 998: {
+"998
+{
+[; ;main.c: 999: if(g_k1_hold_ms < 500)
+"999
+[e $ ! < _g_k1_hold_ms -> -> 500 `i `ui 212  ]
+[; ;main.c: 1000: {
+"1000
+{
+[; ;main.c: 1002: if(g_gear > 1)
+"1002
+[e $ ! > -> _g_gear `i -> 1 `i 213  ]
+[; ;main.c: 1003: {
+"1003
+{
+[; ;main.c: 1004: g_gear--;
+"1004
+[e -- _g_gear -> -> 1 `i `uc ]
+[; ;main.c: 1005: set_fan(g_gear);
+"1005
+[e ( _set_fan (1 _g_gear ]
+[; ;main.c: 1006: show_gear_led(g_gear);
+"1006
+[e ( _show_gear_led (1 _g_gear ]
+"1007
+}
+[; ;main.c: 1007: }
+[e $U 214  ]
+"1008
+[e :U 213 ]
+[; ;main.c: 1008: else if(g_gear == 1)
+[e $ ! == -> _g_gear `i -> 1 `i 215  ]
+[; ;main.c: 1009: {
+"1009
+{
+[; ;main.c: 1010: trigger_warn(5);
+"1010
+[e ( _trigger_warn (1 -> -> 5 `i `uc ]
+"1011
+}
+[e :U 215 ]
+"1012
+[e :U 214 ]
+}
+[e :U 212 ]
+"1013
+}
+[e :U 211 ]
+[; ;main.c: 1011: }
+[; ;main.c: 1012: }
+[; ;main.c: 1013: }
+[; ;main.c: 1014: g_k1_hold_ms = 0;
+"1014
+[e = _g_k1_hold_ms -> -> 0 `i `ui ]
+"1015
+}
+[e :U 210 ]
+[; ;main.c: 1015: }
+[; ;main.c: 1016: g_k1_prev = DIY_Flag1.OnrBit.b1;
+"1016
+[e = _g_k1_prev . . _DIY_Flag1 0 1 ]
+"1017
+}
+[e :U 191 ]
+[; ;main.c: 1017: }
+[; ;main.c: 1018: }
+"1018
+[e :UE 174 ]
+}
+"1025
+[v _comm_pack_tx `(uc ~T0 @X0 1 sf ]
+"1026
+{
+[; ;main.c: 1025: static unsigned char comm_pack_tx(void)
+[; ;main.c: 1026: {
+[e :U _comm_pack_tx ]
+[f ]
+"1027
+[v _lo `uc ~T0 @X0 1 a ]
+[; ;main.c: 1027: unsigned char lo = 0;
+[e = _lo -> -> 0 `i `uc ]
+"1028
+[v _hi `uc ~T0 @X0 1 a ]
+"1029
+[v _result `uc ~T0 @X0 1 a ]
+[; ;main.c: 1028: unsigned char hi;
+[; ;main.c: 1029: unsigned char result;
+[; ;main.c: 1031: if(DIY_Flag2.OnrBit.b0)
+"1031
+[e $ ! != -> . . _DIY_Flag2 0 0 `i -> -> -> 0 `i `uc `i 217  ]
+[; ;main.c: 1032: {
+"1032
+{
+[; ;main.c: 1033: lo |= 0x04;
+"1033
+[e =| _lo -> -> 4 `i `uc ]
+[; ;main.c: 1036: if(DIY_Flag2.OnrBit.b1)
+"1036
+[e $ ! != -> . . _DIY_Flag2 0 1 `i -> -> -> 0 `i `uc `i 218  ]
+[; ;main.c: 1037: lo |= 0x02;
+"1037
+[e =| _lo -> -> 2 `i `uc ]
+[e :U 218 ]
+"1038
+}
+[e :U 217 ]
+[; ;main.c: 1038: }
+[; ;main.c: 1041: lo = lo & 0x0F;
+"1041
+[e = _lo -> & -> _lo `i -> 15 `i `uc ]
+[; ;main.c: 1042: hi = lo ^ 0x0F;
+"1042
+[e = _hi -> ^ -> _lo `i -> 15 `i `uc ]
+[; ;main.c: 1043: result = (hi << 4) | lo;
+"1043
+[e = _result -> | << -> _hi `i -> 4 `i -> _lo `i `uc ]
+[; ;main.c: 1044: return result;
+"1044
+[e ) _result ]
+[e $UE 216  ]
+[; ;main.c: 1045: }
+"1045
+[e :UE 216 ]
+}
+"1051
+[v _comm_parse_rx `(uc ~T0 @X0 1 sf1`uc ]
+"1052
+{
+[; ;main.c: 1051: static unsigned char comm_parse_rx(unsigned char raw)
+[; ;main.c: 1052: {
+[e :U _comm_parse_rx ]
+"1051
+[v _raw `uc ~T0 @X0 1 r1 ]
+"1052
+[f ]
+"1053
+[v _lo `uc ~T0 @X0 1 a ]
+"1054
+[v _hi `uc ~T0 @X0 1 a ]
+"1055
+[v _check `uc ~T0 @X0 1 a ]
+[; ;main.c: 1053: unsigned char lo;
+[; ;main.c: 1054: unsigned char hi;
+[; ;main.c: 1055: unsigned char check;
+[; ;main.c: 1057: lo = raw & 0x0F;
+"1057
+[e = _lo -> & -> _raw `i -> 15 `i `uc ]
+[; ;main.c: 1058: hi = (raw >> 4) & 0x0F;
+"1058
+[e = _hi -> & >> -> _raw `i -> 4 `i -> 15 `i `uc ]
+[; ;main.c: 1059: check = lo + hi;
+"1059
+[e = _check -> + -> _lo `i -> _hi `i `uc ]
+[; ;main.c: 1061: if(check != 0x0F)
+"1061
+[e $ ! != -> _check `i -> 15 `i 220  ]
+[; ;main.c: 1062: return 0;
+"1062
+[e ) -> -> 0 `i `uc ]
+[e $UE 219  ]
+[e :U 220 ]
+[; ;main.c: 1065: if(lo & 0x04)
+"1065
+[e $ ! != & -> _lo `i -> 4 `i -> 0 `i 221  ]
+[; ;main.c: 1066: DIY_Flag2.OnrBit.b2 = 1;
+"1066
+[e = . . _DIY_Flag2 0 2 -> -> 1 `i `uc ]
+[e $U 222  ]
+"1067
+[e :U 221 ]
+[; ;main.c: 1067: else
+[; ;main.c: 1068: DIY_Flag2.OnrBit.b2 = 0;
+"1068
+[e = . . _DIY_Flag2 0 2 -> -> 0 `i `uc ]
+[e :U 222 ]
+[; ;main.c: 1070: if(lo & 0x01)
+"1070
+[e $ ! != & -> _lo `i -> 1 `i -> 0 `i 223  ]
+[; ;main.c: 1071: DIY_Flag2.OnrBit.b3 = 1;
+"1071
+[e = . . _DIY_Flag2 0 3 -> -> 1 `i `uc ]
+[e $U 224  ]
+"1072
+[e :U 223 ]
+[; ;main.c: 1072: else
+[; ;main.c: 1073: DIY_Flag2.OnrBit.b3 = 0;
+"1073
+[e = . . _DIY_Flag2 0 3 -> -> 0 `i `uc ]
+[e :U 224 ]
+[; ;main.c: 1075: return 1;
+"1075
+[e ) -> -> 1 `i `uc ]
+[e $UE 219  ]
+[; ;main.c: 1076: }
+"1076
+[e :UE 219 ]
+}
+"1080
+[v _Kcomm_ISR `(v ~T0 @X0 1 ef ]
+"1081
+{
+[; ;main.c: 1080: void Kcomm_ISR(void)
+[; ;main.c: 1081: {
+[e :U _Kcomm_ISR ]
+[f ]
+"1082
+[v F548 `uc ~T0 @X0 1 s bit_wait_fall ]
+[; ;main.c: 1082: static unsigned char bit_wait_fall;
+[; ;main.c: 1083: kcomm_timer++;
+"1083
+[e ++ _kcomm_timer -> -> 1 `i `ui ]
+[; ;main.c: 1086: if(kcomm_wakeup)
+"1086
+[e $ ! != -> _kcomm_wakeup `i -> -> -> 0 `i `uc `i 226  ]
+[; ;main.c: 1087: {
+"1087
+{
+[; ;main.c: 1088: kcomm_wakeup_cnt++;
+"1088
+[e ++ _kcomm_wakeup_cnt -> -> 1 `i `ui ]
+[; ;main.c: 1089: if(kcomm_wakeup_cnt == 1)
+"1089
+[e $ ! == _kcomm_wakeup_cnt -> -> 1 `i `ui 227  ]
+[; ;main.c: 1090: {
+"1090
+{
+[; ;main.c: 1091: do { TRISB6 = 0; } while(0);
+"1091
+[e :U 230 ]
+{
+[e = _TRISB6 -> -> 0 `i `b ]
+}
+[e :U 229 ]
+[; ;main.c: 1092: PORTB6 = 1;
+"1092
+[e = _PORTB6 -> -> 1 `i `b ]
+"1093
+}
+[e :U 227 ]
+[; ;main.c: 1093: }
+[; ;main.c: 1094: if(kcomm_wakeup_cnt >= 1000u)
+"1094
+[e $ ! >= _kcomm_wakeup_cnt -> 1000 `ui 231  ]
+[; ;main.c: 1095: {
+"1095
+{
+[; ;main.c: 1096: PORTB6 = 0;
+"1096
+[e = _PORTB6 -> -> 0 `i `b ]
+[; ;main.c: 1097: do { TRISB6 = 1; } while(0);
+"1097
+[e :U 234 ]
+{
+[e = _TRISB6 -> -> 1 `i `b ]
+}
+[e :U 233 ]
+[; ;main.c: 1098: kcomm_wakeup = 0;
+"1098
+[e = _kcomm_wakeup -> -> 0 `i `uc ]
+[; ;main.c: 1099: kcomm_wakeup_cnt = 0;
+"1099
+[e = _kcomm_wakeup_cnt -> -> 0 `i `ui ]
+[; ;main.c: 1100: kcomm_low_cnt = 0;
+"1100
+[e = _kcomm_low_cnt -> -> 0 `i `ui ]
+[; ;main.c: 1101: kcomm_state = 0;
+"1101
+[e = _kcomm_state -> -> 0 `i `uc ]
+[; ;main.c: 1102: kcomm_cycle = 195;
+"1102
+[e = _kcomm_cycle -> -> 195 `i `uc ]
+"1103
+}
+[e :U 231 ]
+[; ;main.c: 1103: }
+[; ;main.c: 1104: return;
+"1104
+[e $UE 225  ]
+"1105
+}
+[e :U 226 ]
+[; ;main.c: 1105: }
+[; ;main.c: 1108: if(kcomm_state == 0)
+"1108
+[e $ ! == -> _kcomm_state `i -> 0 `i 235  ]
+[; ;main.c: 1109: {
+"1109
+{
+[; ;main.c: 1110: kcomm_cycle++;
+"1110
+[e ++ _kcomm_cycle -> -> 1 `i `uc ]
+[; ;main.c: 1112: if(!((PORTB & 0x40) ? 1 : 0))
+"1112
+[e $ ! ! != ? != & -> _PORTB `i -> 64 `i -> 0 `i : -> 1 `i -> 0 `i -> 0 `i 236  ]
+[; ;main.c: 1113: {
+"1113
+{
+[; ;main.c: 1114: if(kcomm_low_cnt < 1000)
+"1114
+[e $ ! < _kcomm_low_cnt -> -> 1000 `i `ui 237  ]
+[; ;main.c: 1115: kcomm_low_cnt++;
+"1115
+[e ++ _kcomm_low_cnt -> -> 1 `i `ui ]
+[e :U 237 ]
+[; ;main.c: 1118: if(kcomm_low_cnt >= 1000)
+"1118
+[e $ ! >= _kcomm_low_cnt -> -> 1000 `i `ui 238  ]
+[; ;main.c: 1119: {
+"1119
+{
+[; ;main.c: 1120: kcomm_low_cnt = 1000;
+"1120
+[e = _kcomm_low_cnt -> -> 1000 `i `ui ]
+[; ;main.c: 1122: if(kcomm_wakeup == 0)
+"1122
+[e $ ! == -> _kcomm_wakeup `i -> 0 `i 239  ]
+[; ;main.c: 1123: {
+"1123
+{
+[; ;main.c: 1124: if(DIY_Flag2.OnrBit.b0 || DIY_Flag2.OnrBit.b2 || DIY_Flag2.OnrBit.b3 || DIY_Flag2.OnrBit.b4)
+"1124
+[e $ ! || || || != -> . . _DIY_Flag2 0 0 `i -> -> -> 0 `i `uc `i != -> . . _DIY_Flag2 0 2 `i -> -> -> 0 `i `uc `i != -> . . _DIY_Flag2 0 3 `i -> -> -> 0 `i `uc `i != -> . . _DIY_Flag2 0 4 `i -> -> -> 0 `i `uc `i 240  ]
+[; ;main.c: 1125: {
+"1125
+{
+[; ;main.c: 1126: kcomm_wakeup = 1;
+"1126
+[e = _kcomm_wakeup -> -> 1 `i `uc ]
+[; ;main.c: 1127: kcomm_wakeup_cnt = 0;
+"1127
+[e = _kcomm_wakeup_cnt -> -> 0 `i `ui ]
+"1128
+}
+[e :U 240 ]
+"1129
+}
+[e :U 239 ]
+"1130
+}
+[e :U 238 ]
+"1131
+}
+[; ;main.c: 1128: }
+[; ;main.c: 1129: }
+[; ;main.c: 1130: }
+[; ;main.c: 1131: }
+[e $U 241  ]
+"1132
+[e :U 236 ]
+[; ;main.c: 1132: else
+[; ;main.c: 1133: {
+"1133
+{
+[; ;main.c: 1134: kcomm_low_cnt = 0;
+"1134
+[e = _kcomm_low_cnt -> -> 0 `i `ui ]
+"1135
+}
+[e :U 241 ]
+[; ;main.c: 1135: }
+[; ;main.c: 1138: if(kcomm_cycle >= 200)
+"1138
+[e $ ! >= -> _kcomm_cycle `i -> 200 `i 242  ]
+[; ;main.c: 1139: {
+"1139
+{
+[; ;main.c: 1140: kcomm_cycle = 0;
+"1140
+[e = _kcomm_cycle -> -> 0 `i `uc ]
+[; ;main.c: 1142: if(kcomm_turn == 0)
+"1142
+[e $ ! == -> _kcomm_turn `i -> 0 `i 243  ]
+[; ;main.c: 1143: {
+"1143
+{
+[; ;main.c: 1145: kcomm_tx_buf = comm_pack_tx();
+"1145
+[e = _kcomm_tx_buf ( _comm_pack_tx ..  ]
+[; ;main.c: 1146: kcomm_bit_idx = 0;
+"1146
+[e = _kcomm_bit_idx -> -> 0 `i `uc ]
+[; ;main.c: 1147: kcomm_timer = 0;
+"1147
+[e = _kcomm_timer -> -> 0 `i `ui ]
+[; ;main.c: 1148: kcomm_tx_done = 0;
+"1148
+[e = _kcomm_tx_done -> -> 0 `i `uc ]
+[; ;main.c: 1149: do { TRISB6 = 0; } while(0);
+"1149
+[e :U 246 ]
+{
+[e = _TRISB6 -> -> 0 `i `b ]
+}
+[e :U 245 ]
+[; ;main.c: 1150: PORTB6 = 1;
+"1150
+[e = _PORTB6 -> -> 1 `i `b ]
+[; ;main.c: 1151: kcomm_state = 1;
+"1151
+[e = _kcomm_state -> -> 1 `i `uc ]
+"1152
+}
+[; ;main.c: 1152: }
+[e $U 247  ]
+"1153
+[e :U 243 ]
+[; ;main.c: 1153: else
+[; ;main.c: 1154: {
+"1154
+{
+[; ;main.c: 1156: kcomm_rx_buf = 0;
+"1156
+[e = _kcomm_rx_buf -> -> 0 `i `uc ]
+[; ;main.c: 1157: kcomm_bit_idx = 0;
+"1157
+[e = _kcomm_bit_idx -> -> 0 `i `uc ]
+[; ;main.c: 1158: kcomm_timer = 0;
+"1158
+[e = _kcomm_timer -> -> 0 `i `ui ]
+[; ;main.c: 1159: kcomm_rx_done = 0;
+"1159
+[e = _kcomm_rx_done -> -> 0 `i `uc ]
+[; ;main.c: 1160: do { TRISB6 = 0; } while(0);
+"1160
+[e :U 250 ]
+{
+[e = _TRISB6 -> -> 0 `i `b ]
+}
+[e :U 249 ]
+[; ;main.c: 1161: PORTB6 = 1;
+"1161
+[e = _PORTB6 -> -> 1 `i `b ]
+[; ;main.c: 1162: kcomm_state = 5;
+"1162
+[e = _kcomm_state -> -> 5 `i `uc ]
+"1163
+}
+[e :U 247 ]
+"1164
+}
+[e :U 242 ]
+[; ;main.c: 1163: }
+[; ;main.c: 1164: }
+[; ;main.c: 1165: return;
+"1165
+[e $UE 225  ]
+"1166
+}
+[e :U 235 ]
+[; ;main.c: 1166: }
+[; ;main.c: 1168: if(kcomm_state == 1)
+"1168
+[e $ ! == -> _kcomm_state `i -> 1 `i 251  ]
+[; ;main.c: 1169: {
+"1169
+{
+[; ;main.c: 1170: if(kcomm_timer >= 20)
+"1170
+[e $ ! >= _kcomm_timer -> -> 20 `i `ui 252  ]
+[; ;main.c: 1171: {
+"1171
+{
+[; ;main.c: 1172: kcomm_timer = 0;
+"1172
+[e = _kcomm_timer -> -> 0 `i `ui ]
+[; ;main.c: 1173: PORTB6 = 0;
+"1173
+[e = _PORTB6 -> -> 0 `i `b ]
+[; ;main.c: 1174: kcomm_state = 2;
+"1174
+[e = _kcomm_state -> -> 2 `i `uc ]
+"1175
+}
+[; ;main.c: 1175: }
+[e $U 253  ]
+"1176
+[e :U 252 ]
+[; ;main.c: 1176: else
+[; ;main.c: 1177: {
+"1177
+{
+[; ;main.c: 1178: PORTB6 = 1;
+"1178
+[e = _PORTB6 -> -> 1 `i `b ]
+"1179
+}
+[e :U 253 ]
+"1180
+}
+[; ;main.c: 1179: }
+[; ;main.c: 1180: }
+[e $U 254  ]
+"1181
+[e :U 251 ]
+[; ;main.c: 1181: else if(kcomm_state == 2)
+[e $ ! == -> _kcomm_state `i -> 2 `i 255  ]
+[; ;main.c: 1182: {
+"1182
+{
+[; ;main.c: 1183: if(kcomm_timer >= 10)
+"1183
+[e $ ! >= _kcomm_timer -> -> 10 `i `ui 256  ]
+[; ;main.c: 1184: {
+"1184
+{
+[; ;main.c: 1185: kcomm_timer = 0;
+"1185
+[e = _kcomm_timer -> -> 0 `i `ui ]
+[; ;main.c: 1186: kcomm_tx_shift = kcomm_tx_buf;
+"1186
+[e = _kcomm_tx_shift _kcomm_tx_buf ]
+[; ;main.c: 1187: kcomm_bit_idx = 0;
+"1187
+[e = _kcomm_bit_idx -> -> 0 `i `uc ]
+[; ;main.c: 1188: PORTB6 = 1;
+"1188
+[e = _PORTB6 -> -> 1 `i `b ]
+[; ;main.c: 1189: kcomm_state = 3;
+"1189
+[e = _kcomm_state -> -> 3 `i `uc ]
+"1190
+}
+[e :U 256 ]
+"1191
+}
+[; ;main.c: 1190: }
+[; ;main.c: 1191: }
+[e $U 257  ]
+"1192
+[e :U 255 ]
+[; ;main.c: 1192: else if(kcomm_state == 3)
+[e $ ! == -> _kcomm_state `i -> 3 `i 258  ]
+[; ;main.c: 1193: {
+"1193
+{
+[; ;main.c: 1196: if(kcomm_timer >= 14)
+"1196
+[e $ ! >= _kcomm_timer -> -> 14 `i `ui 259  ]
+[; ;main.c: 1197: {
+"1197
+{
+[; ;main.c: 1199: kcomm_timer = 0;
+"1199
+[e = _kcomm_timer -> -> 0 `i `ui ]
+[; ;main.c: 1200: kcomm_bit_idx ++;
+"1200
+[e ++ _kcomm_bit_idx -> -> 1 `i `uc ]
+[; ;main.c: 1201: if(kcomm_bit_idx >= 8)
+"1201
+[e $ ! >= -> _kcomm_bit_idx `i -> 8 `i 260  ]
+[; ;main.c: 1202: {
+"1202
+{
+[; ;main.c: 1203: PORTB6 = 0;
+"1203
+[e = _PORTB6 -> -> 0 `i `b ]
+[; ;main.c: 1204: kcomm_state = 4;
+"1204
+[e = _kcomm_state -> -> 4 `i `uc ]
+[; ;main.c: 1205: kcomm_cycle= 0;
+"1205
+[e = _kcomm_cycle -> -> 0 `i `uc ]
+"1206
+}
+[; ;main.c: 1206: }
+[e $U 261  ]
+"1207
+[e :U 260 ]
+[; ;main.c: 1207: else
+[; ;main.c: 1208: {
+"1208
+{
+[; ;main.c: 1209: kcomm_tx_shift <<= 1;
+"1209
+[e =<< _kcomm_tx_shift -> 1 `i ]
+"1210
+}
+[e :U 261 ]
+"1211
+}
+[; ;main.c: 1210: }
+[; ;main.c: 1211: }
+[e $U 262  ]
+"1212
+[e :U 259 ]
+[; ;main.c: 1212: else
+[; ;main.c: 1213: {
+"1213
+{
+[; ;main.c: 1214: if(kcomm_tx_shift & 0x80)
+"1214
+[e $ ! != & -> _kcomm_tx_shift `i -> 128 `i -> 0 `i 263  ]
+[; ;main.c: 1215: {
+"1215
+{
+[; ;main.c: 1216: if(kcomm_timer <= 10)
+"1216
+[e $ ! <= _kcomm_timer -> -> 10 `i `ui 264  ]
+[; ;main.c: 1217: {
+"1217
+{
+[; ;main.c: 1218: PORTB6 = 1;
+"1218
+[e = _PORTB6 -> -> 1 `i `b ]
+"1219
+}
+[; ;main.c: 1219: }
+[e $U 265  ]
+"1220
+[e :U 264 ]
+[; ;main.c: 1220: else
+[; ;main.c: 1221: {
+"1221
+{
+[; ;main.c: 1222: PORTB6 = 0;
+"1222
+[e = _PORTB6 -> -> 0 `i `b ]
+"1223
+}
+[e :U 265 ]
+"1224
+}
+[; ;main.c: 1223: }
+[; ;main.c: 1224: }
+[e $U 266  ]
+"1225
+[e :U 263 ]
+[; ;main.c: 1225: else
+[; ;main.c: 1226: {
+"1226
+{
+[; ;main.c: 1227: if(kcomm_timer <= 4)
+"1227
+[e $ ! <= _kcomm_timer -> -> 4 `i `ui 267  ]
+[; ;main.c: 1228: {
+"1228
+{
+[; ;main.c: 1229: PORTB6 = 1;
+"1229
+[e = _PORTB6 -> -> 1 `i `b ]
+"1230
+}
+[; ;main.c: 1230: }
+[e $U 268  ]
+"1231
+[e :U 267 ]
+[; ;main.c: 1231: else
+[; ;main.c: 1232: {
+"1232
+{
+[; ;main.c: 1233: PORTB6 = 0;
+"1233
+[e = _PORTB6 -> -> 0 `i `b ]
+"1234
+}
+[e :U 268 ]
+"1235
+}
+[e :U 266 ]
+"1236
+}
+[e :U 262 ]
+"1237
+}
+[; ;main.c: 1234: }
+[; ;main.c: 1235: }
+[; ;main.c: 1236: }
+[; ;main.c: 1237: }
+[e $U 269  ]
+"1238
+[e :U 258 ]
+[; ;main.c: 1238: else if(kcomm_state == 4)
+[e $ ! == -> _kcomm_state `i -> 4 `i 270  ]
+[; ;main.c: 1239: {
+"1239
+{
+[; ;main.c: 1240: if(kcomm_timer >= 20)
+"1240
+[e $ ! >= _kcomm_timer -> -> 20 `i `ui 271  ]
+[; ;main.c: 1241: {
+"1241
+{
+[; ;main.c: 1242: PORTB6 = 0;
+"1242
+[e = _PORTB6 -> -> 0 `i `b ]
+[; ;main.c: 1243: do { TRISB6 = 1; } while(0);
+"1243
+[e :U 274 ]
+{
+[e = _TRISB6 -> -> 1 `i `b ]
+}
+[e :U 273 ]
+[; ;main.c: 1244: kcomm_tx_done = 1;
+"1244
+[e = _kcomm_tx_done -> -> 1 `i `uc ]
+[; ;main.c: 1245: kcomm_turn = 1;
+"1245
+[e = _kcomm_turn -> -> 1 `i `uc ]
+[; ;main.c: 1246: kcomm_timer = 0;
+"1246
+[e = _kcomm_timer -> -> 0 `i `ui ]
+[; ;main.c: 1247: kcomm_state = 0;
+"1247
+[e = _kcomm_state -> -> 0 `i `uc ]
+"1248
+}
+[e :U 271 ]
+"1249
+}
+[; ;main.c: 1248: }
+[; ;main.c: 1249: }
+[e $U 275  ]
+"1250
+[e :U 270 ]
+[; ;main.c: 1250: else if(kcomm_state == 5)
+[e $ ! == -> _kcomm_state `i -> 5 `i 276  ]
+[; ;main.c: 1251: {
+"1251
+{
+[; ;main.c: 1252: if(kcomm_timer >= 40)
+"1252
+[e $ ! >= _kcomm_timer -> -> 40 `i `ui 277  ]
+[; ;main.c: 1253: {
+"1253
+{
+[; ;main.c: 1254: kcomm_timer = 0;
+"1254
+[e = _kcomm_timer -> -> 0 `i `ui ]
+[; ;main.c: 1255: PORTB6 = 0;
+"1255
+[e = _PORTB6 -> -> 0 `i `b ]
+[; ;main.c: 1256: kcomm_state = 6;
+"1256
+[e = _kcomm_state -> -> 6 `i `uc ]
+"1257
+}
+[; ;main.c: 1257: }
+[e $U 278  ]
+"1258
+[e :U 277 ]
+[; ;main.c: 1258: else
+[; ;main.c: 1259: {
+"1259
+{
+[; ;main.c: 1260: PORTB6 = 1;
+"1260
+[e = _PORTB6 -> -> 1 `i `b ]
+"1261
+}
+[e :U 278 ]
+"1262
+}
+[; ;main.c: 1261: }
+[; ;main.c: 1262: }
+[e $U 279  ]
+"1263
+[e :U 276 ]
+[; ;main.c: 1263: else if(kcomm_state == 6)
+[e $ ! == -> _kcomm_state `i -> 6 `i 280  ]
+[; ;main.c: 1264: {
+"1264
+{
+[; ;main.c: 1265: if(kcomm_timer >= 10)
+"1265
+[e $ ! >= _kcomm_timer -> -> 10 `i `ui 281  ]
+[; ;main.c: 1266: {
+"1266
+{
+[; ;main.c: 1267: kcomm_timer = 0;
+"1267
+[e = _kcomm_timer -> -> 0 `i `ui ]
+[; ;main.c: 1268: bit_wait_fall = 0;
+"1268
+[e = F548 -> -> 0 `i `uc ]
+[; ;main.c: 1269: kcomm_bit_idx = 0;
+"1269
+[e = _kcomm_bit_idx -> -> 0 `i `uc ]
+[; ;main.c: 1270: kcomm_rx_shift = 0;
+"1270
+[e = _kcomm_rx_shift -> -> 0 `i `uc ]
+[; ;main.c: 1271: do { TRISB6 = 1; } while(0);
+"1271
+[e :U 284 ]
+{
+[e = _TRISB6 -> -> 1 `i `b ]
+}
+[e :U 283 ]
+[; ;main.c: 1272: PORTB6 = 0;
+"1272
+[e = _PORTB6 -> -> 0 `i `b ]
+[; ;main.c: 1273: kcomm_state = 9;
+"1273
+[e = _kcomm_state -> -> 9 `i `uc ]
+"1274
+}
+[e :U 281 ]
+"1275
+}
+[; ;main.c: 1274: }
+[; ;main.c: 1275: }
+[e $U 285  ]
+"1276
+[e :U 280 ]
+[; ;main.c: 1276: else if(kcomm_state == 9)
+[e $ ! == -> _kcomm_state `i -> 9 `i 286  ]
+[; ;main.c: 1277: {
+"1277
+{
+[; ;main.c: 1278: if(kcomm_timer >= ((kcomm_bit_idx == 0 && bit_wait_fall == 0) ? 400u : 60u))
+"1278
+[e $ ! >= _kcomm_timer ? && == -> _kcomm_bit_idx `i -> 0 `i == -> F548 `i -> 0 `i : -> 400 `ui -> 60 `ui 287  ]
+[; ;main.c: 1279: {
+"1279
+{
+[; ;main.c: 1280: kcomm_rx_done = 0xFF;
+"1280
+[e = _kcomm_rx_done -> -> 255 `i `uc ]
+[; ;main.c: 1281: kcomm_turn = 0;
+"1281
+[e = _kcomm_turn -> -> 0 `i `uc ]
+[; ;main.c: 1282: kcomm_timer = 0;
+"1282
+[e = _kcomm_timer -> -> 0 `i `ui ]
+[; ;main.c: 1283: kcomm_state = 0;
+"1283
+[e = _kcomm_state -> -> 0 `i `uc ]
+"1284
+}
+[; ;main.c: 1284: }
+[e $U 288  ]
+"1285
+[e :U 287 ]
+[; ;main.c: 1285: else if(bit_wait_fall == 0)
+[e $ ! == -> F548 `i -> 0 `i 289  ]
+[; ;main.c: 1286: {
+"1286
+{
+[; ;main.c: 1288: if(((PORTB & 0x40) ? 1 : 0))
+"1288
+[e $ ! != ? != & -> _PORTB `i -> 64 `i -> 0 `i : -> 1 `i -> 0 `i -> 0 `i 290  ]
+[; ;main.c: 1289: {
+"1289
+{
+[; ;main.c: 1290: kcomm_timer = 0;
+"1290
+[e = _kcomm_timer -> -> 0 `i `ui ]
+[; ;main.c: 1291: bit_wait_fall = 1;
+"1291
+[e = F548 -> -> 1 `i `uc ]
+"1292
+}
+[e :U 290 ]
+"1293
+}
+[; ;main.c: 1292: }
+[; ;main.c: 1293: }
+[e $U 291  ]
+"1294
+[e :U 289 ]
+[; ;main.c: 1294: else
+[; ;main.c: 1295: {
+"1295
+{
+[; ;main.c: 1297: if(!((PORTB & 0x40) ? 1 : 0))
+"1297
+[e $ ! ! != ? != & -> _PORTB `i -> 64 `i -> 0 `i : -> 1 `i -> 0 `i -> 0 `i 292  ]
+[; ;main.c: 1298: {
+"1298
+{
+[; ;main.c: 1299: kcomm_rx_shift <<= 1;
+"1299
+[e =<< _kcomm_rx_shift -> 1 `i ]
+[; ;main.c: 1300: if(kcomm_timer >= 7)
+"1300
+[e $ ! >= _kcomm_timer -> -> 7 `i `ui 293  ]
+[; ;main.c: 1301: kcomm_rx_shift |= 1;
+"1301
+[e =| _kcomm_rx_shift -> -> 1 `i `uc ]
+[e :U 293 ]
+[; ;main.c: 1303: bit_wait_fall = 0;
+"1303
+[e = F548 -> -> 0 `i `uc ]
+[; ;main.c: 1304: kcomm_bit_idx++;
+"1304
+[e ++ _kcomm_bit_idx -> -> 1 `i `uc ]
+[; ;main.c: 1306: if(kcomm_bit_idx >= 8)
+"1306
+[e $ ! >= -> _kcomm_bit_idx `i -> 8 `i 294  ]
+[; ;main.c: 1307: {
+"1307
+{
+[; ;main.c: 1308: kcomm_rx_buf = kcomm_rx_shift;
+"1308
+[e = _kcomm_rx_buf _kcomm_rx_shift ]
+[; ;main.c: 1309: kcomm_rx_done = 1;
+"1309
+[e = _kcomm_rx_done -> -> 1 `i `uc ]
+[; ;main.c: 1310: kcomm_turn = 0;
+"1310
+[e = _kcomm_turn -> -> 0 `i `uc ]
+[; ;main.c: 1311: kcomm_timer = 0;
+"1311
+[e = _kcomm_timer -> -> 0 `i `ui ]
+[; ;main.c: 1312: kcomm_state = 10;
+"1312
+[e = _kcomm_state -> -> 10 `i `uc ]
+"1313
+}
+[e :U 294 ]
+"1314
+}
+[e :U 292 ]
+"1315
+}
+[e :U 291 ]
+[e :U 288 ]
+"1316
+}
+[; ;main.c: 1313: }
+[; ;main.c: 1314: }
+[; ;main.c: 1315: }
+[; ;main.c: 1316: }
+[e $U 295  ]
+"1317
+[e :U 286 ]
+[; ;main.c: 1317: else if(kcomm_state == 10)
+[e $ ! == -> _kcomm_state `i -> 10 `i 296  ]
+[; ;main.c: 1318: {
+"1318
+{
+[; ;main.c: 1319: if(kcomm_timer >= 10)
+"1319
+[e $ ! >= _kcomm_timer -> -> 10 `i `ui 297  ]
+[; ;main.c: 1320: {
+"1320
+{
+[; ;main.c: 1321: kcomm_timer = 0;
+"1321
+[e = _kcomm_timer -> -> 0 `i `ui ]
+[; ;main.c: 1322: kcomm_state = 0;
+"1322
+[e = _kcomm_state -> -> 0 `i `uc ]
+"1323
+}
+[e :U 297 ]
+"1324
+}
+[; ;main.c: 1323: }
+[; ;main.c: 1324: }
+[e $U 298  ]
+"1325
+[e :U 296 ]
+[; ;main.c: 1325: else
+[; ;main.c: 1326: {
+"1326
+{
+[; ;main.c: 1327: kcomm_state = 0;
+"1327
+[e = _kcomm_state -> -> 0 `i `uc ]
+"1328
+}
+[e :U 298 ]
+[e :U 295 ]
+[e :U 285 ]
+[e :U 279 ]
+[e :U 275 ]
+[e :U 269 ]
+[e :U 257 ]
+[e :U 254 ]
+[; ;main.c: 1328: }
+[; ;main.c: 1329: }
+"1329
+[e :UE 225 ]
+}
+"1331
+[v _Comm_Process `(v ~T0 @X0 1 ef ]
+"1332
+{
+[; ;main.c: 1331: void Comm_Process(void)
+[; ;main.c: 1332: {
+[e :U _Comm_Process ]
+[f ]
+"1333
+[v _rx_ok `uc ~T0 @X0 1 a ]
+[; ;main.c: 1333: unsigned char rx_ok;
+[; ;main.c: 1335: if(kcomm_tx_done == 1)
+"1335
+[e $ ! == -> _kcomm_tx_done `i -> 1 `i 300  ]
+[; ;main.c: 1336: {
+"1336
+{
+[; ;main.c: 1337: kcomm_tx_done = 0;
+"1337
+[e = _kcomm_tx_done -> -> 0 `i `uc ]
+"1338
+}
+[e :U 300 ]
+[; ;main.c: 1338: }
+[; ;main.c: 1340: if(kcomm_rx_done == 1)
+"1340
+[e $ ! == -> _kcomm_rx_done `i -> 1 `i 301  ]
+[; ;main.c: 1341: {
+"1341
+{
+[; ;main.c: 1342: kcomm_rx_done = 0;
+"1342
+[e = _kcomm_rx_done -> -> 0 `i `uc ]
+[; ;main.c: 1343: rx_ok = comm_parse_rx(kcomm_rx_buf);
+"1343
+[e = _rx_ok ( _comm_parse_rx (1 _kcomm_rx_buf ]
+[; ;main.c: 1344: if(rx_ok)
+"1344
+[e $ ! != -> _rx_ok `i -> -> -> 0 `i `uc `i 302  ]
+[; ;main.c: 1345: g_slave_alive_ms = 200;
+"1345
+[e = _g_slave_alive_ms -> -> 200 `i `ui ]
+[e :U 302 ]
+[; ;main.c: 1346: if(DIY_Flag2.OnrBit.b2 || DIY_Flag2.OnrBit.b3 || DIY_Flag2.OnrBit.b4)
+"1346
+[e $ ! || || != -> . . _DIY_Flag2 0 2 `i -> -> -> 0 `i `uc `i != -> . . _DIY_Flag2 0 3 `i -> -> -> 0 `i `uc `i != -> . . _DIY_Flag2 0 4 `i -> -> -> 0 `i `uc `i 303  ]
+[; ;main.c: 1347: g_slave_alive_ms = 200;
+"1347
+[e = _g_slave_alive_ms -> -> 200 `i `ui ]
+[e :U 303 ]
+"1348
+}
+[; ;main.c: 1348: }
+[e $U 304  ]
+"1349
+[e :U 301 ]
+[; ;main.c: 1349: else if(kcomm_rx_done == 0xFF)
+[e $ ! == -> _kcomm_rx_done `i -> 255 `i 305  ]
+[; ;main.c: 1350: {
+"1350
+{
+[; ;main.c: 1351: kcomm_rx_done = 0;
+"1351
+[e = _kcomm_rx_done -> -> 0 `i `uc ]
+"1352
+}
+[e :U 305 ]
+"1353
+[e :U 304 ]
+[; ;main.c: 1352: }
+[; ;main.c: 1353: }
+[e :UE 299 ]
+}
+[v $root$_main `(v ~T0 @X0 0 e ]
+"1424
+[v _main `(v ~T0 @X0 1 ef ]
+"1425
+{
+[; ;main.c: 1424: void main(void)
+[; ;main.c: 1425: {
+[e :U _main ]
+[f ]
+[; ;main.c: 1426: ramInitial();
+"1426
+[e ( _ramInitial ..  ]
+[; ;main.c: 1427: inital();
+"1427
+[e ( _inital ..  ]
+[; ;main.c: 1428: Delay_Init(200);
+"1428
+[e ( _Delay_Init (1 -> -> 200 `i `ui ]
+[; ;main.c: 1429: ADC_Init();
+"1429
+[e ( _ADC_Init ..  ]
+[; ;main.c: 1430: T1_PWM_inital();
+"1430
+[e ( _T1_PWM_inital ..  ]
+[; ;main.c: 1431: sysinitial();
+"1431
+[e ( _sysinitial ..  ]
+[; ;main.c: 1432: WDTEN = 1;
+"1432
+[e = _WDTEN -> -> 1 `i `b ]
+[; ;main.c: 1434: (PORTB1 = 1); (PORTB0 = 1); (PORTA7 = 1); (PORTA6 = 1); (PORTA4 = 1);
+"1434
+[e = _PORTB1 -> -> 1 `i `b ]
+[e = _PORTB0 -> -> 1 `i `b ]
+[e = _PORTA7 -> -> 1 `i `b ]
+[e = _PORTA6 -> -> 1 `i `b ]
+[e = _PORTA4 -> -> 1 `i `b ]
+[; ;main.c: 1435: g_vdd_adc = 3308u;
+"1435
+[e = _g_vdd_adc -> 3308 `ui ]
+[; ;main.c: 1436: set_fan(0);
+"1436
+[e ( _set_fan (1 -> -> 0 `i `uc ]
+[; ;main.c: 1438: while(1)
+"1438
+[e :U 308 ]
+[; ;main.c: 1439: {
+"1439
+{
+[; ;main.c: 1440: T0IE = 1;
+"1440
+[e = _T0IE -> -> 1 `i `b ]
+[; ;main.c: 1441: GIE = 1;
+"1441
+[e = _GIE -> -> 1 `i `b ]
+[; ;main.c: 1442: if(DIY_Flag1.OnrBit.b0)
+"1442
+[e $ ! != -> . . _DIY_Flag1 0 0 `i -> -> -> 0 `i `uc `i 310  ]
+[; ;main.c: 1443: {
+"1443
+{
+[; ;main.c: 1444: DIY_Flag1.OnrBit.b0 = 0;
+"1444
+[e = . . _DIY_Flag1 0 0 -> -> 0 `i `uc ]
+"1446
+[; <"             clrwdt ;# ">
+[; ;main.c: 1450: Comm_Process();
+"1450
+[e ( _Comm_Process ..  ]
+[; ;main.c: 1451: if(g_slave_alive_ms > 0)
+"1451
+[e $ ! > _g_slave_alive_ms -> -> 0 `i `ui 311  ]
+[; ;main.c: 1452: {
+"1452
+{
+[; ;main.c: 1453: g_slave_alive_ms--;
+"1453
+[e -- _g_slave_alive_ms -> -> 1 `i `ui ]
+"1454
+}
+[; ;main.c: 1454: }
+[e $U 312  ]
+"1455
+[e :U 311 ]
+[; ;main.c: 1455: else
+[; ;main.c: 1456: {
+"1456
+{
+[; ;main.c: 1457: if(DIY_Flag2.OnrBit.b2 || DIY_Flag2.OnrBit.b3)
+"1457
+[e $ ! || != -> . . _DIY_Flag2 0 2 `i -> -> -> 0 `i `uc `i != -> . . _DIY_Flag2 0 3 `i -> -> -> 0 `i `uc `i 313  ]
+[; ;main.c: 1458: {
+"1458
+{
+[; ;main.c: 1459: g_gear = 0;
+"1459
+[e = _g_gear -> -> 0 `i `uc ]
+[; ;main.c: 1460: g_warn_flash = 0;
+"1460
+[e = _g_warn_flash -> -> 0 `i `uc ]
+"1461
+}
+[e :U 313 ]
+[; ;main.c: 1461: }
+[; ;main.c: 1463: DIY_Flag2.OnrBit.b2 = 0;
+"1463
+[e = . . _DIY_Flag2 0 2 -> -> 0 `i `uc ]
+[; ;main.c: 1464: DIY_Flag2.OnrBit.b3 = 0;
+"1464
+[e = . . _DIY_Flag2 0 3 -> -> 0 `i `uc ]
+"1465
+}
+[e :U 312 ]
+[; ;main.c: 1465: }
+[; ;main.c: 1467: Battery_Update();
+"1467
+[e ( _Battery_Update ..  ]
+[; ;main.c: 1468: Key_Func();
+"1468
+[e ( _Key_Func ..  ]
+[; ;main.c: 1469: SW_Func();
+"1469
+[e ( _SW_Func ..  ]
+[; ;main.c: 1470: Key_Application();
+"1470
+[e ( _Key_Application ..  ]
+[; ;main.c: 1471: Gear5_Duty_Update();
+"1471
+[e ( _Gear5_Duty_Update ..  ]
+[; ;main.c: 1472: fan_ramp_proc();
+"1472
+[e ( _fan_ramp_proc ..  ]
+[; ;main.c: 1473: LedMode_Func();
+"1473
+[e ( _LedMode_Func ..  ]
+[; ;main.c: 1474: Sleep_Func();
+"1474
+[e ( _Sleep_Func ..  ]
+"1475
+}
+[e :U 310 ]
+"1476
+}
+[e :U 307 ]
+"1438
+[e $U 308  ]
+[e :U 309 ]
+[; ;main.c: 1475: }
+[; ;main.c: 1476: }
+[; ;main.c: 1477: }
+"1477
+[e :UE 306 ]
+}
+[v $root$_Timer1_Isr `(v ~T0 @X0 0 e ]
+[v F555 `(v ~T0 @X0 1 tf ]
+"1480
+[v _Timer1_Isr `IF555 ~T0 @X0 1 e ]
+"1481
+{
+[; ;main.c: 1480: void interrupt Timer1_Isr(void)
+[; ;main.c: 1481: {
+[e :U _Timer1_Isr ]
+[f ]
+"1482
+[v F556 `uc ~T0 @X0 1 s timer_ms ]
+[i F556
+-> -> 0 `i `uc
+]
+"1483
+[v F557 `uc ~T0 @X0 1 s pwm_cnt ]
+[i F557
+-> -> 0 `i `uc
+]
+[; ;main.c: 1482: static unsigned char timer_ms = 0;
+[; ;main.c: 1483: static unsigned char pwm_cnt = 0;
+[; ;main.c: 1485: if(T0IF == 1)
+"1485
+[e $ ! == -> _T0IF `i -> 1 `i 315  ]
+[; ;main.c: 1486: {
+"1486
+{
+[; ;main.c: 1487: T0IF = 0;
+"1487
+[e = _T0IF -> -> 0 `i `b ]
+[; ;main.c: 1488: T0 = 168;
+"1488
+[e = _T0 -> -> 168 `i `uc ]
+[; ;main.c: 1489: timer_ms++;
+"1489
+[e ++ F556 -> -> 1 `i `uc ]
+[; ;main.c: 1491: if(timer_ms >= 20)
+"1491
+[e $ ! >= -> F556 `i -> 20 `i 316  ]
+[; ;main.c: 1492: {
+"1492
+{
+[; ;main.c: 1493: timer_ms = 0;
+"1493
+[e = F556 -> -> 0 `i `uc ]
+[; ;main.c: 1494: DIY_Flag1.OnrBit.b0 = 1;
+"1494
+[e = . . _DIY_Flag1 0 0 -> -> 1 `i `uc ]
+"1495
+}
+[e :U 316 ]
+"1496
+}
+[e :U 315 ]
+[; ;main.c: 1495: }
+[; ;main.c: 1496: }
+[; ;main.c: 1498: if(DIY_Flag2.OnrBit.b0 && g_gear == 6 && !DIY_Flag2.OnrBit.b2 && !DIY_Flag2.OnrBit.b3)
+"1498
+[e $ ! && && && != -> . . _DIY_Flag2 0 0 `i -> -> -> 0 `i `uc `i == -> _g_gear `i -> 6 `i ! != -> . . _DIY_Flag2 0 2 `i -> -> -> 0 `i `uc `i ! != -> . . _DIY_Flag2 0 3 `i -> -> -> 0 `i `uc `i 317  ]
+[; ;main.c: 1499: {
+"1499
+{
+[; ;main.c: 1500: pwm_cnt++;
+"1500
+[e ++ F557 -> -> 1 `i `uc ]
+[; ;main.c: 1501: if(pwm_cnt >= 50) pwm_cnt = 0;
+"1501
+[e $ ! >= -> F557 `i -> 50 `i 318  ]
+[e = F557 -> -> 0 `i `uc ]
+[e :U 318 ]
+[; ;main.c: 1503: if(pwm_cnt < g_overclock_pwm)
+"1503
+[e $ ! < -> F557 `i -> _g_overclock_pwm `i 319  ]
+[; ;main.c: 1504: {
+"1504
+{
+[; ;main.c: 1505: (PORTB1 = 0); (PORTB0 = 0); (PORTA7 = 0); (PORTA6 = 0); (PORTA4 = 0);
+"1505
+[e = _PORTB1 -> -> 0 `i `b ]
+[e = _PORTB0 -> -> 0 `i `b ]
+[e = _PORTA7 -> -> 0 `i `b ]
+[e = _PORTA6 -> -> 0 `i `b ]
+[e = _PORTA4 -> -> 0 `i `b ]
+"1506
+}
+[; ;main.c: 1506: }
+[e $U 320  ]
+"1507
+[e :U 319 ]
+[; ;main.c: 1507: else
+[; ;main.c: 1508: {
+"1508
+{
+[; ;main.c: 1509: (PORTB1 = 1); (PORTB0 = 1); (PORTA7 = 1); (PORTA6 = 1); (PORTA4 = 1);
+"1509
+[e = _PORTB1 -> -> 1 `i `b ]
+[e = _PORTB0 -> -> 1 `i `b ]
+[e = _PORTA7 -> -> 1 `i `b ]
+[e = _PORTA6 -> -> 1 `i `b ]
+[e = _PORTA4 -> -> 1 `i `b ]
+"1510
+}
+[e :U 320 ]
+"1511
+}
+[e :U 317 ]
+[; ;main.c: 1510: }
+[; ;main.c: 1511: }
+[; ;main.c: 1513: Kcomm_ISR();
+"1513
+[e ( _Kcomm_ISR ..  ]
+[; ;main.c: 1514: T1IF = 0;
+"1514
+[e = _T1IF -> -> 0 `i `b ]
+[; ;main.c: 1515: }
+"1515
+[e :UE 314 ]
+}

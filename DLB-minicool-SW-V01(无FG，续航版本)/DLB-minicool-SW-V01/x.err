@@ -1,0 +1,10 @@
+main.c: 237: (1090) variable "Sleep_Func@temp" is not used (warning)
+
+Memory Summary:
+    Program space        used   7F2h (  2034) of   7FCh words   ( 99.5%)
+    Data space           used    7Dh (   125) of    7Eh bytes   ( 99.2%)
+    EEPROM space         None available
+    Data stack space     used     0h (     0) of    17h bytes   (  0.0%)
+    Configuration bits   used     0h (     0) of     1h word    (  0.0%)
+    ID Location space    used     0h (     0) of     4h bytes   (  0.0%)
+

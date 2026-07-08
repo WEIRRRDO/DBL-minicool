@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<labelshopdocument version="1.2" tag="Oem" docid="dc436f05-6ad9-4195-b87a-408b93fb9db9">
+	<labelform version="1.1">
+		<paper name="未命名" code="0" brand="0" cate="0" syslabel="0" type="0" maxid="143">
+			<paper size="257" atuoset="0" width="4000" height="8000" orientation="1" color="255,255,255" leftoffect="0" topoffect="0"/>
+			<printer name="\\192.168.1.69\Gprinter  GP-3120TU (副本 1)" dev="" dpix="203" dpiy="203" lang="20" set="0" total="5" repeat="1" copy="1" startrecord="-1" gcopy="1" amount="113" script="RnVuY3Rpb24gT25CZWdpblByaW50KFN0YXRlKQ0KJ1N0YXRlID0gMCA6IFZhcmlhYmxlIFVwZGF0ZURhdGENCidTdGF0ZSA9IDEgOiBMYWJlbCBQcmV2aWV3DQonU3RhdGUgPSAyIDogTGFiZWwgUHJpbnQNCkVuZCBGdW5jdGlvbg0KDQpGdW5jdGlvbiBPbkJlZ2luTGFiZWwoKQ0KRW5kIEZ1bmN0aW9uDQoNCkZ1bmN0aW9uIE9uRW5kTGFiZWwoKQ0KRW5kIEZ1bmN0aW9uDQoNCkZ1bmN0aW9uIE9uRW5kUHJpbnQoKQ0KRW5kIEZ1bmN0aW9u">XABcADEAOQAyAC4AMQA2ADgALgAxAC4ANgA5AFwARwBwAHIAaQBuAHQAZQByACAAIABHAFAALQAzADEAAAAAAAEEAATcAP0FD28FAAEAAAFYAoQDAAABAAQAywABAAEAywABAAAAVQBzAGUAcgAgAGQAZQBmAGkAbgBlAGQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFBSTlAAAAAAAAAAAAQA//8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANoAAAAAAHpPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEAwAAWAIAAMsAAADLAAAAAAAAAAEAAAAAAAAAAAAAAAgAAACWAAAAAAAAAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAACAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAdgAEAFAAngJHcHJpbnRlciBHUC0zMTIwVFUAAAAAAAAAAAAAAAAAAAEAVFBNUgAA/QFkAE5JQ0VMYmw2NA==</printer>
+		</paper>
+		<labellayer>
+			<labelformat name="未命名" uint="0">
+				<page left="100" top="0" right="100" bottom="0" viewrotate="1"/>
+				<label width="5000" height="8000" rows="1" cols="1" rowgap="300" colgap="300" rotation="0"/>
+				<form corner="1" hole="0" holesize="0" order="LTH"/>
+			</labelformat>
+			<labelobjects>
+				<drawobj type="drawtext" id="123" name="" left="3917" top="1141" right="5857" bottom="1579" rotation="none" style="0" halign="0" valign="0" tpalign="0" tvalign="0">
+					<text type="1" width="0" align="0" cut="0" spactype="0" spacing="0" charextra="0" template="0" templtestr="" circr="0" circradian="0" circstart="0" circtw="0" circway="0"/>
+					<font facename="Arial" style="0" charset="1" height="1100" width="9700" italic="0" steikeout="0" underline="0" family="34" color="0,0,0" bkcolor="255,255,255"/>
+				</drawobj>
+				<drawobj type="drawtext" id="124" name="" left="812" top="1206" right="2614" bottom="1656" rotation="none" style="0" halign="0" valign="0" tpalign="0" tvalign="0">
+					<text type="1" width="0" align="0" cut="0" spactype="0" spacing="0" charextra="0" template="0" templtestr="" circr="0" circradian="0" circstart="0" circtw="0" circway="0"/>
+					<font facename="Arial" style="1" charset="1" height="1100" width="10000" italic="0" steikeout="0" underline="0" family="34" color="0,0,0" bkcolor="255,255,255"/>
+				</drawobj>
+				<drawobj type="drawtext" id="125" name="" left="909" top="1962" right="2673" bottom="2412" rotation="none" style="0" halign="0" valign="0" tpalign="0" tvalign="0">
+					<text type="1" width="0" align="0" cut="0" spactype="0" spacing="0" charextra="0" template="0" templtestr="" circr="0" circradian="0" circstart="0" circtw="0" circway="0"/>
+					<font facename="Arial" style="1" charset="1" height="1100" width="10000" italic="0" steikeout="0" underline="0" family="34" color="0,0,0" bkcolor="255,255,255"/>
+				</drawobj>
+				<drawobj type="drawtext" id="126" name="" left="909" top="2712" right="2673" bottom="3162" rotation="none" style="0" halign="0" valign="0" tpalign="0" tvalign="0">
+					<text type="1" width="0" align="0" cut="0" spactype="0" spacing="0" charextra="0" template="0" templtestr="" circr="0" circradian="0" circstart="0" circtw="0" circway="0"/>
+					<font facename="Arial" style="1" charset="1" height="1100" width="10000" italic="0" steikeout="0" underline="0" family="34" color="0,0,0" bkcolor="255,255,255"/>
+				</drawobj>
+				<drawobj type="drawtext" id="127" name="" left="867" top="3358" right="2669" bottom="3808" rotation="none" style="0" halign="0" valign="0" tpalign="0" tvalign="0">
+					<text type="1" width="0" align="0" cut="0" spactype="0" spacing="0" charextra="0" template="0" templtestr="" circr="0" circradian="0" circstart="0" circtw="0" circway="0"/>
+					<font facename="Arial" style="1" charset="1" height="1100" width="10000" italic="0" steikeout="0" underline="0" family="34" color="0,0,0" bkcolor="255,255,255"/>
+				</drawobj>
+				<drawobj type="drawtext" id="128" name="" left="909" top="462" right="2673" bottom="912" rotation="none" style="0" halign="0" valign="0" tpalign="0" tvalign="0">
+					<text type="1" width="0" align="0" cut="0" spactype="0" spacing="0" charextra="0" template="0" templtestr="" circr="0" circradian="0" circstart="0" circtw="0" circway="0"/>
+					<font facename="Arial" style="1" charset="1" height="1100" width="10000" italic="0" steikeout="0" underline="0" family="34" color="0,0,0" bkcolor="255,255,255"/>
+				</drawobj>
+				<drawobj type="drawtext" id="129" name="" left="3606" top="409" right="6447" bottom="847" rotation="none" style="0" halign="0" valign="0" tpalign="0" tvalign="0">
+					<text type="1" width="0" align="0" cut="0" spactype="0" spacing="0" charextra="0" template="0" templtestr="" circr="0" circradian="0" circstart="0" circtw="0" circway="0"/>
+					<font facename="Arial" style="0" charset="1" height="1100" width="10000" italic="0" steikeout="0" underline="0" family="34" color="0,0,0" bkcolor="255,255,255"/>
+				</drawobj>
+				<drawobj type="drawtext" id="130" name="" left="2991" top="1931" right="6958" bottom="2369" rotation="none" style="0" halign="0" valign="0" tpalign="0" tvalign="0">
+					<text type="1" width="0" align="0" cut="0" spactype="0" spacing="0" charextra="0" template="0" templtestr="" circr="0" circradian="0" circstart="0" circtw="0" circway="0"/>
+					<font facename="Arial" style="0" charset="1" height="1100" width="10000" italic="0" steikeout="0" underline="0" family="34" color="0,0,0" bkcolor="255,255,255"/>
+				</drawobj>
+				<drawobj type="drawtext" id="131" name="" left="3160" top="2704" right="4461" bottom="3142" rotation="none" style="0" halign="0" valign="0" tpalign="0" tvalign="0">
+					<text type="1" width="0" align="0" cut="0" spactype="0" spacing="0" charextra="0" template="0" templtestr="" circr="0" circradian="0" circstart="0" circtw="0" circway="0"/>
+					<font facename="Arial" style="0" charset="1" height="1100" width="10000" italic="0" steikeout="0" underline="0" family="34" color="0,0,0" bkcolor="255,255,255"/>
+				</drawobj>
+				<drawobj type="drawtext" id="132" name="" left="4122" top="3325" right="5886" bottom="3763" rotation="none" style="0" halign="0" valign="0" tpalign="0" tvalign="0">
+					<text type="1" width="0" align="0" cut="0" spactype="0" spacing="0" charextra="0" template="0" templtestr="" circr="0" circradian="0" circstart="0" circtw="0" circway="0"/>
+					<font facename="Arial" style="0" charset="1" height="1100" width="10000" italic="0" steikeout="0" underline="0" family="34" color="0,0,0" bkcolor="255,255,255"/>
+				</drawobj>
+				<drawobj type="drawline" id="133" name="" left="2657" top="846" right="7169" bottom="876" rotation="none" style="0" halign="0" valign="0" tpalign="0" tvalign="0">
+					<line way="1" linewidth="30" linecolor="0,0,0"/>
+				</drawobj>
+				<drawobj type="drawline" id="134" name="" left="2657" top="1596" right="7169" bottom="1626" rotation="none" style="0" halign="0" valign="0" tpalign="0" tvalign="0">
+					<line way="1" linewidth="30" linecolor="0,0,0"/>
+				</drawobj>
+				<drawobj type="drawline" id="135" name="" left="2657" top="2346" right="7169" bottom="2376" rotation="none" style="0" halign="0" valign="0" tpalign="0" tvalign="0">
+					<line way="1" linewidth="30" linecolor="0,0,0"/>
+				</drawobj>
+				<drawobj type="drawline" id="136" name="" left="2657" top="3096" right="7169" bottom="3126" rotation="none" style="0" halign="0" valign="0" tpalign="0" tvalign="0">
+					<line way="1" linewidth="30" linecolor="0,0,0"/>
+				</drawobj>
+				<drawobj type="drawline" id="137" name="" left="2615" top="3742" right="7127" bottom="3772" rotation="none" style="0" halign="0" valign="0" tpalign="0" tvalign="0">
+					<line way="1" linewidth="30" linecolor="0,0,0"/>
+				</drawobj>
+				<drawobj type="drawtext" id="138" name="" left="846" top="3977" right="2648" bottom="4427" rotation="none" style="0" halign="0" valign="0" tpalign="0" tvalign="0">
+					<text type="1" width="0" align="0" cut="0" spactype="0" spacing="0" charextra="0" template="0" templtestr="" circr="0" circradian="0" circstart="0" circtw="0" circway="0"/>
+					<font facename="Arial" style="1" charset="1" height="1100" width="10000" italic="0" steikeout="0" underline="0" family="34" color="0,0,0" bkcolor="255,255,255"/>
+				</drawobj>
+				<drawobj type="drawtext" id="139" name="" left="3995" top="3936" right="5947" bottom="4374" rotation="none" style="0" halign="0" valign="0" tpalign="0" tvalign="0">
+					<text type="1" width="0" align="0" cut="0" spactype="0" spacing="0" charextra="0" template="0" templtestr="" circr="0" circradian="0" circstart="0" circtw="0" circway="0"/>
+					<font facename="Arial" style="0" charset="1" height="1100" width="10000" italic="0" steikeout="0" underline="0" family="34" color="0,0,0" bkcolor="255,255,255"/>
+				</drawobj>
+				<drawobj type="drawline" id="140" name="" left="2594" top="4361" right="7106" bottom="4391" rotation="none" style="0" halign="0" valign="0" tpalign="0" tvalign="0">
+					<line way="1" linewidth="30" linecolor="0,0,0"/>
+				</drawobj>
+				<drawobj type="drawtext" id="142" name="" left="4957" top="2668" right="6959" bottom="3106" rotation="none" style="0" halign="0" valign="0" tpalign="0" tvalign="0">
+					<text type="1" width="0" align="0" cut="0" spactype="0" spacing="0" charextra="0" template="0" templtestr="" circr="0" circradian="0" circstart="0" circtw="0" circway="0"/>
+					<font facename="Arial" style="0" charset="1" height="1100" width="10000" italic="0" steikeout="0" underline="0" family="34" color="0,0,0" bkcolor="255,255,255"/>
+				</drawobj>
+			</labelobjects>
+			<objvarlink link=":123,111:124,112:125,113:126,114:127,115:128,116:129,117:130,118:131,119:132,120:133:134:135:136:137:138,121:139,122:140:142,141"/>
+		</labellayer>
+		<variables>
+			<variable type="constant" id="111" name="" shareid="" value="QFN3*3-16" data="UUZOMyozLTE2" serialtype="0" serialstep="1" serialrepeat="1" serealreptype="0" serealreset="0" serealchars="" serealupper="" sereallower="" serealfield="" serealsrc="0" databasefield="" keyboardprompt="" datatimetype="0" datatimeoffect="0" datatimeformat="" usertc="0" rtctype="0" scripttext="" scriptpriv="RnVuY3Rpb24gT25HZXREYXRhKCkNCiAgICBPbkdldERhdGEgPSAiMTIzNDU2NzgiDQpFbmQgRnVuY3Rpb24=">
+				<limit filled="left" fillchar="0" cutout="right"/>
+				<cut/>
+			</variable>
+			<variable type="constant" id="112" name="" shareid="" value="型    号 ：" data="5Z6LICAgIOWPtyDvvJo=" serialtype="0" serialstep="1" serialrepeat="1" serealreptype="0" serealreset="0" serealchars="" serealupper="" sereallower="" serealfield="" serealsrc="0" databasefield="" keyboardprompt="" datatimetype="0" datatimeoffect="0" datatimeformat="" usertc="0" rtctype="0" scripttext="" scriptpriv="RnVuY3Rpb24gT25HZXREYXRhKCkNCiAgICBPbkdldERhdGEgPSAiMTIzNDU2NzgiDQpFbmQgRnVuY3Rpb24=">
+				<limit filled="left" fillchar="0" cutout="right"/>
+				<cut/>
+			</variable>
+			<variable type="constant" id="113" name="" shareid="" value="程序名 ：" data="56iL5bqP5ZCNIO+8mg==" serialtype="0" serialstep="1" serialrepeat="1" serealreptype="0" serealreset="0" serealchars="" serealupper="" sereallower="" serealfield="" serealsrc="0" databasefield="" keyboardprompt="" datatimetype="0" datatimeoffect="0" datatimeformat="" usertc="0" rtctype="0" scripttext="" scriptpriv="RnVuY3Rpb24gT25HZXREYXRhKCkNCiAgICBPbkdldERhdGEgPSAiMTIzNDU2NzgiDQpFbmQgRnVuY3Rpb24=">
+				<limit filled="left" fillchar="0" cutout="right"/>
+				<cut/>
+			</variable>
+			<variable type="constant" id="114" name="" shareid="" value="校验码 ：" data="5qCh6aqM56CBIO+8mg==" serialtype="0" serialstep="1" serialrepeat="1" serealreptype="0" serealreset="0" serealchars="" serealupper="" sereallower="" serealfield="" serealsrc="0" databasefield="" keyboardprompt="" datatimetype="0" datatimeoffect="0" datatimeformat="" usertc="0" rtctype="0" scripttext="" scriptpriv="RnVuY3Rpb24gT25HZXREYXRhKCkNCiAgICBPbkdldERhdGEgPSAiMTIzNDU2NzgiDQpFbmQgRnVuY3Rpb24=">
+				<limit filled="left" fillchar="0" cutout="right"/>
+				<cut/>
+			</variable>
+			<variable type="constant" id="115" name="" shareid="" value="数    量 ：" data="5pWwICAgIOmHjyDvvJo=" serialtype="0" serialstep="1" serialrepeat="1" serealreptype="0" serealreset="0" serealchars="" serealupper="" sereallower="" serealfield="" serealsrc="0" databasefield="" keyboardprompt="" datatimetype="0" datatimeoffect="0" datatimeformat="" usertc="0" rtctype="0" scripttext="" scriptpriv="RnVuY3Rpb24gT25HZXREYXRhKCkNCiAgICBPbkdldERhdGEgPSAiMTIzNDU2NzgiDQpFbmQgRnVuY3Rpb24=">
+				<limit filled="left" fillchar="0" cutout="right"/>
+				<cut/>
+			</variable>
+			<variable type="constant" id="116" name="" shareid="" value="项目名 ：" data="6aG555uu5ZCNIO+8mg==" serialtype="0" serialstep="1" serialrepeat="1" serealreptype="0" serealreset="0" serealchars="" serealupper="" sereallower="" serealfield="" serealsrc="0" databasefield="" keyboardprompt="" datatimetype="0" datatimeoffect="0" datatimeformat="" usertc="0" rtctype="0" scripttext="" scriptpriv="RnVuY3Rpb24gT25HZXREYXRhKCkNCiAgICBPbkdldERhdGEgPSAiMTIzNDU2NzgiDQpFbmQgRnVuY3Rpb24=">
+				<limit filled="left" fillchar="0" cutout="right"/>
+				<cut/>
+			</variable>
+			<variable type="constant" id="117" name="" shareid="" value="DJ100-灯控芯片" data="REoxMDAt54Gv5o6n6Iqv54mH" serialtype="0" serialstep="1" serialrepeat="1" serealreptype="0" serealreset="0" serealchars="" serealupper="" sereallower="" serealfield="" serealsrc="0" databasefield="" keyboardprompt="" datatimetype="0" datatimeoffect="0" datatimeformat="" usertc="0" rtctype="0" scripttext="" scriptpriv="RnVuY3Rpb24gT25HZXREYXRhKCkNCiAgICBPbkdldERhdGEgPSAiMTIzNDU2NzgiDQpFbmQgRnVuY3Rpb24=">
+				<limit filled="left" fillchar="0" cutout="right"/>
+				<cut/>
+			</variable>
+			<variable type="constant" id="118" name="" shareid="" value="FSTK-DJ100-KEY-V05" data="RlNUSy1ESjEwMC1LRVktVjA1" serialtype="0" serialstep="1" serialrepeat="1" serealreptype="0" serealreset="0" serealchars="" serealupper="" sereallower="" serealfield="" serealsrc="0" databasefield="" keyboardprompt="" datatimetype="0" datatimeoffect="0" datatimeformat="" usertc="0" rtctype="0" scripttext="" scriptpriv="RnVuY3Rpb24gT25HZXREYXRhKCkNCiAgICBPbkdldERhdGEgPSAiMTIzNDU2NzgiDQpFbmQgRnVuY3Rpb24=">
+				<limit filled="left" fillchar="0" cutout="right"/>
+				<cut/>
+			</variable>
+			<variable type="constant" id="119" name="" shareid="" value="0x85D9" data="MHg4NUQ5" serialtype="0" serialstep="1" serialrepeat="1" serealreptype="0" serealreset="0" serealchars="" serealupper="" sereallower="" serealfield="" serealsrc="0" databasefield="" keyboardprompt="" datatimetype="0" datatimeoffect="0" datatimeformat="" usertc="0" rtctype="0" scripttext="" scriptpriv="RnVuY3Rpb24gT25HZXREYXRhKCkNCiAgICBPbkdldERhdGEgPSAiMTIzNDU2NzgiDQpFbmQgRnVuY3Rpb24=">
+				<limit filled="left" fillchar="0" cutout="right"/>
+				<cut/>
+			</variable>
+			<variable type="constant" id="120" name="" shareid="" value="3000 PCS" data="MzAwMCBQQ1M=" serialtype="0" serialstep="1" serialrepeat="1" serealreptype="0" serealreset="0" serealchars="" serealupper="" sereallower="" serealfield="" serealsrc="0" databasefield="" keyboardprompt="" datatimetype="0" datatimeoffect="0" datatimeformat="" usertc="0" rtctype="0" scripttext="" scriptpriv="RnVuY3Rpb24gT25HZXREYXRhKCkNCiAgICBPbkdldERhdGEgPSAiMTIzNDU2NzgiDQpFbmQgRnVuY3Rpb24=">
+				<limit filled="left" fillchar="0" cutout="right"/>
+				<cut/>
+			</variable>
+			<variable type="constant" id="121" name="" shareid="" value="日    期 ：" data="5pelICAgIOacnyDvvJo=" serialtype="0" serialstep="1" serialrepeat="1" serealreptype="0" serealreset="0" serealchars="" serealupper="" sereallower="" serealfield="" serealsrc="0" databasefield="" keyboardprompt="" datatimetype="0" datatimeoffect="0" datatimeformat="" usertc="0" rtctype="0" scripttext="" scriptpriv="RnVuY3Rpb24gT25HZXREYXRhKCkNCiAgICBPbkdldERhdGEgPSAiMTIzNDU2NzgiDQpFbmQgRnVuY3Rpb24=">
+				<limit filled="left" fillchar="0" cutout="right"/>
+				<cut/>
+			</variable>
+			<variable type="constant" id="122" name="" shareid="" value="2025-11-07" data="MjAyNS0xMS0wNw==" serialtype="0" serialstep="1" serialrepeat="1" serealreptype="0" serealreset="0" serealchars="" serealupper="" sereallower="" serealfield="" serealsrc="0" databasefield="" keyboardprompt="" datatimetype="0" datatimeoffect="0" datatimeformat="" usertc="0" rtctype="0" scripttext="" scriptpriv="RnVuY3Rpb24gT25HZXREYXRhKCkNCiAgICBPbkdldERhdGEgPSAiMTIzNDU2NzgiDQpFbmQgRnVuY3Rpb24=">
+				<limit filled="left" fillchar="0" cutout="right"/>
+				<cut/>
+			</variable>
+			<variable type="constant" id="141" name="" shareid="" value="关机不亮灯" data="5YWz5py65LiN5Lqu54Gv" serialtype="0" serialstep="1" serialrepeat="1" serealreptype="0" serealreset="0" serealchars="" serealupper="" sereallower="" serealfield="" serealsrc="0" databasefield="" keyboardprompt="" datatimetype="0" datatimeoffect="0" datatimeformat="" usertc="0" rtctype="0" scripttext="" scriptpriv="RnVuY3Rpb24gT25HZXREYXRhKCkNCiAgICBPbkdldERhdGEgPSAiMTIzNDU2NzgiDQpFbmQgRnVuY3Rpb24=">
+				<limit filled="left" fillchar="0" cutout="right"/>
+				<cut/>
+			</variable>
+		</variables>
+	</labelform>
+	<database version="1.0">
+		<Connection type="1" table="" colout="" config="" file="" parameter="">
+			<fields/>
+		</Connection>
+	</database>
+	<pictures/>
+</labelshopdocument>
